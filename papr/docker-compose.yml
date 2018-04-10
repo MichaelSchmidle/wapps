@@ -1,0 +1,34 @@
+version: '3.3'
+services:
+  paperless-webserver:
+    image: danielquinn/paperless
+    restart: always
+    volumes:
+    - /opt/papr/data:/usr/src/paperless/data
+    - /opt/papr/media:/usr/src/paperless/media
+    env_file: .env
+    environment:
+    - PAPERLESS_OCR_LANGUAGES=
+    command: ['runserver', '--insecure', '--noreload', '0.0.0.0:8000']
+    networks:
+    - default
+    - prxy_default
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.docker.network=prxy_default
+    - traefik.port=8000
+    restart: always
+  paperless-consumer:
+    image: danielquinn/paperless
+    restart: always
+    volumes:
+    - /opt/papr/data:/usr/src/paperless/data
+    - /opt/papr/media:/usr/src/paperless/media
+    - /opt/papr/consume:/consume
+    env_file: .env
+    command: ['document_consumer']
+    restart: always
+networks:
+  prxy_default:
+    external: true

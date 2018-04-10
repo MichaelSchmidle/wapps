@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  portainer:
+    image: portainer/portainer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/dckr:/data
+    networks:
+      - prxy_default
+    labels:
+      - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+      - traefik.enable=true
+    restart: always
+networks:
+  prxy_default:
+    external: true

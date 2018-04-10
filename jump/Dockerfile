@@ -2,6 +2,10 @@
 
 FROM mysql
 
+# Update these to stay in line with the official guacamole containers.
+ARG GUAC_REPO=glyptodon/guacamole-client
+ARG GUAC_VERSION=0.9.12-incubating
+
 # Fetch the needed schema files from the guacamole repo and place them where the
 # container will use them when initializing the server.
 ARG BASE_URL=https://raw.githubusercontent.com/${GUAC_REPO}/${GUAC_VERSION}/extensions/guacamole-auth-jdbc/modules/guacamole-auth-jdbc-mysql/schema/

@@ -1,25 +1,23 @@
 version: '3.3'
 services:
   mysql:
-    build:
-      context: .
-    volumes:
-    - /opt/jump:/var/lib/mysql
+    build: .
     env_file: .env
+    volumes:
+      - /opt/jump:/var/lib/mysql
     restart: always
   guacd:
-    image: guacamole/guacd
+    image: guacamole/guacd:0.9.12-incubating
     restart: always
   guacamole:
-    image: guacamole/guacamole
+    image: guacamole/guacamole:0.9.12-incubating
+    env_file: .env
     environment:
       MYSQL_HOSTNAME: mysql
       GUACD_HOSTNAME: guacd
     networks:
-    - default
-    - prxy_default
-    links:
-      - mysql
+      - default
+      - prxy_default
     labels:
       - traefik.enable=true
       - traefik.frontend.rule=Host:${TRAEFIK_HOST};AddPrefix:/guacamole

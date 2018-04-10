@@ -1,6 +1,6 @@
-# About DCKR
+# About Wapps
 
-This repository contains the [``docker-compose``](https://docs.docker.com/compose/) files to easily deploy the following services:
+This repository contains the [``docker-compose``](https://docs.docker.com/compose/) files to easily deploy the web apps for my personal use:
 
 | Service | Description | Availability |
 | :------ | :---------- | :----------- |
@@ -17,8 +17,8 @@ Apart from ``docker-compose`` and its dependencies, this repository currently ex
 * tls.pem: the SSL certificate
 * tls.key: the private key for the SSL certificate
 
-A version with support for [Let’s Encrypt](https://letsencrypt.org/) is on the to-do list.
+A version with support for dynamic certificates from [Let’s Encrypt](https://letsencrypt.org/) is on the to-do list.
 
 # Customization
 
-Each service that can be customized contains a ``.env.default`` file in the respective service folder. Copy this file and rename the copy to ``.env``, then set the values to fit your needs.
+Most services require customization before they can be deployed. Each service contains one or more ``.default`` files in the respective service folder. Copy those files and rename the copies to match the original file names without ``.default`` (i.e. copy ``.env.default`` to ``.env``), then set the values to fit your needs.

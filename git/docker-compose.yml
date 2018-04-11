@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+  gitea:
+    image: gitea/gitea
+    environment:
+    - USER_UID=1000
+    - USER_GID=1000
+    restart: always
+    networks:
+    - prxy_default
+    volumes:
+    - /opt/git:/data
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.port=3000
+networks:
+  prxy_default:
+    external: true

@@ -10,6 +10,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | papr    | Document archive based on [Paperless](https://paperless.readthedocs.io) |
 | trck    | Website analytics based on [Matomo](https://matomo.org/) |
 | git     | Git repository management based on [Gitea](https://gitea.io/en-us/) |
+| mark    | Bookmark and “read it later“ service based on [Wallabag](https://www.wallabag.org/)
 
 # Requirements
 

@@ -1,0 +1,24 @@
+version: '3.3'
+services:
+  mysql:
+    image: mysql
+    env_file: .env
+    volumes:
+    - /opt/mark/data:/var/lib/mysql
+  wallabag:
+    image: wallabag/wallabag
+    env_file: .env
+    environment:
+    - SYMFONY__ENV__DOMAIN_NAME=https://${TRAEFIK_HOST}
+    volumes:
+    - /opt/mark/images:/var/www/wallabag/web/assets/images
+    networks:
+    - default
+    - prxy_default
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.docker.network=prxy_default
+networks:
+  prxy_default:
+    external: true

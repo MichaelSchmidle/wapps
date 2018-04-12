@@ -4,7 +4,9 @@ services:
     build: .
     env_file: .env
     volumes:
-      - /opt/jump:/var/lib/mysql
+    - /opt/jump:/var/lib/mysql
+    networks:
+    - wapps_backends
     restart: always
   guacd:
     image: guacamole/guacd:0.9.12-incubating
@@ -16,13 +18,15 @@ services:
       MYSQL_HOSTNAME: mysql
       GUACD_HOSTNAME: guacd
     networks:
-      - default
-      - prxy_default
+    - wapps_backends
+    - wapps_frontends
     labels:
-      - traefik.enable=true
-      - traefik.frontend.rule=Host:${TRAEFIK_HOST};AddPrefix:/guacamole
-      - traefik.docker.network=prxy_default
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST};AddPrefix:/guacamole
+    - traefik.docker.network=wapps_frontends
     restart: always
 networks:
-  prxy_default:
+  wapps_frontends:
+    external: true
+  wapps_backends:
     external: true

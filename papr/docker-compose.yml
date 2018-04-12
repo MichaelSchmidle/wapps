@@ -11,12 +11,13 @@ services:
     - PAPERLESS_OCR_LANGUAGES=
     command: ['runserver', '--insecure', '--noreload', '0.0.0.0:8000']
     networks:
-    - default
-    - prxy_default
+    - wapps_frontends
+    - wapps_backends
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
-    - traefik.docker.network=prxy_default
+    - traefik.frontend.entryPoints=https-mgmt
+    - traefik.docker.network=wapps_frontends
     - traefik.port=8000
     restart: always
   paperless-consumer:
@@ -26,9 +27,13 @@ services:
     - /opt/papr/data:/usr/src/paperless/data
     - /opt/papr/media:/usr/src/paperless/media
     - /opt/papr/consume:/consume
+    networks:
+    - wapps_backends
     env_file: .env
     command: ['document_consumer']
     restart: always
 networks:
-  prxy_default:
+  wapps_frontends:
+    external: true
+  wapps_backends:
     external: true

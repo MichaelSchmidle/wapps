@@ -4,7 +4,7 @@ services:
     build: .
     env_file: .env
     volumes:
-    - /opt/jump:/var/lib/mysql
+    - /opt/wapps/jump:/var/lib/mysql
     networks:
     - wapps_backends
     restart: always

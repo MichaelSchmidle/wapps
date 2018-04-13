@@ -4,7 +4,7 @@ services:
     image: portainer/portainer
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
-    - /opt/dckr:/data
+    - /opt/wapps/dckr:/data
     networks:
     - wapps_frontends
     labels:

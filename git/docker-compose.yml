@@ -9,7 +9,7 @@ services:
     networks:
     - wapps_frontends
     volumes:
-    - /opt/git:/data
+    - /opt/wapps/git:/data
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}

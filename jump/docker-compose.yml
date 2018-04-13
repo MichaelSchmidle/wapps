@@ -10,6 +10,8 @@ services:
     restart: always
   guacd:
     image: guacamole/guacd:0.9.12-incubating
+    networks:
+    - wapps_backends
     restart: always
   guacamole:
     image: guacamole/guacamole:0.9.12-incubating

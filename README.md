@@ -11,10 +11,12 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | trck    | Website analytics based on [Matomo](https://matomo.org/) | public |
 | git     | Git repository management based on [Gitea](https://gitea.io/en-us/) | private |
 | mark    | Bookmark and “read it later“ service based on [Wallabag](https://www.wallabag.org/) | public |
+| data    | Database management based on [Adminer](https://www.adminer.org/) | private |
+| sss     | Simple storage service based on [Minio](htps://minio.io/) | public |
 
 # Requirements
 
-Apart from ``docker-compose`` and its dependencies, this repository requires two conditions to be given to properly work: one regarding SSL certificates, one with regard to Docker networking.
+Apart from ``docker-compose`` and its dependencies, this repository requires two conditions to properly work: one regarding SSL certificates, one with regard to Docker networking.
 
 ## SSL Certificates
 
@@ -46,6 +48,15 @@ Once customized, make sure to **start the prxy service before any other service*
 
 ## Mark Service
 
-The mark service (i.e. Wallabag) comes with the predefined admin user ``wallabag``. Remember to at least change the password of this default user which can be done directly via the Wallabag web interface.
+The mark service (i.e. Wallabag) comes with the predefined admin user ``wallabag``. Remember to at least change the password of this default user—which can be done directly via the Wallabag web interface.
 
 For advanced users: In case you want to also change the username, you can use the data service to connect to the MySQL database of the mark service (i.e. to the host ``mark_mysql_1`` and the database ``mark``). Just use the credentials that you configured in the ``.env`` file of the mark service. Then browse to the user table and modify the username of the default user.
+
+## Sss Service
+
+The sss service (i.e. Minio) auto-generates a set of access and secret keys. These can be found in the logs after starting the service. Once logged in to the web interface with these credentials, you can set your own keys.
+
+To view the logs you have at least the following two options:
+
+* Execute ``$ sudo docker logs sss_minio_1`` via comand line
+* Browse to the logs of the ``sss_minio_1`` container in the dckr service (i.e. Portainer)

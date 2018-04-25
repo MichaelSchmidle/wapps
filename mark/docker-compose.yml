@@ -4,7 +4,7 @@ services:
     image: mysql
     env_file: .env
     volumes:
-    - /opt/wapps/mark/data:/var/lib/mysql
+    - wapps-mark-mysql:/var/lib/mysql
     networks:
     - wapps_backends
   wallabag:
@@ -13,7 +13,7 @@ services:
     environment:
     - SYMFONY__ENV__DOMAIN_NAME=https://${TRAEFIK_HOST}
     volumes:
-    - /opt/wapps/mark/images:/var/www/wallabag/web/assets/images
+    - wapps-mark-images:/var/www/wallabag/web/assets/images
     networks:
     - wapps_frontends
     - wapps_backends

@@ -3,7 +3,7 @@ services:
   mysql:
     image: mysql
     volumes:
-    - /opt/wapps/trck:/var/lib/mysql
+    - wapps-trck-mysql:/var/lib/mysql
     networks:
     - wapps_backends
     env_file: .env

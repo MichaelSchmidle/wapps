@@ -13,6 +13,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | mark    | Bookmark and “read it later“ service based on [Wallabag](https://www.wallabag.org/) | public |
 | data    | Database management based on [Adminer](https://www.adminer.org/) | private |
 | sss     | Simple storage service based on [Minio](htps://minio.io/) | public |
+| meta    | Analytics based on [Metabase](https://www.metabase.com/) | private |
 
 # Requirements
 

@@ -4,7 +4,7 @@ services:
     build: .
     env_file: .env
     volumes:
-    - /opt/wapps/jump:/var/lib/mysql
+    - mysql:/var/lib/mysql
     networks:
     - wapps_backends
     restart: always
@@ -27,6 +27,8 @@ services:
     - traefik.frontend.rule=Host:${TRAEFIK_HOST};AddPrefix:/guacamole
     - traefik.docker.network=wapps_frontends
     restart: always
+volumes:
+  mysql:
 networks:
   wapps_frontends:
     external: true

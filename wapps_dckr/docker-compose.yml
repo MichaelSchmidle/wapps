@@ -4,7 +4,7 @@ services:
     image: portainer/portainer
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
-    - /opt/wapps/dckr:/data
+    - data:/data
     networks:
     - wapps_frontends
     labels:
@@ -12,6 +12,8 @@ services:
     - traefik.frontend.entryPoints=https-mgmt
     - traefik.enable=true
     restart: always
+volumes:
+  data:
 networks:
   wapps_frontends:
     external: true

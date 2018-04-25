@@ -4,7 +4,7 @@ services:
     build: .
     env_file: .env
     volumes:
-    - wapps_jump_mysql:/var/lib/mysql
+    - mysql:/var/lib/mysql
     networks:
     - wapps_backends
     restart: always
@@ -28,7 +28,7 @@ services:
     - traefik.docker.network=wapps_frontends
     restart: always
 volumes:
-  wapps_jump_mysql:
+  mysql:
 networks:
   wapps_frontends:
     external: true

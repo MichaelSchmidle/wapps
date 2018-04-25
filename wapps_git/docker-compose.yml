@@ -6,7 +6,7 @@ services:
     - USER_UID=1000
     - USER_GID=1000
     volumes:
-    - wapps-git-data:/data
+    - data:/data
     networks:
     - wapps_frontends
     labels:
@@ -16,7 +16,7 @@ services:
     - traefik.port=3000
     restart: always
 volumes:
-  wapps_git_data:
+  data:
 networks:
   wapps_frontends:
     external: true

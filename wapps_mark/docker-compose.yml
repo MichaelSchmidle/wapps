@@ -4,7 +4,7 @@ services:
     image: mysql
     env_file: .env
     volumes:
-    - wapps_mark_mysql:/var/lib/mysql
+    - mysql:/var/lib/mysql
     networks:
     - wapps_backends
   wallabag:
@@ -13,7 +13,7 @@ services:
     environment:
     - SYMFONY__ENV__DOMAIN_NAME=https://${TRAEFIK_HOST}
     volumes:
-    - wapps_mark_images:/var/www/wallabag/web/assets/images
+    - images:/var/www/wallabag/web/assets/images
     networks:
     - wapps_frontends
     - wapps_backends
@@ -22,8 +22,8 @@ services:
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
     - traefik.docker.network=wapps_frontends
 volumes:
-  wapps_mark_mysql:
-  wapps_mark_images:
+  mysql:
+  images:
 networks:
   wapps_frontends:
     external: true

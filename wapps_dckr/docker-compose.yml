@@ -4,7 +4,7 @@ services:
     image: portainer/portainer
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
-    - wapps_dckr_data:/data
+    - data:/data
     networks:
     - wapps_frontends
     labels:
@@ -13,7 +13,7 @@ services:
     - traefik.enable=true
     restart: always
 volumes:
-  wapps_dckr_data:
+  data:
 networks:
   wapps_frontends:
     external: true

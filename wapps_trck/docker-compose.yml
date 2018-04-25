@@ -3,7 +3,7 @@ services:
   mysql:
     image: mysql
     volumes:
-    - wapps_trck_mysql:/var/lib/mysql
+    - mysql:/var/lib/mysql
     networks:
     - wapps_backends
     env_file: .env
@@ -19,7 +19,7 @@ services:
     - traefik.docker.network=wapps_frontends
     restart: always
 volumes:
-  wapps_trck_mysql:
+  mysql:
 networks:
   wapps_frontends:
     external: true

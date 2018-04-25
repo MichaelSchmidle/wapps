@@ -4,8 +4,8 @@ services:
     image: danielquinn/paperless
     restart: always
     volumes:
-    - wapps_papr_data:/usr/src/paperless/data
-    - wapps_papr_media:/usr/src/paperless/media
+    - data:/usr/src/paperless/data
+    - media:/usr/src/paperless/media
     env_file: .env
     environment:
     - PAPERLESS_OCR_LANGUAGES=
@@ -33,8 +33,8 @@ services:
     command: ['document_consumer']
     restart: always
 volumes:
-  wapps_papr_data:
-  wapps_papr_media:
+  data:
+  media:
 networks:
   wapps_frontends:
     external: true

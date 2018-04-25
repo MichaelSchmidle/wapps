@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  metabase:
+    image: metabase/metabase
+    networks:
+    - wapps_frontends
+    - wapps_backends
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.frontend.entryPoints=https-mgmt
+    - traefik.docker.network=wapps_frontends
+    restart: always
+networks:
+  wapps_frontends:
+    external: true
+  wapps_backends:
+    external: true

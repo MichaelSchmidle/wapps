@@ -5,15 +5,13 @@ services:
     networks:
     - wapps_frontends
     volumes:
-    - uploads:/opt/youtransfer/uploads
-    - config:/opt/youtransfer/config
+    - ${YOUTRANSFER_UPLOAD_DIR}:/opt/youtransfer/uploads
+    - ./config:/opt/youtransfer/config
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.port=5000
     restart: always
 networks:
   wapps_frontends:
     external: true
-volumes:
-  uploads:
-  config:

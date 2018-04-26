@@ -14,6 +14,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | data    | Database management based on [Adminer](https://www.adminer.org/) | private |
 | sss     | Simple storage service based on [Minio](https://minio.io/) | public |
 | meta    | Analytics based on [Metabase](https://www.metabase.com/) | private |
+| trns    | File transfer based on [YouTransfer](http://www.youtransfer.io/) | public |
 
 # Requirements
 

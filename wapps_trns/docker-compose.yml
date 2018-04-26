@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+  youtransfer:
+    image: remie/youtransfer:stable
+    networks:
+    - wapps_frontends
+    volumes:
+    - uploads:/opt/youtransfer/uploads
+    - config:/opt/youtransfer/config
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    restart: always
+networks:
+  wapps_frontends:
+    external: true
+volumes:
+  uploads:
+  config:

@@ -9,6 +9,7 @@ services:
     - MYSQL_RANDOM_ROOT_PASSWORD=yes
     networks:
     - wapps_backends
+    restart: always
   firefly:
     image: jc5x/firefly-iii
     volumes:
@@ -32,6 +33,7 @@ services:
     - traefik.docker.network=wapps_frontends
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
     - traefik.frontend.entryPoints=https-mgmt
+    restart: always
 volumes:
   mysql:
   export:

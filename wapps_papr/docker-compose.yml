@@ -24,8 +24,8 @@ services:
     image: danielquinn/paperless
     restart: always
     volumes:
-    - wapps-papr-data:/usr/src/paperless/data
-    - wapps-papr-data:/usr/src/paperless/media
+    - data:/usr/src/paperless/data
+    - data:/usr/src/paperless/media
     - ./consume:/consume
     networks:
     - wapps_backends

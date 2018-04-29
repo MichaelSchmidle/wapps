@@ -45,21 +45,8 @@ Most services require customization before they can be deployed. These services 
 
 Services that are considered publically available (see Availability column in the table above) can be reached over ports ``80`` and ``443``; private services can be reached over port ``4443``. This gives you the option to limit the traffic to private services via firewall.
 
+For further instructions, please refer to the ``README.md`` files in the respective service subfolders.
+
 # Usage
 
 Once customized, make sure to **start the prxy service before any other service**. The prxy service is the gateway to your other services.
-
-## Mark Service
-
-The mark service (i.e. Wallabag) comes with the predefined admin user ``wallabag``. Remember to at least change the password of this default user—which can be done directly via the Wallabag web interface.
-
-For advanced users: In case you want to also change the username, you can use the data service to connect to the MySQL database of the mark service (i.e. to the host ``mark_mysql_1`` and the database ``mark``). Just use the credentials that you configured in the ``.env`` file of the mark service. Then browse to the user table and modify the username of the default user.
-
-## Sss Service
-
-The sss service (i.e. Minio) auto-generates a set of access and secret keys. These can be found in the logs after starting the service. Once logged in to the web interface with these credentials, you can set your own keys.
-
-To view the logs you have at least the following two options:
-
-* Execute ``$ sudo docker logs sss_minio_1`` via comand line
-* Browse to the logs of the ``sss_minio_1`` container in the dckr service (i.e. Portainer)

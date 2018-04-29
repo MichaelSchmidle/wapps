@@ -46,7 +46,3 @@ Most services require customization before they can be deployed. These services 
 Services that are considered publically available (see Availability column in the table above) can be reached over ports ``80`` and ``443``; private services can be reached over port ``4443``. This gives you the option to limit the traffic to private services via firewall.
 
 For further instructions, please refer to the ``README.md`` files in the respective service subfolders.
-
-# Usage
-
-Once customized, make sure to **start the prxy service before any other service**. The prxy service is the gateway to your other services.

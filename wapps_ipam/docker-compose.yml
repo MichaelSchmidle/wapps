@@ -1,0 +1,29 @@
+version: '3.3'
+services:
+  mysql:
+    image: mysql:5.7.22
+    volumes:
+    - mysql:/var/lib/mysql
+    networks:
+    - wapps_backends
+    restart: always
+  phpipam:
+    image: pierrecdn/phpipam
+    env_file: .env
+    environment:
+    - MYSQL_ENV_MYSQL_HOST=wapps_ipam_mysql_1
+    networks:
+    - wapps_frontends
+    - wapps_backends
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.frontend.entryPoints=https-mgmt
+    - traefik.docker.network=wapps_frontends
+volumes:
+  mysql:
+networks:
+  wapps_frontends:
+    external: true
+  wapps_backends:
+    external: true

@@ -16,6 +16,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | meta    | Analytics based on [Metabase](https://www.metabase.com/) | private |
 | trns    | File transfer based on [YouTransfer](http://www.youtransfer.io/) | public |
 | fin     | Finance manager based on [Firefly III](https://firefly-iii.org/) | private |
+| ipam    | IP address management (IPAM) based on [phpipam](https://github.com/pierrecdn/phpipam) | private |
 
 # Requirements
 

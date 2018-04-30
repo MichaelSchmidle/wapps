@@ -25,7 +25,7 @@ services:
     restart: always
     volumes:
     - data:/usr/src/paperless/data
-    - data:/usr/src/paperless/media
+    - media:/usr/src/paperless/media
     - ./consume:/consume
     networks:
     - wapps_backends

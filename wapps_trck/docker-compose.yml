@@ -9,7 +9,7 @@ services:
     env_file: .env
     restart: always
   matomo:
-    image: piwik
+    image: matomo
     networks:
     - wapps_frontends
     - wapps_backends

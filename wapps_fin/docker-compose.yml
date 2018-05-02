@@ -23,7 +23,6 @@ services:
     - FF_DB_PASSWORD=${MYSQL_PASSWORD}
     - FF_APP_KEY=${FF_APP_KEY}
     - FF_APP_ENV=local
-    - TZ=${TIMEZONE}
     - TRUSTED_PROXIES=**
     networks:
     - wapps_frontends

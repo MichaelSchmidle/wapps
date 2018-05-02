@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  heimdall:
+    image: linuxserver/heimdall
+    volumes:
+    - config:/config
+    env_file: .env
+    networks:
+    - wapps_frontends
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.frontend.entryPoints=https-mgmt
+volumes:
+  config:
+networks:
+  wapps_frontends:
+    external: true

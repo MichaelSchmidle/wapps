@@ -16,6 +16,14 @@
 #
 # logLevel = "DEBUG"
 
+# If set to true invalid SSL certificates are accepted for backends.
+# This disables detection of man-in-the-middle attacks so should only be used on secure backend networks.
+#
+# Optional
+# Default: false
+#
+insecureSkipVerify = true
+
 # Entrypoints to be used by wapps_frontends that do not specify any entrypoint.
 # Each frontend can specify its own entrypoints.
 #

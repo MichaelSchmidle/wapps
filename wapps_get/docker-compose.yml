@@ -10,6 +10,7 @@ services:
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    restart: always
 networks:
   wapps_frontends:
     external: true

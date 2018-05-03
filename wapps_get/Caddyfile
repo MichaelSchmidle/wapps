@@ -1,2 +1,4 @@
-localhost:80
-browse
+${TRAEFIK_HOST}:80 {
+    root /var/www/html
+    browse
+}

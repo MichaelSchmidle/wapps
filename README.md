@@ -18,6 +18,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | fin     | Finance manager based on [Firefly III](https://firefly-iii.org/) | private |
 | ipam    | IP address management (IPAM) based on [phpipam](https://github.com/pierrecdn/phpipam) | private |
 | home    | Application Dashboard based on [Heimdall](https://heimdall.site/) | private |
+| get     | Static file server based on [Caddy](https://caddyserver.com/) | public |
 
 # Requirements
 

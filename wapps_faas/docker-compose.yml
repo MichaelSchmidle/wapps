@@ -23,6 +23,10 @@ services:
     - traefik.frontend.rule=Host:${UI_TRAEFIK_HOST}
     - traefik.frontend.entryPoints=https-mgmt
     - traefik.port=4000
+    - API_URL=https://${TRAEFIK_HOST}/
+    labels:
+    - treafik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST};PathPrefixStrip:/api
 volumes:
   data:
 networks:

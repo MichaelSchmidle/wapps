@@ -16,6 +16,8 @@ services:
     env_file: .env
     environment:
     - API_URL=https://${TRAEFIK_HOST}/
+    networks:
+    - wapps_frontends
     labels:
     - treafik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}

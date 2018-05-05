@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  iron-functions:
+    image: iron/functions
+    volumes:
+    - data:/app/data
+    - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+    - wapps_frontends
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+  iron-functions-ui:
+    image: iron/functions-ui
+    env_file: .env
+    environment:
+    - API_URL=https://${TRAEFIK_HOST}/
+    labels:
+    - treafik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST};PathPrefixStrip:/api
+volumes:
+  data:
+networks:
+  wapps_frontends:
+    external: true

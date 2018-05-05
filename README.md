@@ -19,6 +19,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | ipam    | IP address management (IPAM) based on [phpipam](https://github.com/pierrecdn/phpipam) | private |
 | home    | Application Dashboard based on [Heimdall](https://heimdall.site/) | private |
 | get     | Static file server based on [Caddy](https://caddyserver.com/) | public |
+| faas    | Function as a Service based on [IronFunctions](http://open.iron.io/) | public (private GUI) |
 
 # Requirements
 

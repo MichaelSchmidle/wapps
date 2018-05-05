@@ -21,6 +21,7 @@ services:
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${UI_TRAEFIK_HOST}
+    - traefik.frontend.entryPoints=https-mgmt
     - traefik.port=4000
 volumes:
   data:

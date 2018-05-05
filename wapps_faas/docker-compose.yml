@@ -10,10 +10,19 @@ services:
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.port=8080
   iron-functions-ui:
     image: iron/functions-ui
     env_file: .env
     environment:
+    - API_URL=https://${TRAEFIK_HOST}
+    networks:
+    - wapps_frontends
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${UI_TRAEFIK_HOST}
+    - traefik.frontend.entryPoints=https-mgmt
+    - traefik.port=4000
     - API_URL=https://${TRAEFIK_HOST}/
     labels:
     - treafik.enable=true

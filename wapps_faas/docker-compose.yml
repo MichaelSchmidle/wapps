@@ -9,7 +9,8 @@ services:
     - wapps_frontends
     labels:
     - traefik.enable=true
-    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST};PathPrefixStrip:/api
+    - traefik.port=8080
   iron-functions-ui:
     image: iron/functions-ui
     env_file: .env
@@ -17,7 +18,8 @@ services:
     - API_URL=https://${TRAEFIK_HOST}/
     labels:
     - treafik.enable=true
-    - traefik.frontend.rule=Host:${TRAEFIK_HOST};PathPrefixStrip:/api
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.port=4000
 volumes:
   data:
 networks:

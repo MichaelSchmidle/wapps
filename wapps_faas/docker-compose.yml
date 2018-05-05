@@ -15,11 +15,11 @@ services:
     image: iron/functions-ui
     env_file: .env
     environment:
-    - API_URL=https://${TRAEFIK_HOST}/
+    - API_URL=https://${TRAEFIK_HOST}/api
     networks:
     - wapps_frontends
     labels:
-    - treafik.enable=true
+    - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
     - traefik.port=4000
 volumes:

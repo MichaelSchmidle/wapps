@@ -7,7 +7,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | prxy    | Reverse proxy based on [Traefik](https://traefik.io/) | public |
 | dckr    | [Docker](https://www.docker.com/) management GUI based on [Portainer](https://portainer.io/) | private |
 | jump    | RDP gateway based on [Guacamole](https://guacamole.apache.org/) | public |
-| papr    | Document archive based on [Paperless](https://paperless.readthedocs.io) | private |
+| papr    | Document archive based on [Paperless](https://paperless.readthedocs.io/) | private |
 | trck    | Website analytics based on [Matomo](https://matomo.org/) | public |
 | git     | Git repository management based on [Gitea](https://gitea.io/en-us/) | private |
 | mark    | Bookmark and “read it later“ service based on [Wallabag](https://www.wallabag.org/) | public |
@@ -16,10 +16,11 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | meta    | Analytics based on [Metabase](https://www.metabase.com/) | private |
 | trns    | File transfer based on [YouTransfer](http://www.youtransfer.io/) | public |
 | fin     | Finance manager based on [Firefly III](https://firefly-iii.org/) | private |
-| ipam    | IP address management (IPAM) based on [phpipam](https://github.com/pierrecdn/phpipam) | private |
+| ipam    | IP address management (IPAM) based on [phpipam](https://github.com/pierrecdn/phpipam/) | private |
 | home    | Application Dashboard based on [Heimdall](https://heimdall.site/) | private |
 | get     | Static file server based on [Caddy](https://caddyserver.com/) | public |
 | faas    | Function as a Service based on [IronFunctions](http://open.iron.io/) | public (private GUI) |
+| know    | Wiki and blog based on [Confluence](https://www.atlassian.com/software/confluence/) | public |
 
 # Requirements
 

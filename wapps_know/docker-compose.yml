@@ -1,0 +1,36 @@
+version: '3.3'
+services:
+  postgres:
+    image: postgres
+    volumes:
+    - data:/var/lib/postgresql/data
+    networks:
+    - wapps_backends
+    restart: always
+  confluence:
+    image: atlassian/confluence-server
+    volumes:
+    - confluence:/var/atlassian/application-data/confluence
+    env_file: .env
+    environment:
+    - CATALINA_CONNECTOR_PROXYNAME=${TRAEFIK_HOST}
+    - CATALINA_CONNECTOR_PROXYPORT=443
+    - CATALINA_CONNECTOR_SCHEME=https
+    - CATALINA_CONNECTOR_SECURE=true
+    networks:
+    - wapps_frontends
+    - wapps_backends
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.docker.network=wapps_frontends
+    - traefik.port=8090
+    restart: always
+volumes:
+  data:
+  confluence:
+networks:
+  wapps_frontends:
+    external: true
+  wapps_backends:
+    external: true

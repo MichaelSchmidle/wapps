@@ -10,6 +10,8 @@ services:
     restart: always
   matomo:
     image: matomo
+    volumes:
+    - html:/var/www/html
     networks:
     - wappsfrontend
     - wappsbackend
@@ -20,6 +22,7 @@ services:
     restart: always
 volumes:
   mysql:
+  html:
 networks:
   wappsfrontend:
     external: true

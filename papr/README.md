@@ -1,4 +1,4 @@
-# Papr Service
+# Papr App
 
 After starting the service with ``$ sudo docker-compose up -d``, please also execute the following command:
 

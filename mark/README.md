@@ -1,4 +1,4 @@
-# Mark Service
+# Mark App
 
 The mark service (i.e. Wallabag) comes with the predefined admin user ``wallabag``. Remember to at least change the password of this default user—which can be done directly via the Wallabag web interface.
 

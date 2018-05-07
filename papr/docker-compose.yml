@@ -1,0 +1,42 @@
+version: '3.3'
+services:
+  paperless-webserver:
+    image: danielquinn/paperless
+    restart: always
+    volumes:
+    - data:/usr/src/paperless/data
+    - media:/usr/src/paperless/media
+    env_file: .env
+    environment:
+    - PAPERLESS_OCR_LANGUAGES=
+    command: ['runserver', '--insecure', '--noreload', '0.0.0.0:8000']
+    networks:
+    - wapps-frontends
+    - wapps-backends
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.frontend.entryPoints=https-mgmt
+    - traefik.docker.network=wapps-frontends
+    - traefik.port=8000
+    restart: always
+  paperless-consumer:
+    image: danielquinn/paperless
+    restart: always
+    volumes:
+    - data:/usr/src/paperless/data
+    - media:/usr/src/paperless/media
+    - ./consume:/consume
+    networks:
+    - wapps-backends
+    env_file: .env
+    command: ['document_consumer']
+    restart: always
+volumes:
+  data:
+  media:
+networks:
+  wapps-frontends:
+    external: true
+  wapps-backends:
+    external: true

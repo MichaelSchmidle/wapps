@@ -1,0 +1,36 @@
+version: '3.3'
+services:
+  mysql:
+    build: .
+    env_file: .env
+    volumes:
+    - mysql:/var/lib/mysql
+    networks:
+    - wapps-backends
+    restart: always
+  guacd:
+    image: guacamole/guacd:0.9.12-incubating
+    networks:
+    - wapps-backends
+    restart: always
+  guacamole:
+    image: guacamole/guacamole:0.9.12-incubating
+    env_file: .env
+    environment:
+      MYSQL_HOSTNAME: mysql
+      GUACD_HOSTNAME: guacd
+    networks:
+    - wapps-backends
+    - wapps-frontends
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST};AddPrefix:/guacamole
+    - traefik.docker.network=wapps-frontends
+    restart: always
+volumes:
+  mysql:
+networks:
+  wapps-frontends:
+    external: true
+  wapps-backends:
+    external: true

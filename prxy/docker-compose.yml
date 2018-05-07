@@ -3,7 +3,7 @@ services:
   traefik:
     image: traefik
     networks:
-    - frontends
+    - wappsfront
     ports:
     - 80:80
     - 443:443
@@ -20,11 +20,5 @@ services:
     - traefik.port=8080
     restart: always
 networks:
-  frontends:
-    ipam:
-      config:
-      - subnet: ${FRONTENDS_SUBNET}
-  backends:
-    ipam:
-      config:
-      - subnet: ${BACKENDS_SUBNET}
+  wappsfront:
+    external: true

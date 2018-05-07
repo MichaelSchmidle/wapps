@@ -8,7 +8,7 @@ services:
     volumes:
     - data:/data
     networks:
-    - wapps-frontends
+    - wappsfrontend
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
@@ -18,5 +18,5 @@ services:
 volumes:
   data:
 networks:
-  wapps-frontends:
+  wappsfrontend:
     external: true

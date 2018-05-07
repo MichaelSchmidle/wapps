@@ -24,7 +24,7 @@
 #
 insecureSkipVerify = true
 
-# Entrypoints to be used by wapps-frontends that do not specify any entrypoint.
+# Entrypoints to be used by wappsfrontend that do not specify any entrypoint.
 # Each frontend can specify its own entrypoints.
 #
 # Optional

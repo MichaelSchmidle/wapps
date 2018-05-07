@@ -37,12 +37,7 @@ The assumption is that each app runs on its own subdomain and that all apps are 
 
 ## Docker Networking
 
-Before starting any app, you first need to create the two networks that the apps use. Enter the following two commands:
-
-```
-$ sudo docker network create wapps-frontends
-$ sudo docker network create wapps-backends
-```
+The prxy app must be the first app to be started. It contains the two network definitions that all remaining apps re-use. It is the app you go through to connect to any of the other apps.
 
 # Customization
 

@@ -6,7 +6,7 @@ services:
     - /var/run/docker.sock:/var/run/docker.sock
     - data:/data
     networks:
-    - wapps-frontends
+    - wappsfrontend
     labels:
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
     - traefik.frontend.entryPoints=https-mgmt
@@ -15,5 +15,5 @@ services:
 volumes:
   data:
 networks:
-  wapps-frontends:
+  wappsfrontend:
     external: true

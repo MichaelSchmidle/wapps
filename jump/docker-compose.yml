@@ -6,12 +6,12 @@ services:
     volumes:
     - mysql:/var/lib/mysql
     networks:
-    - wapps-backends
+    - wappsbackend
     restart: always
   guacd:
     image: guacamole/guacd:0.9.12-incubating
     networks:
-    - wapps-backends
+    - wappsbackend
     restart: always
   guacamole:
     image: guacamole/guacamole:0.9.12-incubating
@@ -20,17 +20,17 @@ services:
       MYSQL_HOSTNAME: mysql
       GUACD_HOSTNAME: guacd
     networks:
-    - wapps-backends
-    - wapps-frontends
+    - wappsbackend
+    - wappsfrontend
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST};AddPrefix:/guacamole
-    - traefik.docker.network=wapps-frontends
+    - traefik.docker.network=wappsfrontend
     restart: always
 volumes:
   mysql:
 networks:
-  wapps-frontends:
+  wappsfrontend:
     external: true
-  wapps-backends:
+  wappsbackend:
     external: true

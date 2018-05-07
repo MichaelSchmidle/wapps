@@ -8,7 +8,7 @@ services:
     environment:
     - MYSQL_RANDOM_ROOT_PASSWORD=yes
     networks:
-    - wapps-backends
+    - wappsbackend
     restart: always
   firefly:
     image: jc5x/firefly-iii
@@ -17,7 +17,7 @@ services:
     - upload:/var/www/firefly-iii/storage/upload
     env_file: .env
     environment:
-    - FF_DB_HOST=wapps-fin_mysql_1
+    - FF_DB_HOST=wappsfin_mysql_1
     - FF_DB_NAME=${MYSQL_DATABASE}
     - FF_DB_USER=${MYSQL_USER}
     - FF_DB_PASSWORD=${MYSQL_PASSWORD}
@@ -25,11 +25,11 @@ services:
     - FF_APP_ENV=local
     - TRUSTED_PROXIES=**
     networks:
-    - wapps-frontends
-    - wapps-backends
+    - wappsfrontend
+    - wappsbackend
     labels:
     - traefik.enable=true
-    - traefik.docker.network=wapps-frontends
+    - traefik.docker.network=wappsfrontend
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
     - traefik.frontend.entryPoints=https-mgmt
     restart: always
@@ -38,7 +38,7 @@ volumes:
   export:
   upload:
 networks:
-  wapps-frontends:
+  wappsfrontend:
     external: true
-  wapps-backends:
+  wappsbackend:
     external: true

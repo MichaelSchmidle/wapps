@@ -40,9 +40,11 @@ The assumption is that each app runs on its own subdomain and that all apps are 
 Before starting any app, you first need to create the two networks that the apps use. Enter the following two commands:
 
 ```
-$ sudo docker network create wapps-frontends
-$ sudo docker network create wapps-backends
+$ sudo docker network create wappsfrontend
+$ sudo docker network create wappsbackend
 ```
+
+Use the flag ``--subnet`` in case you want to define the CIDR notated IP ranges (i.e. ``10.11.12.0/24``) of these two networks.
 
 # Customization
 

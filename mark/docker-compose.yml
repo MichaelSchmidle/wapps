@@ -6,7 +6,7 @@ services:
     volumes:
     - mysql:/var/lib/mysql
     networks:
-    - wapps-backends
+    - wappsbackend
   wallabag:
     image: wallabag/wallabag
     env_file: .env
@@ -15,17 +15,17 @@ services:
     volumes:
     - images:/var/www/wallabag/web/assets/images
     networks:
-    - wapps-frontends
-    - wapps-backends
+    - wappsfrontend
+    - wappsbackend
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
-    - traefik.docker.network=wapps-frontends
+    - traefik.docker.network=wappsfrontend
 volumes:
   mysql:
   images:
 networks:
-  wapps-frontends:
+  wappsfrontend:
     external: true
-  wapps-backends:
+  wappsbackend:
     external: true

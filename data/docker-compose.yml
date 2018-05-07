@@ -3,16 +3,16 @@ services:
   adminer:
     image: adminer
     networks:
-    - wapps-frontends
-    - wapps-backends
+    - wappsfrontend
+    - wappsbackend
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
     - traefik.frontend.entryPoints=https-mgmt
-    - traefik.docker.network=wapps-frontends
+    - traefik.docker.network=wappsfrontend
     restart: always
 networks:
-  wapps-frontends:
+  wappsfrontend:
     external: true
-  wapps-backends:
+  wappsbackend:
     external: true

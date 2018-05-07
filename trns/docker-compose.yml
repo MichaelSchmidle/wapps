@@ -3,7 +3,7 @@ services:
   youtransfer:
     image: remie/youtransfer:stable
     networks:
-    - wapps-frontends
+    - wappsfrontend
     volumes:
     - ${YOUTRANSFER_UPLOAD_DIR}:/opt/youtransfer/uploads
     - ./config:/opt/youtransfer/config
@@ -13,5 +13,5 @@ services:
     - traefik.port=5000
     restart: always
 networks:
-  wapps-frontends:
+  wappsfrontend:
     external: true

@@ -5,12 +5,12 @@ services:
     volumes:
     - ${MINIO_STORAGE_PATH}:/data
     networks:
-    - wapps-frontends
+    - wappsfrontend
     restart: always
     command: server /data
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
 networks:
-  wapps-frontends:
+  wappsfrontend:
     external: true

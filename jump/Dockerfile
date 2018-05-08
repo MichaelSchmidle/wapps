@@ -3,8 +3,8 @@
 FROM mysql
 
 # Update these to stay in line with the official guacamole containers.
-ARG GUAC_REPO=glyptodon/guacamole-client
-ARG GUAC_VERSION=0.9.12-incubating
+ARG GUAC_REPO=apache/guacamole-client
+ARG GUAC_VERSION=0.9.14
 
 # Fetch the needed schema files from the guacamole repo and place them where the
 # container will use them when initializing the server.

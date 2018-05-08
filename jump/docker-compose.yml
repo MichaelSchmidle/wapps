@@ -9,12 +9,12 @@ services:
     - wappsbackend
     restart: always
   guacd:
-    image: guacamole/guacd:0.9.12-incubating
+    image: guacamole/guacd:0.9.14
     networks:
     - wappsbackend
     restart: always
   guacamole:
-    image: guacamole/guacamole:0.9.12-incubating
+    image: guacamole/guacamole:0.9.14
     env_file: .env
     environment:
       MYSQL_HOSTNAME: mysql

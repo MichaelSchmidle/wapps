@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  grafana:
+    image: grafana/grafana
+    volumes:
+    - grafana:/var/lib/grafana
+    networks:
+    - wappsfrontend
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.frontend.entryPoints=https-mgmt
+volumes:
+  grafana:
+networks:
+  wappsfrontend:
+    external: true

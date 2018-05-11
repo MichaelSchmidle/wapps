@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  rainloop:
+    image: hardware/rainloop
+    volumes:
+    - data:/rainloop/data
+    networks:
+    - wappsfrontend
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    restart: always
+volumes:
+  data:
+networks:
+  wappsfrontend:
+    external: true

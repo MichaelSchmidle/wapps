@@ -22,6 +22,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | faas | Function as a Service based on [IronFunctions](http://open.iron.io/) | public (private GUI) |
 | know | Wiki and blog based on [Confluence](https://www.atlassian.com/software/confluence/) | public |
 | dash | Analytics and monitoring based on [Grafana](https://grafana.com/) | private |
+| mail | Webmail based on [Rainloop](https://www.rainloop.net/) | public |
 
 # Requirements
 

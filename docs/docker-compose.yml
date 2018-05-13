@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  mayanedms:
+    image: mayanedms/mayanedms
+    volumes:
+    - mayan:/var/lib/mayan
+    networks:
+    - wappsfrontend
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.frontend.entryPoints=https-mgmt
+    restart: always
+volumes:
+  mayan:
+networks:
+  wappsfrontend:
+    external: true

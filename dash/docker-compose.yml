@@ -9,7 +9,6 @@ services:
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
-    - traefik.frontend.entryPoints=https-mgmt
 volumes:
   grafana:
 networks:

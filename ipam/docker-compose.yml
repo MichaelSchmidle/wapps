@@ -19,7 +19,6 @@ services:
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
-    - traefik.frontend.entryPoints=https-mgmt
     - traefik.docker.network=wappsfrontend
     restart: always
 volumes:

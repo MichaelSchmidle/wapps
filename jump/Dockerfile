@@ -1,6 +1,6 @@
 # Curtesy of https://github.com/BrowncoatShadow/compose-guacamole
 
-FROM mysql
+FROM mysql:5.7.22
 
 # Update these to stay in line with the official guacamole containers.
 ARG GUAC_REPO=apache/guacamole-client

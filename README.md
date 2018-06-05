@@ -1,6 +1,6 @@
 # About Wapps
 
-This repository contains the [``docker-compose``](https://docs.docker.com/compose/) files to easily deploy the web apps for my personal use:
+This repository contains the [``docker-compose``](https://docs.docker.com/compose/) files to easily self-host the web apps for my personal use.
 
 | App  | Description | Availability |
 | :--- | :---------- | :----------- |
@@ -10,19 +10,22 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | papr | Document archive based on [Paperless](https://paperless.readthedocs.io/) | public |
 | trck | Website analytics based on [Matomo](https://matomo.org/) | public |
 | git  | Git repository management based on [Gitea](https://gitea.io/en-us/) | public |
-| mark | Bookmark and “read it later“ app based on [Wallabag](https://www.wallabag.org/) | public |
 | data | Database management based on [Adminer](https://www.adminer.org/) | private |
 | sss  | Simple storage app based on [Minio](https://minio.io/) | public |
 | meta | Analytics based on [Metabase](https://www.metabase.com/) | public |
-| trns | File transfer based on [YouTransfer](http://www.youtransfer.io/) | public |
 | fin  | Finance manager based on [Firefly III](https://firefly-iii.org/) | public |
 | ipam | IP address management (IPAM) based on [phpipam](https://github.com/pierrecdn/phpipam/) | public |
-| home | Application Dashboard based on [Heimdall](https://heimdall.site/) | private |
 | get  | Static file server based on [Caddy](https://caddyserver.com/) | public |
 | faas | Function as a Service based on [IronFunctions](http://open.iron.io/) | public (private GUI) |
 | know | Wiki and blog based on [Confluence](https://www.atlassian.com/software/confluence/) | public |
 | mail | Webmail based on [Rainloop](https://www.rainloop.net/) | public |
-| docs | Document management based on [Mayan EDMS](https://www.mayan-edms.com/) | public |
+
+# Why Self-host?
+
+There are two reasons why I host the above apps myself:
+
+* Cost: I would pay substantially more for consuming the software as a service than hosting it myself.
+* Privacy: I do not entrust the provider with my sensible data.
 
 # Requirements
 

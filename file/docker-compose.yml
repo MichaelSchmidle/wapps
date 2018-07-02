@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  filebrowser:
+    image: hacdias/filebrowser
+    volumes:
+    - config:/etc/config.json
+    - database:/etc/database.db
+    - scope:/srv
+    networks:
+    - wappsfrontend
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    restart: always
+volumes:
+  config:
+  database:
+  scope:
+networks:
+  wappsfrontend:
+    external: true

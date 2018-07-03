@@ -20,6 +20,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | know | Wiki and blog based on [Confluence](https://www.atlassian.com/software/confluence/) | public |
 | mail | Webmail based on [Rainloop](https://www.rainloop.net/) | public |
 | file | File browser based on [File Browser](https://filebrowser.github.io/) | public |
+| safe | Password manager based on [Bitwarden](https://bitwarden.com/) [compatible server written in Rust](https://github.com/mprasil/bitwarden_rs) | public |
 
 # Why Self-host?
 

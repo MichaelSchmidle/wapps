@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  bitwarden:
+    image: mprasil/bitwarden
+    volumes:
+    - data:/data
+    networks:
+    - wappsfrontend
+    labels:
+    - traefik.enable:true
+    - traefik.frontend.rule:Host:${TRAEFIK_HOST}
+    restart: always

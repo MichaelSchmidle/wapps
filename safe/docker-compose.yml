@@ -4,6 +4,7 @@ services:
     image: mprasil/bitwarden
     volumes:
     - data:/data
+    env_file: .env
     networks:
     - wappsfrontend
     labels:

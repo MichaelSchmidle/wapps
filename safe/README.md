@@ -7,3 +7,9 @@ Once you have created your user, you have the option to disable sign-up of furth
 ```
 SIGNUPS_ALLOWED=false
 ```
+
+Then, re-compose the service by executing the following command:
+
+```
+$ sudo docker-compose down && sudo docker-compose up -d
+```

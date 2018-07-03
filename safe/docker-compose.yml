@@ -10,3 +10,8 @@ services:
     - traefik.enable:true
     - traefik.frontend.rule:Host:${TRAEFIK_HOST}
     restart: always
+volumes:
+  data:
+networks:
+  wappsfrontend:
+    external: true

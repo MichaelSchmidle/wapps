@@ -1,35 +1,22 @@
 version: '3.3'
 services:
-  mysql:
-    image: mysql:5.7.22
-    volumes:
-    - mysql:/var/lib/mysql
-    env_file: .env
-    environment:
-    - MYSQL_RANDOM_ROOT_PASSWORD=yes
-    networks:
-    - wappsbackend
-    restart: always
   traccar:
     image: traccar/traccar
     volumes:
     - /etc/timezone:/etc/timezone:ro
     - /etc/localtime:/etc/localtime:ro
-    - logs:/opt/traccar/logs
     - ./traccar.xml:/opt/traccar/conf/traccar.xml:ro
+    - data:/home/user/Documents/traccar/target/database
+    - logs:/opt/traccar/logs
     networks:
     - wappsfrontend
-    - wappsbackend
     labels:
     - traefik.enable=true
-    - traefik.docker.network=wappsfrontend
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
     restart: always
 volumes:
-  mysql:
+  data:
   logs:
 networks:
   wappsfrontend:
-    external: true
-  wappsbackend:
     external: true

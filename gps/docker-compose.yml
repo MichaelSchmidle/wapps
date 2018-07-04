@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  traccar:
+    image: traccar/traccar
+    volumes:
+    - /etc/timezone:/etc/timezone:ro
+    - /etc/localtime:/etc/localtime:ro
+    - logs:/opt/traccar/logs
+    - ./traccar.xml:/opt/traccar/conf/traccar.xml:ro
+    networks:
+    - wappsfrontend
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    restart: always
+volumes:
+  logs:
+networks:
+  wappsfrontend:
+    external: true

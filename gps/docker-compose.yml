@@ -10,6 +10,8 @@ services:
     - logs:/opt/traccar/logs
     networks:
     - wappsfrontend
+    ports:
+    - 5055:5055
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}

@@ -29,3 +29,5 @@ volumes:
 networks:
   wappsfrontend:
     external: true
+  wappsbackend:
+    external: true

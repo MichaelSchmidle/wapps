@@ -58,6 +58,10 @@ Use the flag ``--subnet`` in case you want to define the CIDR notated IP ranges 
 
 Most apps require customization before they can be deployed. These apps contain one or more ``.default`` files in the respective app folder. Copy those files and rename the copies to match the original file excluding the ``.default`` suffix (i.e. copy ``.env.default`` to ``.env``). Then set the empty variables in the files to fit your needs.
 
-Apps that are considered publically available (see Availability column in the table above) can be reached over ports ``80`` and ``443``; private apps can be reached over port ``4443``. This gives you the option to limit the traffic to private apps via firewall.
-
 For further instructions, please refer to the ``README.md`` files in the respective app subfolders.
+
+# Usage
+
+To create and run the apps, switch to the corresponding app subfolder (i.e. ``$ cd prxy``) and execute the command ``$ sudo docker-compose up -d``. Please note: The vast majority of apps is only accessible via the prxy app—so make sure to first start the prxy app accordingly.
+
+Apps that are considered publically available (see Availability column in the table above) can be reached over ports ``80`` and ``443``; private apps can be reached over port ``4443``. This gives you the option to limit the traffic to private apps via firewall.

@@ -19,8 +19,10 @@ services:
     - ./traccar.xml:/opt/traccar/conf/traccar.xml:ro
     networks:
     - wappsfrontend
+    - wappsbackend
     labels:
     - traefik.enable=true
+    - traefik.docker.network=wappsfrontend
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
     restart: always
 volumes:

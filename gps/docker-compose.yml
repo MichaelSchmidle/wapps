@@ -13,6 +13,7 @@ services:
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.frontend.entryPoints=http, https, traccar
     restart: always
 volumes:
   data:

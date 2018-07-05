@@ -8,6 +8,7 @@ services:
     - 80:80
     - 443:443
     - 4443:4443
+    - 5055:5055
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - ./traefik.toml:/traefik.toml

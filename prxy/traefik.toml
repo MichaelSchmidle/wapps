@@ -57,12 +57,6 @@ defaultEntryPoints = ["http", "https"]
       [[entryPoints.https-mgmt.tls.certificates]]
       certFile = "/tls.pem"
       keyFile = "/tls.key"
-  [entryPoints.traccar]
-  address = ":5055"
-    [entryPoints.traccar.tls]
-      [[entryPoints.traccar.tls.certificates]]
-      certFile = "/tls.pem"
-      keyFile = "/tls.key"
 
 ################################################################
 # Traefik logs configuration

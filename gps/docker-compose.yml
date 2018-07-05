@@ -25,7 +25,6 @@ services:
     - traefik.docker.network=wappsfrontend
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
     - traefik.port=8082
-    - traefik.frontend.entryPoints=https-mgmt, traccar
     restart: always
 volumes:
   mysql:

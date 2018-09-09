@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+  pihole:
+    image: pihole/pihole
+    env_file: .env
+    volumes:
+    - pihole:/etc/pihole/
+    - dnsmasq:/etc/dnsmasq.d/
+    networks:
+    - wappsfrontend
+    ports:
+    - 53:53
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.port=80
+    restart: always
+volumes:
+  pihole:
+  dnsmasq:
+networks:
+  wappsfrontend:
+    external: true

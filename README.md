@@ -22,6 +22,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | file | File browser based on [File Browser](https://filebrowser.github.io/) | public |
 | safe | Password manager based on [Bitwarden](https://bitwarden.com/) [compatible server written in Rust](https://github.com/mprasil/bitwarden_rs) | public |
 | gps  | GPS tracking system based on [Traccar](https://www.traccar.org/) | public |
+| dns  | DNS-based ad blocker based on [Pi-hole](https://pi-hole.net/) | public |
 
 # Why Self-host?
 

@@ -6,6 +6,7 @@ services:
     volumes:
     - pihole:/etc/pihole/
     - dnsmasq:/etc/dnsmasq.d/
+    - ./hosts:/etc/hosts
     networks:
     - wappsfrontend
     ports:

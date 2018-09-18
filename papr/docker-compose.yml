@@ -2,7 +2,6 @@ version: '3.3'
 services:
   paperless-webserver:
     image: danielquinn/paperless
-    restart: always
     volumes:
     - data:/usr/src/paperless/data
     - media:/usr/src/paperless/media
@@ -21,7 +20,6 @@ services:
     restart: always
   paperless-consumer:
     image: danielquinn/paperless
-    restart: always
     volumes:
     - data:/usr/src/paperless/data
     - media:/usr/src/paperless/media

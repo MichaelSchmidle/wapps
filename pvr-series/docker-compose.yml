@@ -8,6 +8,7 @@ services:
     - /mnt/FILE/Videos/Series:/tv
     - /mnt/FILE/Videos/Downloads/Series:/downloads
     networks:
+    - wappsfrontend
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}

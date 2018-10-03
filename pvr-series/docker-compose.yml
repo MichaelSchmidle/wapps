@@ -5,8 +5,8 @@ services:
     volumes:
     - config:/config
     - /etc/localtime:/etc/localtime:ro
-    - /mnt/FILE/Videos/Series:/tv
-    - /mnt/FILE/Videos/Downloads/Series:/downloads
+    - ${SERIES_DIR}:/tv
+    - ${DOWNLOADS_DIR}:${DOWNLOADS_DIR}
     networks:
     - wappsfrontend
     labels:

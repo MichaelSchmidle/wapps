@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  sonarr:
+    image: linuxserver/sonarr
+    volumes:
+    - config:/config
+    - /etc/localtime:/etc/localtime:ro
+    - ${SERIES_DIR}:/tv
+    - ${DOWNLOADS_DIR}:${DOWNLOADS_DIR}
+    networks:
+    - wappsfrontend
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    restart: always
+volumes:
+  config:
+networks:
+  wappsfrontend:
+    external: true

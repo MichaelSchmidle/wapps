@@ -6,7 +6,7 @@ services:
     - config:/config
     - /etc/localtime:/etc/localtime:ro
     - ${SERIES_DIR}:/tv
-    - ${DOWNLOADS_DIR}:${DOWNLOADS_DIR}
+    - ${DOWNLOADS_DIR}:/downloads
     networks:
     - wappsfrontend
     labels:

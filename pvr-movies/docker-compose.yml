@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  radarr:
+    image: linuxserver/radarr
+    volumes:
+    - config:/config
+    - /etc/localtime:/etc/localtime:ro
+    - ${MOVIES_DIR}:/movies
+    - ${DOWNLOADS_DIR}:/downloads
+    networks:
+    - wappsfrontend
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    restart: always
+volumes:
+  config:
+networks:
+  wappsfrontend:
+    external: true

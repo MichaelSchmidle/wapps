@@ -23,6 +23,8 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | safe | Password manager based on [Bitwarden](https://bitwarden.com/) [compatible server written in Rust](https://github.com/mprasil/bitwarden_rs) | public |
 | gps  | GPS tracking system based on [Traccar](https://www.traccar.org/) | public |
 | dns  | DNS-based ad blocker based on [Pi-hole](https://pi-hole.net/) | public |
+| pvr-series | PVR for TV series based on [Sonarr](https://sonarr.tv/) | public |
+| pvr-movies | PVR for movies based on [Radarr](https://radarr.video/) | public |
 
 # Why Self-host?
 

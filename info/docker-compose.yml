@@ -1,0 +1,37 @@
+version: '3.3'
+services:
+  mysql:
+    image: mysql:5.7.22
+    volumes:
+    - mysql:/var/lib/mysql
+    networks:
+    - wappsbackend
+    restart: always
+  bookstack:
+    image: solidnerd/bookstack
+    env_file: .env
+    environment:
+    - DB_HOST=mysql:3306
+    - DB_DATABASE=${MYSQL_DATABASE}
+    - DB_USERNAME=${MYSQL_USER}
+    - DB_PASSWORD=${MYSQL_PASSWORD}
+    volumes:
+    - uploads:/var/www/bookstack/public/uploads
+    - storage:/var/www/bookstack/public/storage
+    networks:
+    - wappsfrontend
+    - wappsbackend
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.docker.network=wappsfrontend
+    restart: always
+volumes:
+  mysql:
+  uploads:
+  storage:
+networks:
+  wappsfrontend:
+    external: true
+  wappsbackend:
+    external: true

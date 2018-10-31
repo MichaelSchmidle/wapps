@@ -19,7 +19,7 @@ services:
     - mysql
     env_file: .env
     environment:
-      MYSQL_HOSTNAME: mysql
+      MYSQL_HOSTNAME: ${COMPOSE_PROJECT_NAME}_mysql_1
       GUACD_HOSTNAME: guacd
     networks:
     - wappsbackend

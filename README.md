@@ -25,6 +25,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | dns  | DNS-based ad blocker based on [Pi-hole](https://pi-hole.net/) | public |
 | pvr-series | PVR for TV series based on [Sonarr](https://sonarr.tv/) | public |
 | pvr-movies | PVR for movies based on [Radarr](https://radarr.video/) | public |
+| know-alt | Wiki based on [Bookstack](https://www.bookstackapp.com/) as alternative to the know app | public |
 
 # Why Self-host?
 

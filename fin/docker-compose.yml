@@ -17,7 +17,7 @@ services:
     - upload:/var/www/firefly-iii/storage/upload
     env_file: .env
     environment:
-    - FF_DB_HOST=wappsfin_mysql_1
+    - FF_DB_HOST=${COMPOSE_PROJECT_NAME}_mysql_1
     - FF_DB_NAME=${MYSQL_DATABASE}
     - FF_DB_USER=${MYSQL_USER}
     - FF_DB_PASSWORD=${MYSQL_PASSWORD}

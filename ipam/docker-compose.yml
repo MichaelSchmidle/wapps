@@ -12,7 +12,7 @@ services:
     image: pierrecdn/phpipam
     env_file: .env
     environment:
-    - MYSQL_ENV_MYSQL_HOST=wappsipam_mysql_1
+    - MYSQL_ENV_MYSQL_HOST=${COMPOSE_PROJECT_NAME}_mysql_1
     networks:
     - wappsfrontend
     - wappsbackend

@@ -12,7 +12,7 @@ services:
     image: matomo
     volumes:
     - html:/var/www/html
-    - ./misc:/usr/src/piwik/misc
+    - ./misc:/var/www/html/misc
     networks:
     - wappsfrontend
     - wappsbackend

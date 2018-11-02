@@ -2,6 +2,9 @@ version: '3.3'
 services:
   postgres:
     image: postgres
+    environment:
+    - POSTGRES_USER=${DB_USERNAME}
+    - POSTGRES_PASSWORD=${DB_PASSWORD}
     volumes:
     - postgres:/var/lib/postgresql/data
     networks:
@@ -9,7 +12,7 @@ services:
     restart: always
   cachet:
     image: cachethq/docker
-    env_file:
+    env_file: .env
     environment:
     - DB_DRIVER=pgsql
     - DB_HOST=${COMPOSE_PROJECT_NAME}_postgres_1
@@ -27,3 +30,10 @@ services:
     restart: always
     depends_on:
     - postgres
+volumes:
+    postgres:
+networks:
+  wappsfrontend:
+    external: true
+  wappsbackend:
+    external: true

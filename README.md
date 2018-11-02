@@ -26,6 +26,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | pvr-series | PVR for TV series based on [Sonarr](https://sonarr.tv/) | public |
 | pvr-movies | PVR for movies based on [Radarr](https://radarr.video/) | public |
 | know-alt | Wiki based on [Bookstack](https://www.bookstackapp.com/) as alternative to the know app | public |
+| beat | Status page system based on [Cachet](https://cachethq.io/) | public |
 
 # Why Self-host?
 

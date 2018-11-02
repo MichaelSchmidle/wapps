@@ -17,7 +17,6 @@ services:
     - DB_DRIVER=pgsql
     - DB_HOST=${COMPOSE_PROJECT_NAME}_postgres_1
     - DB_PORT=5432
-    - APP_KEY=${APP_KEY:-null}
     - APP_LOG=errorlog
     - DEBUG=false
     networks:
@@ -27,6 +26,7 @@ services:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
     - traefik.docker.network=wappsfrontend
+    - traefik.docker.port=8000
     restart: always
     depends_on:
     - postgres

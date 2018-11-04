@@ -5,7 +5,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | App  | Description | Availability |
 | :--- | :---------- | :----------- |
 | prxy | Reverse proxy based on [Traefik](https://traefik.io/) | private |
-| dckr | [Docker](https://www.docker.com/) management GUI based on [Portainer](https://portainer.io/) | private |
+| dckr | [Docker](https://www.docker.com/) management based on [Portainer](https://portainer.io/) as GUI and [Watchtower](https://github.com/v2tec/watchtower/) as auto-updater | private |
 | jump | RDP gateway based on [Guacamole](https://guacamole.apache.org/) | public |
 | papr | Document archive based on [Paperless](https://paperless.readthedocs.io/) | public |
 | trck | Website analytics based on [Matomo](https://matomo.org/) | public |

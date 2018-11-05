@@ -32,7 +32,7 @@ services:
     - traefik.docker.network=wappsfrontend
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
     restart: always
-    depends_on:
+    links:
     - mysql
 volumes:
   mysql:

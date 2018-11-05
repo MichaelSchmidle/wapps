@@ -8,7 +8,7 @@ services:
     networks:
     - wappsbackend
     labels:
-    - centurylinklabs.watchtower.enable="false"
+    - centurylinklabs.watchtower.enable=false
     restart: always
   guacd:
     image: guacamole/guacd:0.9.14

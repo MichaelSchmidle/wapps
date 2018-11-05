@@ -17,8 +17,6 @@ services:
     restart: always
   guacamole:
     image: guacamole/guacamole:0.9.14
-    depends_on:
-    - mysql
     env_file: .env
     environment:
       MYSQL_HOSTNAME: ${COMPOSE_PROJECT_NAME}_mysql_1
@@ -31,6 +29,8 @@ services:
     - traefik.frontend.rule=Host:${TRAEFIK_HOST};AddPrefix:/guacamole
     - traefik.docker.network=wappsfrontend
     restart: always
+    depends_on:
+    - mysql
 volumes:
   mysql:
 networks:

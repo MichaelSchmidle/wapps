@@ -26,9 +26,9 @@ services:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
     - traefik.docker.network=wappsfrontend
+    restart: always
     depends_on:
     - mysql
-    restart: always
 volumes:
   mysql:
   uploads:

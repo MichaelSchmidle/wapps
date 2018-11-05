@@ -26,6 +26,8 @@ services:
     - traefik.docker.network=wappsfrontend
     - traefik.port=8090
     restart: always
+    depends_on:
+    - postgres
 volumes:
   data:
   confluence:

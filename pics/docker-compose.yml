@@ -23,6 +23,7 @@ services:
     links:
     - mysql
 volumes:
+  mysql:
   config:
 networks:
   wappsfrontend:

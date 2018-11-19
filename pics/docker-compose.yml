@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  radarr:
+    image: linuxserver/lychee
+    volumes:
+    - config:/config
+    - ${PICTURES_DIR}:/pictures
+    networks:
+    - wappsfrontend
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    restart: always
+volumes:
+  config:
+networks:
+  wappsfrontend:
+    external: true

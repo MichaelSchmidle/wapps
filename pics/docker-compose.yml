@@ -1,5 +1,12 @@
 version: '3.3'
 services:
+  mysql:
+    image: mysql
+    volumes:
+    - mysql:/var/lib/mysql
+    networks:
+    - wappsbackend
+    restart: always
   lychee:
     image: linuxserver/lychee
     volumes:
@@ -7,12 +14,18 @@ services:
     - ${PICTURES_DIR}:/pictures
     networks:
     - wappsfrontend
+    - wappsbackend
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.docker.network=wappsbackend
     restart: always
+    links:
+    - mysql
 volumes:
   config:
 networks:
   wappsfrontend:
+    external: true
+  wappsbackend:
     external: true

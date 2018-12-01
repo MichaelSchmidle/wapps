@@ -12,7 +12,8 @@ services:
     - 22:22
     labels:
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
-    - traefik.docker.port=80
+    - traefik.docker.protocol=https
+    - traefik.docker.port=443
     - traefik.enable=true
     restart: always
 volumes:

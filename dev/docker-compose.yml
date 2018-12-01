@@ -3,7 +3,7 @@ services:
   tulip:
     image: enalean/tuleap-aio
     environment:
-    - VIRTUAL_HOST=localhost
+    - VIRTUAL_HOST=${TRAEFIK_HOST}
     volumes:
     - data:/data
     networks:

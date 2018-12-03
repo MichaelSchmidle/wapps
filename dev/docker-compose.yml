@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+  tulip:
+    image: enalean/tuleap-aio
+    environment:
+    - VIRTUAL_HOST=${TRAEFIK_HOST}
+    volumes:
+    - data:/data
+    networks:
+    - wappsfrontend
+    ports:
+    - 22:22
+    labels:
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.docker.protocol=https
+    - traefik.docker.port=443
+    - traefik.enable=true
+    restart: always
+volumes:
+  data:
+networks:
+  wappsfrontend:
+    external: true

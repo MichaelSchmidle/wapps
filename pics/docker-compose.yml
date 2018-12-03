@@ -1,0 +1,35 @@
+version: '3.3'
+services:
+  mysql:
+    image: mysql:5.7.22
+    env_file: .env
+    environment:
+    - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    volumes:
+    - mysql:/var/lib/mysql
+    networks:
+    - wappsbackend
+    restart: always
+  lychee:
+    image: linuxserver/lychee
+    volumes:
+    - config:/config
+    - ${PICTURES_DIR}:/pictures
+    networks:
+    - wappsfrontend
+    - wappsbackend
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.docker.network=wappsfrontend
+    restart: always
+    links:
+    - mysql
+volumes:
+  mysql:
+  config:
+networks:
+  wappsfrontend:
+    external: true
+  wappsbackend:
+    external: true

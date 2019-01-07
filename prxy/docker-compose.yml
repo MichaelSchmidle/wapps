@@ -11,8 +11,8 @@ services:
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - ./traefik.toml:/traefik.toml
-    - ./tls.pem:/tls.pem
-    - ./tls.key:/tls.key
+    - ${TRAEFIK_PEM}:/tls.pem
+    - ${TRAEFIK_KEY}:/tls.key
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}

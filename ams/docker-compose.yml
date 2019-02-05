@@ -9,7 +9,7 @@ services:
     - wappsbackend
     restart: always
   snipeit:
-    image: linuxserver/snipe-it
+    image: snipe/snipe-it
     volumes:
     - config:/config
     env_file: .env

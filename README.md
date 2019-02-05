@@ -29,6 +29,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | beat | Status page system based on [Cachet](https://cachethq.io/) | public |
 | pics | Photo management based on [Lychee](https://lychee.electerious.com/) | public |
 | dev | Software development & agile management tools based on [Tuleap](https://www.tuleap.org/) | public |
+| ams | IT asset management system based on [Snipe-IT](https://snipeitapp.com/) | public |
 
 # Why Self-host?
 

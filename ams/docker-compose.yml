@@ -1,0 +1,38 @@
+version: '3.3'
+services:
+  mysql:
+    image: mysql:5.7.22
+    env_file: .env
+    volumes:
+    - mysql:/var/lib/mysql
+    networks:
+    - wappsbackend
+    restart: always
+  snipeit:
+    image: snipe/snipe-it
+    volumes:
+    - config:/config
+    env_file: .env
+    environment:
+    - APP_URL=https://${TRAEFIK_HOST}
+    - MYSQL_PORT_3306_TCP_ADDR=wappsams_mysql_1
+    - MYSQL_PORT_3306_TCP_PORT=3306
+    networks:
+    - wappsbackend
+    - wappsfrontend
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.docker.network=wappsfrontend
+    restart: always
+    links:
+    - mysql
+
+volumes:
+  mysql:
+  config:
+networks:
+  wappsfrontend:
+    external: true
+  wappsbackend:
+    external: true

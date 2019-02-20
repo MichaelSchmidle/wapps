@@ -6,7 +6,7 @@ services:
     - config:/config
     - /etc/localtime:/etc/localtime:ro
     - ${MOVIES_DIR}:/movies
-    - ${DOWNLOADS_DIR}:/downloads
+    - ${DOWNLOADS_DIR}:${DOWNLOADS_DIR}
     networks:
     - wappsfrontend
     labels:

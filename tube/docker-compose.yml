@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  alltube:
+    image: rudloff/alltube
+    networks:
+    - wappsfrontend
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.frontend.entryPoints=https-mgmt
+    restart: always
+networks:
+  wappsfrontend:
+    external: true

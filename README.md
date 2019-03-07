@@ -30,7 +30,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | pics | Photo management based on [Lychee](https://lychee.electerious.com/) | public |
 | dev  | Software development & agile management tools based on [Tuleap](https://www.tuleap.org/) | public |
 | ams  | IT asset management system based on [Snipe-IT](https://snipeitapp.com/) | public |
-| tube | Media downloader based on [AllTube Download](http://alltubedownload.net/) | private |
+| tube | Media downloader based on [AllTube Download](http://alltubedownload.net/) | public |
 
 # Why Self-host?
 

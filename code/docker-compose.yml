@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  code-server:
+    image: codercom/code-server
+    volumes:
+    - ${PROJECT_DIR}:/root/project
+    networks:
+    - wappsfrontend
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.docker.protocol=https
+networks:
+  wappsfrontend:
+    external: true

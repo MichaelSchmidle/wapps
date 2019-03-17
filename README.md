@@ -31,6 +31,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | dev  | Software development & agile management tools based on [Tuleap](https://www.tuleap.org/) | public |
 | ams  | IT asset management system based on [Snipe-IT](https://snipeitapp.com/) | public |
 | tube | Media downloader based on [AllTube Download](http://alltubedownload.net/) | public |
+| code | IDE based on [code-server](https://coder.com/) | public |
 
 # Why Self-host?
 

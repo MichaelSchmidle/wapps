@@ -11,12 +11,12 @@ services:
     - centurylinklabs.watchtower.enable=false
     restart: always
   guacd:
-    image: guacamole/guacd:0.9.14
+    image: guacamole/guacd:1.0.0
     networks:
     - wappsbackend
     restart: always
   guacamole:
-    image: guacamole/guacamole:0.9.14
+    image: guacamole/guacamole:1.0.0
     env_file: .env
     environment:
       MYSQL_HOSTNAME: ${COMPOSE_PROJECT_NAME}_mysql_1

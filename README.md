@@ -46,12 +46,12 @@ Apart from ``docker-compose`` and its dependencies (Docker 17.06.0+ and Docker C
 
 ## SSL Certificates
 
-For the time being, the prxy app (i.e. Traefik) currently relies on two specific files:
+For the time being, the prxy app (i.e. Traefik) works with two HTTPS entry points (public and private) and thus currently relies on two files:
 
-* tls.pem: the SSL certificate for your domain
-* tls.key: the private key for the SSL certificate
+* ``${TRAEFIK_PEM}``: the SSL certificate for your domain
+* ``${TRAEFIK_KEY}``: the private key for the SSL certificate
 
-The assumption is that each app runs on its own subdomain and that all apps are covered in the given SSL certificate. A version with support for dynamic certificates from [Let’s Encrypt](https://letsencrypt.org/) is on the to-do list.
+The assumption is that each app runs on its own subdomain and that all apps are covered in the given SSL certificate (the easiest being a wildcard SSL certificate). A version with support for dynamic certificates from [Let’s Encrypt](https://letsencrypt.org/) is on the [to-do list](https://github.com/MichaelSchmidle/wapps/issues/3).
 
 ## Docker Networking
 

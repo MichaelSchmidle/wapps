@@ -10,8 +10,8 @@ services:
     networks:
     - wappsfrontend
     ports:
-    - 53:53/tcp
-    - 53:53/udp
+    - ${ServerIP}:53:53/tcp
+    - ${ServerIP}:53:53/udp
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}

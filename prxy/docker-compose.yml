@@ -5,9 +5,9 @@ services:
     networks:
     - wappsfrontend
     ports:
-    - 80:80
-    - 443:443
-    - 4443:4443
+    - ${TRAEFIK_IP}:80:80
+    - ${TRAEFIK_IP}:443:443
+    - ${TRAEFIK_IP}:4443:4443
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - ./traefik.toml:/traefik.toml

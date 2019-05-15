@@ -1,4 +1,5 @@
 # Barebone configuration file for use with backends outside of your Docker instance
+# - Copy or rename file to "rules.toml"
 # - Copy commented configuration sections below to use as a template
 # - Replace $ with a unique identifier
 # - Add URL to backend

@@ -1,0 +1,23 @@
+# Barebone configuration file for use with backends outside of your Docker instance
+# - Copy this template file to create your *.toml file/s
+# - Replace $ with a unique identifier
+# - (Add additional backends, if Traefik is supposed to also provide load balancing.)
+# - Define entry point/s and frontend rules
+#
+# For a complete configuration reference, please visit https://docs.traefik.io/configuration
+
+[backends]
+  [backends.$]
+    [backends.$.servers]
+      [backends.$.servers.1]
+        url = ""
+
+[frontends]
+  [frontends.$]
+    entryPoints = [""]
+    backend = "$"
+    passHostHeader = true
+    [frontends.$.routes]
+      [frontends.$.routes.1]
+        rule = ""
+

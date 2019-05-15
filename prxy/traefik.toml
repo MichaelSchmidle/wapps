@@ -176,3 +176,12 @@ domain = ""
 exposedbydefault = false
 
 watch = true
+
+################################################################
+# File configuration backend
+################################################################
+
+# Enable file configuration backend
+[file]
+directory = "/traefik"
+watch = true

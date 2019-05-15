@@ -183,5 +183,5 @@ watch = true
 
 # Enable file configuration backend
 [file]
-directory = "/traefik"
+filename = "/rules.toml"
 watch = true

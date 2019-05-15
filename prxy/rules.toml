@@ -1,5 +1,5 @@
 # Barebone configuration file for use with backends outside of your Docker instance
-# - Copy commented configuration section below to use as a template
+# - Copy commented configuration sections below to use as a template
 # - Replace $ with a unique identifier
 # - Add URL to backend
 # - (Add additional backends, if Traefik is supposed to also provide load balancing.)
@@ -9,13 +9,13 @@
 
 # For a complete configuration reference, please visit https://docs.traefik.io/configuration
 
-# [backends]
+[backends]
 #   [backends.$]
 #     [backends.$.servers]
 #       [backends.$.servers.1]
 #         url = ""
 
-# [frontends]
+[frontends]
 #   [frontends.$]
 #     entryPoints = [""]
 #     backend = "$"

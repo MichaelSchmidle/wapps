@@ -14,7 +14,7 @@ services:
     - ${ServerIP}:53:53/udp
     labels:
     - traefik.enable=true
-    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST};AddPrefix:/admin
     - traefik.port=80
     restart: always
 volumes:

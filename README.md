@@ -32,7 +32,6 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | ams  | IT asset management system based on [Snipe-IT](https://snipeitapp.com/) | public |
 | tube | Media downloader based on [AllTube Download](http://alltubedownload.net/) | public |
 | code | IDE based on [code-server](https://coder.com/) | public |
-| play | Streaming server based on [Plex](https://www.plex.tv/) | public |
 
 # Why Self-host?
 

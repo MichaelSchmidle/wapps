@@ -181,7 +181,6 @@ watch = true
 # File configuration backend
 ################################################################
 
-# Enable file configuration backend by uncommenting the following lines
-# [file]
-# filename = "/rules.toml"
-# watch = true
+[file]
+directory = "/rules/"
+watch = true

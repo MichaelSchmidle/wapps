@@ -11,7 +11,7 @@ services:
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - ./traefik.toml:/traefik.toml
-    - ./rules.toml:/rules.toml
+    - ./rules/:/rules/
     - ${TRAEFIK_PEM}:/tls.pem
     - ${TRAEFIK_KEY}:/tls.key
     labels:

@@ -3,7 +3,7 @@ services:
   searx:
     image: wonderfall/searx
     environment:
-    - BASE_URL: "https://${TRAEFIK_HOST}"
+      BASE_URL: https://${TRAEFIK_HOST}
     networks:
     - wappsfrontend
     labels:

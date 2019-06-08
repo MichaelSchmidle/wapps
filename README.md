@@ -33,6 +33,7 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | tube | Media downloader based on [AllTube Download](http://alltubedownload.net/) | public |
 | code | IDE based on [code-server](https://coder.com/) | public |
 | pvr-titles | PVR for subtitles based on [Bazarr](https://www.bazarr.media/) | public |
+| srx | Metasearch engine based on [Searx](https://asciimoo.github.io/searx/) | public |
 
 # Why Self-host?
 

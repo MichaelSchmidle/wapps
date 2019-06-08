@@ -9,7 +9,6 @@ This repository contains the [``docker-compose``](https://docs.docker.com/compos
 | jump | RDP gateway based on [Guacamole](https://guacamole.apache.org/) | public |
 | papr | Document archive based on [Paperless](https://paperless.readthedocs.io/) | public |
 | trck | Website analytics based on [Matomo](https://matomo.org/) | public |
-| git  | Git repository management based on [Gitea](https://gitea.io/en-us/) | public |
 | data | Database management based on [Adminer](https://www.adminer.org/) | private |
 | sss  | Simple storage app based on [Minio](https://minio.io/) | public |
 | meta | Analytics based on [Metabase](https://www.metabase.com/) | public |

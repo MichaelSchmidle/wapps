@@ -12,7 +12,6 @@ services:
     image: matomo
     volumes:
     - ./config:/var/www/html/config
-    - ./misc:/var/www/html/misc
     networks:
     - wappsfrontend
     - wappsbackend

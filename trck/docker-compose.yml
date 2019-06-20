@@ -11,7 +11,7 @@ services:
   matomo:
     image: matomo
     volumes:
-    - html:/var/www/html
+    - ./config:/var/www/html/config
     - ./misc:/var/www/html/misc
     networks:
     - wappsfrontend
@@ -25,7 +25,6 @@ services:
     - mysql
 volumes:
   mysql:
-  html:
 networks:
   wappsfrontend:
     external: true

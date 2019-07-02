@@ -2,21 +2,22 @@ version: '3.3'
 services:
   postgres:
     image: postgres
+    env_file: .env
     volumes:
     - data:/var/lib/postgresql/data
     networks:
     - wappsbackend
     restart: always
-  confluence:
-    image: atlassian/confluence-server
-    volumes:
-    - confluence:/var/atlassian/application-data/confluence
+  wiki:
+    image: requarks/wiki:beta
     env_file: .env
     environment:
-    - CATALINA_CONNECTOR_PROXYNAME=${TRAEFIK_HOST}
-    - CATALINA_CONNECTOR_PROXYPORT=443
-    - CATALINA_CONNECTOR_SCHEME=https
-    - CATALINA_CONNECTOR_SECURE=true
+      DB_TYPE: postgres
+      DB_HOST: wappsknow_postgres_1
+      DB_PORT: 5432
+      DB_NAME: ${POSTGRES_DB}
+      DB_PASS: ${POSTGRES_PASSWORD}
+      DB_USER: ${POSTGRES_USER}
     networks:
     - wappsfrontend
     - wappsbackend
@@ -24,13 +25,11 @@ services:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
     - traefik.docker.network=wappsfrontend
-    - traefik.port=8090
     restart: always
     links:
     - postgres
 volumes:
   data:
-  confluence:
 networks:
   wappsfrontend:
     external: true

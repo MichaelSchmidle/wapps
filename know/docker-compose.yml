@@ -1,23 +1,24 @@
 version: '3.3'
 services:
-  postgres:
-    image: postgres
+  mysql:
+    image: mysql:5.7.22
     env_file: .env
     volumes:
-    - data:/var/lib/postgresql/data
+    - mysql:/var/lib/mysql
     networks:
     - wappsbackend
     restart: always
-  wiki:
-    image: requarks/wiki:beta
+  bookstack:
+    image: solidnerd/bookstack
     env_file: .env
     environment:
-      DB_TYPE: postgres
-      DB_HOST: wappsknow_postgres_1
-      DB_PORT: 5432
-      DB_NAME: ${POSTGRES_DB}
-      DB_PASS: ${POSTGRES_PASSWORD}
-      DB_USER: ${POSTGRES_USER}
+    - DB_HOST=${COMPOSE_PROJECT_NAME}_mysql_1:3306
+    - DB_DATABASE=${MYSQL_DATABASE}
+    - DB_USERNAME=${MYSQL_USER}
+    - DB_PASSWORD=${MYSQL_PASSWORD}
+    volumes:
+    - uploads:/var/www/bookstack/public/uploads
+    - storage:/var/www/bookstack/public/storage
     networks:
     - wappsfrontend
     - wappsbackend
@@ -27,9 +28,11 @@ services:
     - traefik.docker.network=wappsfrontend
     restart: always
     links:
-    - postgres
+    - mysql
 volumes:
-  data:
+  mysql:
+  uploads:
+  storage:
 networks:
   wappsfrontend:
     external: true

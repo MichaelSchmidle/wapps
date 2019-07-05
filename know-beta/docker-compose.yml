@@ -13,7 +13,7 @@ services:
     env_file: .env
     environment:
       DB_TYPE: postgres
-      DB_HOST: wappsknow_postgres_1
+      DB_HOST: wappsknow-beta_postgres_1
       DB_PORT: 5432
       DB_NAME: ${POSTGRES_DB}
       DB_PASS: ${POSTGRES_PASSWORD}

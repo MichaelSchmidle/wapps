@@ -30,7 +30,6 @@ Listed below are the web apps that give this repository its name wapps. It’s p
 | code | IDE based on [code-server](https://coder.com/) | public |
 | dev  | Software development & agile management tools based on [Tuleap](https://www.tuleap.org/) | public |
 | dns  | DNS-based ad blocker based on [Pi-hole](https://pi-hole.net/) | public |
-| faas | Function as a Service based on [IronFunctions](http://open.iron.io/) | public (private GUI) |
 | file | File browser based on [File Browser](https://filebrowser.github.io/) | public |
 | fin  | Finance manager based on [Firefly III](https://firefly-iii.org/) | public |
 | get  | Static file server based on [Caddy](https://caddyserver.com/) | public |

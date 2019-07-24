@@ -72,9 +72,11 @@ This requires that you either A) use the ssl companion app or B) provide your ow
 
 ### Ssl Companion App
 
-The easiest way to secure your apps with SSL is to have the ssl app generate/renew a fitting wildcard certificate. The app is designed to provide domain validation via DNS.
+The cheapest way to secure your apps with SSL is to have the ssl app generate/renew a fitting wildcard certificate. The app is designed to provide domain validation via DNS.
 
-As for all other apps, copy the ``.env.default`` file to ``.env`` inside the app folder and provide the necessary configuration in the copied file. Additionally, edit the ``domains.conf`` file of the ssl app by replacing the string ``DOMAIN`` according to your wildcard domain like ``*.example.org``. Then simply start the app by execitung ``docker-compose up -d``. (Note: Do not remove the trailing string ``autorestart-containers=wappsprxy_traefik_1``!)
+As for all other apps, copy the ``.env.default`` file to ``.env`` inside the app folder and provide the necessary configuration in the copied file. Additionally, edit the ``domains.conf`` file of the ssl app by replacing the string ``DOMAIN`` according to your wildcard domain like ``*.example.org``. (Note: Do not remove the trailing string ``autorestart-containers=wappsprxy_traefik_1``!) Then simply start the app by executing ``$ sudo docker-compose up -d``. Check the logs with ``$ sudo docker-compose logs`` to determine the exact path of the certificate files.
+
+Finally, point the two variables ``${TRAEFIK_PEM}`` and ``${TRAEFIK_KEY}`` inside the ``.env`` file of the prxy app to the corresponding files as found in the logs of the ssl app.
 
 ### Bring Your Own Certificate
 

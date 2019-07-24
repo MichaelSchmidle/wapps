@@ -6,7 +6,7 @@ services:
     volumes:
     - mysql:/var/lib/mysql
     networks:
-    - wappsbackend
+    - wapps_backend
     restart: always
   bookstack:
     image: solidnerd/bookstack
@@ -20,12 +20,12 @@ services:
     - uploads:/var/www/bookstack/public/uploads
     - storage:/var/www/bookstack/public/storage
     networks:
-    - wappsfrontend
-    - wappsbackend
+    - wapps_frontend
+    - wapps_backend
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
-    - traefik.docker.network=wappsfrontend
+    - traefik.docker.network=wapps_frontend
     restart: always
     links:
     - mysql
@@ -34,7 +34,7 @@ volumes:
   uploads:
   storage:
 networks:
-  wappsfrontend:
+  wapps_frontend:
     external: true
-  wappsbackend:
+  wapps_backend:
     external: true

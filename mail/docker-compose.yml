@@ -5,7 +5,7 @@ services:
     volumes:
     - data:/rainloop/data
     networks:
-    - wappsfrontend
+    - wapps_frontend
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
@@ -13,5 +13,5 @@ services:
 volumes:
   data:
 networks:
-  wappsfrontend:
+  wapps_frontend:
     external: true

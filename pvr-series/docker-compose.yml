@@ -8,7 +8,7 @@ services:
     - ${SERIES_DIR}:/tv
     - ${DOWNLOADS_DIR}:${DOWNLOADS_DIR}
     networks:
-    - wappsfrontend
+    - wapps_frontend
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
@@ -16,5 +16,5 @@ services:
 volumes:
   config:
 networks:
-  wappsfrontend:
+  wapps_frontend:
     external: true

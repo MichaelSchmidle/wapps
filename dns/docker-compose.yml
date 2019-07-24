@@ -8,7 +8,7 @@ services:
     - dnsmasq:/etc/dnsmasq.d/
     - ./hosts:/etc/hosts
     networks:
-    - wappsfrontend
+    - wapps_frontend
     ports:
     - ${ServerIP}:53:53/tcp
     - ${ServerIP}:53:53/udp
@@ -21,5 +21,5 @@ volumes:
   pihole:
   dnsmasq:
 networks:
-  wappsfrontend:
+  wapps_frontend:
     external: true

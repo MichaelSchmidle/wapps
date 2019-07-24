@@ -6,11 +6,11 @@ services:
     - ./Caddyfile:/etc/Caddyfile
     - ${FILE_DIR}:/var/www/html
     networks:
-    - wappsfrontend
+    - wapps_frontend
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
     restart: always
 networks:
-  wappsfrontend:
+  wapps_frontend:
     external: true

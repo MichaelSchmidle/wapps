@@ -7,3 +7,8 @@ services:
     - /etc/letsencrypt:/etc/letsencrypt
     - /var/run/docker.sock:/var/run/docker.sock
     env_file: .env
+    networks:
+    - wapps_backend
+networks:
+  wapps_backend:
+    external: true

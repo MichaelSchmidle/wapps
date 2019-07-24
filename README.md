@@ -88,8 +88,8 @@ Alternatively, you can use a custom certificate. Configure the path to the certi
 Before starting any app, you first need to create the two networks that the apps use. Enter the following two commands:
 
 ```
-$ sudo docker network create wappsfrontend
-$ sudo docker network create wappsbackend
+$ sudo docker network create wapps_frontend
+$ sudo docker network create wapps_backend
 ```
 
 Use the flag ``--subnet`` in case you want to define the CIDR notated IP ranges (i.e. ``10.11.12.0/24``) of these two networks.

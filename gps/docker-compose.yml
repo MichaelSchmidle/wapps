@@ -8,7 +8,7 @@ services:
     environment:
     - MYSQL_RANDOM_ROOT_PASSWORD=yes
     networks:
-    - wappsbackend
+    - wapps_backend
     restart: always
   traccar:
     image: traccar/traccar
@@ -18,11 +18,11 @@ services:
     - ./traccar.xml:/opt/traccar/conf/traccar.xml:ro
     - logs:/opt/traccar/logs
     networks:
-    - wappsfrontend
-    - wappsbackend
+    - wapps_frontend
+    - wapps_backend
     labels:
     - traefik.enable=true
-    - traefik.docker.network=wappsfrontend
+    - traefik.docker.network=wapps_frontend
     - traefik.frontend.rule=Host:${TRAEFIK_HOST}
     - traefik.port=8082
     restart: always
@@ -32,7 +32,7 @@ volumes:
   mysql:
   logs:
 networks:
-  wappsfrontend:
+  wapps_frontend:
     external: true
-  wappsbackend:
+  wapps_backend:
     external: true

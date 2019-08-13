@@ -9,6 +9,7 @@ services:
     env_file: .env
     networks:
     - wapps_backend
+    restart: always
 networks:
   wapps_backend:
     external: true

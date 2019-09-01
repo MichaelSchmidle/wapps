@@ -1,0 +1,29 @@
+version: '3.3'
+services:
+  postgres:
+    image: postgres
+    env_file: .env
+    volumes:
+    - data:/var/lib/postgresql/data
+    networks:
+    - wapps_backend
+    restart: always
+  netbox:
+    image: pitkley/netbox
+    env_file: .env
+    environment:
+      ALLOWED_HOSTS: $TRAEFIK_HOST
+      DB_HOST: wapps_ipam-beta_postgres_1
+      DB_NAME: ${POSTGRES_DB}
+      DB_PASS: ${POSTGRES_PASSWORD}
+      DB_USER: ${POSTGRES_USER}
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:${TRAEFIK_HOST}
+    - traefik.docker.network=wapps_frontend
+    networks:
+    - wapps_frontend
+    - wapps_backend
+    restart: always
+    links:
+    - postgres

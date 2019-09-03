@@ -25,5 +25,10 @@ services:
     - wapps_frontend
     - wapps_backend
     restart: always
-    links:
-    - postgres
+volumes:
+  data:
+networks:
+  wapps_frontend:
+    external: true
+  wapps_backend:
+    external: true

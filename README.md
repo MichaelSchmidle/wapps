@@ -32,7 +32,7 @@ Listed below are the web apps that give this repository its name wapps. It’s p
 | gps  | GPS tracking system based on [Traccar](https://www.traccar.org/) | public |
 | ipam | IP address management (IPAM) based on [phpipam](https://github.com/pierrecdn/phpipam/) | public |
 | jump | RDP gateway based on [Guacamole](https://guacamole.apache.org/) | public |
-| know | Wiki based on [Bookstack](https://www.bookstackapp.com/) as alternative to the know app | public |
+| know | Wiki based on [Bookstack](https://www.bookstackapp.com/) | public |
 | mail | Webmail based on [Rainloop](https://www.rainloop.net/) | public |
 | pics | Photo management based on [Lychee](https://lychee.electerious.com/) | public |
 | pvr-movies | PVR for movies based on [Radarr](https://radarr.video/) | public |
@@ -49,6 +49,7 @@ The following apps are still in beta; yet I want to test them as part of my wapp
 
 | App  | Description | Availability |
 | :----| :---------- | :----------- |
+| ipam-beta | IP address management (IPAM) based on [Netbox](https://github.com/netbox-community/netbox) | public |
 | know-beta | Wiki based on [Wiki.js](https://wiki.js.org/) | public |
 
 # Why Self-host?

@@ -49,6 +49,7 @@ The following apps are still in beta; yet I want to test them as part of my wapp
 
 | App  | Description | Availability |
 | :----| :---------- | :----------- |
+| ipam-beta | IPAM based on [Netbox](https://github.com/netbox-community/netbox) | public |
 | know-beta | Wiki based on [Wiki.js](https://wiki.js.org/) | public |
 
 # Why Self-host?

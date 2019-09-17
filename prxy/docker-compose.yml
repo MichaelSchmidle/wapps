@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   traefik:
-    image: traefik
+    image: traefik:1.7
     networks:
     - wapps_frontend
     ports:

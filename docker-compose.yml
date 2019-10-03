@@ -1,0 +1,31 @@
+version: '3.3'
+
+services:
+
+  prxy:
+    command: --api.insecure=true --providers.docker
+    image: traefik
+    labels:
+      - "traefik.http.routers.prxy.rule=Host(`${PRXY_HOST}`)"
+      - "traefik.http.services.prxy.loadbalancer.server.port=8080"
+    ports:
+      - "${IP}:80:80"
+      - "${IP}:4443:4443"
+    restart: always
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - ./traefik.yml:/etc/traefik/traefik.yml
+
+  dckr:
+    image: portainer/portainer
+    labels:
+    - "traefik.http.routers.dckr.rule=Host(`${DCKR_HOST}`)"
+    - "traefik.http.services.dckr.loadbalancer.server.port=9000"
+    restart: always
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - dckr_data:/data
+
+volumes:
+
+  dckr_data:

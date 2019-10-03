@@ -5,6 +5,7 @@ services:
   prxy:
     command:
     - "--api.insecure=true"
+    - "--certificatesResolvers.wapps.acme.dnsChallenge.provider=${DNS_PROVIDER}"
     - "--entryPoints.http.address=:80"
     - "--entryPoints.https.address=:443"
     - "--entryPoints.https-mgmt.address=:4443"

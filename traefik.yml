@@ -1,7 +1,0 @@
-entryPoints:
-  http:
-    address: ":80"
-  https:
-    address: ":443"
-  https-mgmt:
-    address: ":4443"

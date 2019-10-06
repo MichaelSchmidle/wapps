@@ -2,18 +2,37 @@ version: '3.3'
 
 services:
 
+  dckr:
+    image: portainer/portainer
+    labels:
+      - "traefik.http.routers.dckr.rule=Host(`${DCKR_HOST}`)"
+      - "traefik.http.routers.dckr.entrypoints=https-mgmt"
+      - "traefik.http.routers.dckr.tls"
+      - "traefik.http.routers.dckr.tls.certResolver=wapps"
+      - "traefik.http.services.dckr.loadbalancer.server.port=9000"
+    restart: always
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "dckr_data:/data"
+
   prxy:
     command:
     - "--api.insecure=true"
+    - "--certificatesResolvers.wapps.acme.dnsChallenge"
     - "--certificatesResolvers.wapps.acme.dnsChallenge.provider=${DNS_PROVIDER}"
+    - "--certificatesResolvers.wapps.acme.email=${EMAIL}"
+    - "--certificatesResolvers.wapps.acme.storage=/wapps/acme.json"
     - "--entryPoints.http.address=:80"
     - "--entryPoints.https.address=:443"
     - "--entryPoints.https-mgmt.address=:4443"
     - "--providers.docker"
+    env_file: .env
     image: traefik
     labels:
       - "traefik.http.routers.prxy.rule=Host(`${PRXY_HOST}`)"
       - "traefik.http.routers.prxy.entrypoints=https-mgmt"
+      - "traefik.http.routers.prxy.tls"
+      - "traefik.http.routers.prxy.tls.certResolver=wapps"
       - "traefik.http.services.prxy.loadbalancer.server.port=8080"
     ports:
       - "${IP}:80:80"
@@ -22,18 +41,9 @@ services:
     restart: always
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-
-  dckr:
-    image: portainer/portainer
-    labels:
-      - "traefik.http.routers.dckr.rule=Host(`${DCKR_HOST}`)"
-      - "traefik.http.routers.dckr.entrypoints=https-mgmt"
-      - "traefik.http.services.dckr.loadbalancer.server.port=9000"
-    restart: always
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "dckr_data:/data"
+      - "prxy_acme:/wapps"
 
 volumes:
 
   dckr_data:
+  prxy_acme:

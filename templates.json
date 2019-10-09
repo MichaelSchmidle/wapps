@@ -29,13 +29,13 @@
         "env": [
             {
                 "default": "1.1.1.1",
-                "description": "IP of the primary upstream DNS provider, i.e. ``1.1.1.1``",
+                "description": "IP of the primary upstream DNS provider, i.e. 1.1.1.1",
                 "label": "Primary DNS",
                 "name": "DNS1"
             },
             {
                 "default": "1.0.0.1",
-                "description": "IP of the secondary upstream DNS provider, i.e. ``1.0.0.1``",
+                "description": "IP of the secondary upstream DNS provider, i.e. 1.0.0.1",
                 "label": "Secondary DNS",
                 "name": "DNS2"
             },
@@ -50,7 +50,7 @@
                 "name": "IP"
             },
             {
-                "description": "Initial administrator password (can and should be changed via GUI of the app)",
+                "description": "Initial administrator password, please change after first login",
                 "label": "Password",
                 "name": "PASSWORD"
             },

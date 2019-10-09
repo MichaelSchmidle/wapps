@@ -4,7 +4,7 @@ networks:
     external: true
 services:
   portainer:
-    command: "--logo https://raw.githubusercontent.com/MichaelSchmidle/wapps/Kartoffel/wapps-logo.svg"
+    command: "--logo https://cdn.jsdelivr.net/gh/MichaelSchmidle/wapps@Kartoffel/wapps-logo.svg"
     image: "portainer/portainer"
     labels:
       - "traefik.http.routers.portainer.entrypoints=https-mgmt"

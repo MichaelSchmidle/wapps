@@ -1,24 +1,26 @@
 version: '2'
-
+networks:
+  wapps:
+    external: true
 services:
-
-  dckr:
-    image: portainer/portainer
+  portainer:
+    command: "--logo https://github.com/MichaelSchmidle/wapps/blob/Kartoffel/wapps-logo.svg"
+    image: "portainer/portainer"
     labels:
-      - "traefik.http.routers.dckr.entrypoints=https-mgmt"
-      - "traefik.http.routers.dckr.rule=Host(`${DCKR_HOST}`)"
-      - "traefik.http.routers.dckr.tls.certResolver=wapps"
-      - "traefik.http.services.dckr.loadbalancer.server.port=9000"
-    restart: always
+      - "traefik.http.routers.portainer.entrypoints=https-mgmt"
+      - "traefik.http.routers.portainer.rule=Host(`${PORTAINER_HOST}`)"
+      - "traefik.http.routers.portainer.tls.certResolver=wapps"
+      - "traefik.http.services.portainer.loadbalancer.server.port=9000"
+    networks:
+      - "wapps"
+    restart: "always"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "dckr_data:/data"
-      - "./wapps.json:/templates.json"
-
-  prxy:
+      - "portainer_data:/data"
+      - "./templates.json:/templates.json"
+  traefik:
     command:
     - "--api.insecure=true"
-    - "--certificatesResolvers.wapps.acme.dnsChallenge"
     - "--certificatesResolvers.wapps.acme.dnsChallenge.provider=${DNS_PROVIDER}"
     - "--certificatesResolvers.wapps.acme.email=${EMAIL}"
     - "--certificatesResolvers.wapps.acme.storage=/wapps/acme.json"
@@ -26,23 +28,23 @@ services:
     - "--entryPoints.https.address=:443"
     - "--entryPoints.https-mgmt.address=:${HTTPS_MGMT_PORT}"
     - "--providers.docker"
-    env_file: .env
-    image: traefik
+    env_file: ".env"
+    image: "traefik"
     labels:
-      - "traefik.http.routers.prxy.entrypoints=https-mgmt"
-      - "traefik.http.routers.prxy.rule=Host(`${PRXY_HOST}`)"
-      - "traefik.http.routers.prxy.tls.certResolver=wapps"
-      - "traefik.http.services.prxy.loadbalancer.server.port=8080"
+      - "traefik.http.routers.traefik.entrypoints=https-mgmt"
+      - "traefik.http.routers.traefik.rule=Host(`${TRAEFIK_HOST}`)"
+      - "traefik.http.routers.traefik.tls.certResolver=wapps"
+      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+    networks:
+      - "wapps"
     ports:
       - "${IP}:80:80"
       - "${IP}:443:443"
       - "${IP}:4443:4443"
-    restart: always
+    restart: "always"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "prxy_acme:/wapps"
-
+      - "traefik_acme:/wapps"
 volumes:
-
-  dckr_data:
-  prxy_acme:
+  portainer_data:
+  traefik_acme:

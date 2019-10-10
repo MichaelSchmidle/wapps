@@ -4,8 +4,8 @@
         "title": "wapps data",
         "description": "Database management based on Adminer",
         "repository": {
-            "stackfile": "stacks/data/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps-sets"
+            "stackfile": "composition/data/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
         },
         "env": [
             {
@@ -15,7 +15,7 @@
             }
         ],
         "name": "wapps_data",
-        "note": "This app is considered private, meaning that it will be available via the <code>HTTPS_MGMT_PORT</code> as configured in the <code>.env</code> file of your wapps instance",
+        "note": "This wapp provides access to all databases deployed by other wapps. To secure access to this sensible wapp, it is exposed exclusively via the <code>HTTPS_MGMT_PORT</code> as configured in the <code>.env</code> file of your wappster instance",
         "platform": "linux"
     },
     {
@@ -23,8 +23,8 @@
         "title": "wapps dns",
         "description": "DNS-level ad blocker based on Pi-hole",
         "repository": {
-            "stackfile": "stacks/dns/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps-sets"
+            "stackfile": "composition/dns/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
         },
         "env": [
             {
@@ -69,8 +69,8 @@
         "title": "wapps get",
         "description": "Static file server based on Caddy",
         "repository": {
-            "stackfile": "stacks/get/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps-sets"
+            "stackfile": "composition/get/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
         },
         "env": [
             {
@@ -89,47 +89,11 @@
     },
     {
         "type": 3,
-        "title": "wapps gps",
-        "description": "GPS tracking system based on Traccar",
-        "repository": {
-            "stackfile": "stacks/gps/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps-sets"
-        },
-        "env": [
-            {
-                "description": "The DNS hostname pointing to this app",
-                "label": "Host",
-                "name": "HOST"
-            },
-            {
-                "default": "wapps_gps",
-                "description": "The name of the database",
-                "label": "Database",
-                "name": "MYSQL_DATABASE"
-            },
-            {
-                "default": "wapps_gps",
-                "description": "The name of the database user",
-                "label": "Database user",
-                "name": "MYSQL_USER"
-            },
-            {
-                "default": "wapps_gps",
-                "description": "The password of the database user",
-                "label": "Database password",
-                "name": "MYSQL_PASSWORD"
-            }
-        ],
-        "name": "wapps_gps",
-        "platform": "linux"
-    },
-    {
-        "type": 3,
         "title": "wapps ipam",
         "description": "IP address management (IPAM) based on Netbox",
         "repository": {
-            "stackfile": "stacks/sss/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps-sets"
+            "stackfile": "composition/sss/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
         },
         "env": [
             {
@@ -162,7 +126,7 @@
             }
         ],
         "name": "wapps_ipam",
-        "note": "After deploying this app, you need to create a new user via the container’s command line. Log in to your Portainer instance and select the container <code>wapps_ipam_netbox_1</code>. Connect to the container's console, execute the following command and fill in the required pieces of info (username, email address and password): <code>python3 manage.py createsuperuser</code>",
+        "note": "After deploying this wapp, you need to create a new user via the container’s command line. Log in to your Portainer instance and select the container <code>wapps_ipam_netbox_1</code>. Connect to the container's console, execute the following command and fill in the required pieces of info (username, email address and password): <code>python3 manage.py createsuperuser</code>",
         "platform": "linux"
     },
     {
@@ -170,8 +134,8 @@
         "title": "wapps jump",
         "description": "RDP gateway based on Guacamole",
         "repository": {
-            "stackfile": "stacks/jump/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps-sets"
+            "stackfile": "composition/jump/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
         },
         "env": [
             {
@@ -180,19 +144,25 @@
                 "name": "HOST"
             },
             {
-                "default": "wapps_know",
+                "default": "wapps_jump",
                 "description": "The name of the database",
                 "label": "Database",
                 "name": "MYSQL_DATABASE"
             },
             {
-                "default": "wapps_know",
+                "default": "wapps_jump",
+                "description": "The password of the root user",
+                "label": "Root password",
+                "name": "MYSQL_ROOT_PASSWORD"
+            },
+            {
+                "default": "wapps_jump",
                 "description": "The name of the database user",
                 "label": "Database user",
                 "name": "MYSQL_USER"
             },
             {
-                "default": "wapps_know",
+                "default": "wapps_jump",
                 "description": "The password of the database user",
                 "label": "Database password",
                 "name": "MYSQL_PASSWORD"
@@ -206,8 +176,8 @@
         "title": "wapps know",
         "description": "Wiki based on Bookstack",
         "repository": {
-            "stackfile": "stacks/know/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps-sets"
+            "stackfile": "composition/know/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
         },
         "env": [
             {
@@ -220,6 +190,12 @@
                 "description": "The name of the database",
                 "label": "Database",
                 "name": "MYSQL_DATABASE"
+            },
+            {
+                "default": "wapps_know",
+                "description": "The password of the root user",
+                "label": "Root password",
+                "name": "MYSQL_ROOT_PASSWORD"
             },
             {
                 "default": "wapps_know",
@@ -239,47 +215,11 @@
     },
     {
         "type": 3,
-        "title": "wapps know (beta)",
-        "description": "Wiki based on Wiki.js",
-        "repository": {
-            "url": "https://github.com/MichaelSchmidle/wapps-sets",
-            "stackfile": "stacks/know-beta/docker-compose.yml"
-        },
-        "env": [
-            {
-                "description": "The DNS hostname pointing to this app",
-                "label": "Host",
-                "name": "HOST"
-            },
-            {
-                "default": "wapps_know-beta",
-                "description": "The name of the database",
-                "label": "Database",
-                "name": "POSTGRES_DB"
-            },
-            {
-                "default": "wapps_know-beta",
-                "description": "The name of the database user",
-                "label": "Database user",
-                "name": "POSTGRES_USER"
-            },
-            {
-                "default": "wapps_know-beta",
-                "description": "The password of the database user",
-                "label": "Database password",
-                "name": "POSTGRES_PASSWORD"
-            }
-        ],
-        "name": "wapps_know-beta",
-        "platform": "linux"
-    },
-    {
-        "type": 3,
         "title": "wapps pvr-movies",
         "description": "PVR for movies based on Radarr",
         "repository": {
-            "stackfile": "stacks/pvr-movies/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps-sets"
+            "stackfile": "composition/pvr-movies/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
         },
         "env": [
             {
@@ -325,8 +265,8 @@
         "title": "wapps pvr-series",
         "description": "PVR for TV series based on Radarr",
         "repository": {
-            "stackfile": "stacks/pvr-series/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps-sets"
+            "stackfile": "composition/pvr-series/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
         },
         "env": [
             {
@@ -372,14 +312,24 @@
         "title": "wapps sss",
         "description": "Simple storage app based on Minio",
         "repository": {
-            "stackfile": "stacks/sss/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps-sets"
+            "stackfile": "composition/sss/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
         },
         "env": [
             {
                 "description": "The DNS hostname pointing to this app",
                 "label": "Host",
                 "name": "HOST"
+            },
+            {
+                "description": "Access keys are like usernames",
+                "label": "Access key",
+                "name": "MINIO_ACCESS_KEY"
+            },
+            {
+                "description": "Secret keys are like passwords",
+                "label": "Secret key",
+                "name": "MINIO_SECRET_KEY"
             },
             {
                 "description": "The root folder containing the files and folders to be served",
@@ -395,8 +345,8 @@
         "title": "wapps trck",
         "description": "Website analytics based on Matomo",
         "repository": {
-            "stackfile": "stacks/trck/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps-sets"
+            "stackfile": "composition/trck/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
         },
         "env": [
             {
@@ -409,6 +359,12 @@
                 "description": "The name of the database",
                 "label": "Database",
                 "name": "MYSQL_DATABASE"
+            },
+            {
+                "default": "wapps_trck",
+                "description": "The password of the root user",
+                "label": "Root password",
+                "name": "MYSQL_ROOT_PASSWORD"
             },
             {
                 "default": "wapps_trck",
@@ -431,8 +387,8 @@
         "title": "wapps tube",
         "description": "Media downloader based on AllTube Download",
         "repository": {
-            "stackfile": "stacks/tube/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps-sets"
+            "stackfile": "composition/tube/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
         },
         "env": [
             {
@@ -442,6 +398,7 @@
             }
         ],
         "name": "wapps_tube",
+        "note": "This wapp can generate a substantial amount of traffic on your host if left accessible to the public. To secure access to this sensible wapp, it is exposed exclusively via the <code>HTTPS_MGMT_PORT</code> as configured in the <code>.env</code> file of your wappster instance",
         "platform": "linux"
     }
 ]

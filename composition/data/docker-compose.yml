@@ -1,15 +1,16 @@
-version: '2'
+version: "2"
 networks:
   wapps:
     external: true
 services:
   adminer:
     image: "adminer"
-    networks:
-    - "wapps"
     labels:
-      - "traefik.http.routers.adminer.entrypoints=https-mgmt"
+      - "traefik.http.routers.adminer.entrypoints=http,https,https-mgmt"
+      - "traefik.http.routers.adminer.middlewares=wapps-mgmt"
       - "traefik.http.routers.adminer.rule=Host(`${HOST}`)"
       - "traefik.http.routers.adminer.tls.certResolver=wapps"
       - "traefik.http.services.adminer.loadbalancer.server.port=8080"
+    networks:
+      - "wapps"
     restart: "always"

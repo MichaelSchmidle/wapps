@@ -1,0 +1,29 @@
+version: "2"
+networks:
+  wapps:
+    external: true
+services:
+  mysql:
+    image: "mysql"
+    networks:
+    - "wapps"
+    restart: "always"
+    volumes:
+    - "mysql:/var/lib/mysql"
+  matomo:
+    environment:
+    - "MATOMO_DATABASE_HOST=${COMPOSE_PROJECT_NAME}_mysql_1"
+    image: "matomo"
+    labels:
+      - "traefik.http.routers.matomo.entrypoints=http,https"
+      - "traefik.http.routers.matomo.middlewares=wapps"
+      - "traefik.http.routers.matomo.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.matomo.tls.certResolver=wapps"
+      - "traefik.http.services.matomo.loadbalancer.server.port=80"
+    networks:
+    - "wapps"
+    restart: "always"
+    volumes:
+    - "./config:/var/www/html/config"
+volumes:
+  mysql:

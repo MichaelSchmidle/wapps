@@ -1,0 +1,23 @@
+version: "2"
+networks:
+  wapps:
+    external: true
+services:
+  sonarr:
+    image: "linuxserver/sonarr"
+    labels:
+      - "traefik.http.routers.sonarr.entrypoints=http,https"
+      - "traefik.http.routers.sonarr.middlewares=wapps"
+      - "traefik.http.routers.sonarr.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.sonarr.tls.certResolver=wapps"
+      - "traefik.http.services.sonarr.loadbalancer.server.port=8989"
+    networks:
+    - "wapps"
+    restart: "always"
+    volumes:
+    - "config:/config"
+    - "/etc/localtime:/etc/localtime:ro"
+    - "${SERIES_ROOT}:/tv"
+    - "${DOWNLOADS_ROOT}:${DOWNLOADS_ROOT}"
+volumes:
+  config:

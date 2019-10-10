@@ -1,0 +1,36 @@
+version: "2"
+networks:
+  wapps:
+    external: true
+services:
+  mysql:
+    build: .
+    labels:
+    - "com.centurylinklabs.watchtower.enable=false"
+    networks:
+    - "wapps"
+    volumes:
+    - "mysql:/var/lib/mysql"
+    restart: "always"
+  guacd:
+    image: "guacamole/guacd:1.0.0"
+    networks:
+    - "wapps"
+    restart: always
+  guacamole:
+    environment:
+      - "MYSQL_HOSTNAME=${COMPOSE_PROJECT_NAME}_mysql_1"
+      - "GUACD_HOSTNAME=${COMPOSE_PROJECT_NAME}_guacd_1"
+    image: "guacamole/guacamole:1.0.0"
+    labels:
+      - "traefik.http.middlewares.guacamole.addprefix.prefix=/guacamole"
+      - "traefik.http.routers.guacamole.entrypoints=http,https"
+      - "traefik.http.routers.guacamole.middlewares=guacamole,wapps"
+      - "traefik.http.routers.guacamole.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.guacamole.tls.certResolver=wapps"
+      - "traefik.http.services.guacamole.loadbalancer.server.port=8000"
+    networks:
+    - "wapps"
+    restart: "always"
+volumes:
+  mysql:

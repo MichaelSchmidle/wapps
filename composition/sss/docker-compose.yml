@@ -1,0 +1,19 @@
+version: "2"
+networks:
+  wapps:
+    external: true
+services:
+  minio:
+    command: "server /data"
+    image: "minio/minio"
+    networks:
+    - "wapps"
+    restart: "always"
+    labels:
+      - "traefik.http.routers.minio.entrypoints=http,https"
+      - "traefik.http.routers.minio.middlewares=wapps"
+      - "traefik.http.routers.minio.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.minio.tls.certResolver=wapps"
+      - "traefik.http.services.minio.loadbalancer.server.port=9000"
+    volumes:
+    - "${ROOT}:/data"

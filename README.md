@@ -9,8 +9,9 @@ This repository contains the assets for wapps:
 
 # Why Self-host?
 
-There are two reasons for self-hosting:
+There are three reasons for self-hosting:
 
+* Availability: Required functionality not being available as managed services.
 * Cost: Paying substantially more for consuming the software as a service than self-hosting it.
 * Privacy: Not entrusting the provider with sensible data.
 
@@ -22,7 +23,7 @@ There are two reasons for self-hosting:
 | dns  | DNS-based ad blocker based on [Pi-hole](https://pi-hole.net/) | http (80) redirected to https (443) |
 | get  | Static file server based on [Caddy](https://caddyserver.com/) | http (80) redirected to https (443) |
 | gps  | GPS tracking system based on [Traccar](https://www.traccar.org/) | http (80) redirected to https (443) |
-| ipam | IP address management (IPAM) based on [Netbox](https://github.com/netbox-community/netbox) | http (80) redirected to https (443) |
+| ipam | IP address management (IPAM) based on [NetBox](https://github.com/netbox-community/netbox) | http (80) redirected to https (443) |
 | jump | RDP gateway based on [Guacamole](https://guacamole.apache.org/) | http (80) redirected to https (443) |
 | know | Wiki based on [Bookstack](https://www.bookstackapp.com/) | http (80) redirected to https (443) |
 | pvr-movies | PVR for movies based on [Radarr](https://radarr.video/) | http (80) redirected to https (443) |

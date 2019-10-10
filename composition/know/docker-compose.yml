@@ -1,0 +1,35 @@
+version: "2"
+networks:
+  wapps:
+    external: true
+services:
+  mysql:
+    image: "mysql"
+    networks:
+    - "wapps"
+    restart: "always"
+    volumes:
+    - "mysql:/var/lib/mysql"
+  bookstack:
+    environment:
+    - "DB_HOST=${COMPOSE_PROJECT_NAME}_mysql_1:3306"
+    - "DB_DATABASE=${MYSQL_DATABASE}"
+    - "DB_USERNAME=${MYSQL_USER}"
+    - "DB_PASSWORD=${MYSQL_PASSWORD}"
+    image: "solidnerd/bookstack"
+    labels:
+      - "traefik.http.routers.bookstack.entrypoints=http,https"
+      - "traefik.http.routers.bookstack.middlewares=wapps"
+      - "traefik.http.routers.bookstack.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.bookstack.tls.certResolver=wapps"
+      - "traefik.http.services.bookstack.loadbalancer.server.port=80"
+    networks:
+    - "wapps"
+    restart: "always"
+    volumes:
+    - "uploads:/var/www/bookstack/public/uploads"
+    - "storage:/var/www/bookstack/public/storage"
+volumes:
+  mysql:
+  uploads:
+  storage:

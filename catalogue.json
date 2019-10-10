@@ -5,7 +5,7 @@
         "description": "Database management based on Adminer",
         "repository": {
             "stackfile": "stacks/data/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps"
+            "url": "https://github.com/MichaelSchmidle/wapps-sets"
         },
         "env": [
             {
@@ -24,7 +24,7 @@
         "description": "DNS-level ad blocker based on Pi-hole",
         "repository": {
             "stackfile": "stacks/dns/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps"
+            "url": "https://github.com/MichaelSchmidle/wapps-sets"
         },
         "env": [
             {
@@ -70,7 +70,7 @@
         "description": "Static file server based on Caddy",
         "repository": {
             "stackfile": "stacks/get/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps"
+            "url": "https://github.com/MichaelSchmidle/wapps-sets"
         },
         "env": [
             {
@@ -93,7 +93,7 @@
         "description": "GPS tracking system based on Traccar",
         "repository": {
             "stackfile": "stacks/gps/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps"
+            "url": "https://github.com/MichaelSchmidle/wapps-sets"
         },
         "env": [
             {
@@ -129,7 +129,7 @@
         "description": "IP address management (IPAM) based on Netbox",
         "repository": {
             "stackfile": "stacks/sss/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps"
+            "url": "https://github.com/MichaelSchmidle/wapps-sets"
         },
         "env": [
             {
@@ -171,7 +171,7 @@
         "description": "RDP gateway based on Guacamole",
         "repository": {
             "stackfile": "stacks/jump/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps"
+            "url": "https://github.com/MichaelSchmidle/wapps-sets"
         },
         "env": [
             {
@@ -207,7 +207,7 @@
         "description": "Wiki based on Bookstack",
         "repository": {
             "stackfile": "stacks/know/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps"
+            "url": "https://github.com/MichaelSchmidle/wapps-sets"
         },
         "env": [
             {
@@ -242,7 +242,7 @@
         "title": "wapps know (beta)",
         "description": "Wiki based on Wiki.js",
         "repository": {
-            "url": "https://github.com/MichaelSchmidle/wapps",
+            "url": "https://github.com/MichaelSchmidle/wapps-sets",
             "stackfile": "stacks/know-beta/docker-compose.yml"
         },
         "env": [
@@ -279,7 +279,7 @@
         "description": "PVR for movies based on Radarr",
         "repository": {
             "stackfile": "stacks/pvr-movies/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps"
+            "url": "https://github.com/MichaelSchmidle/wapps-sets"
         },
         "env": [
             {
@@ -326,7 +326,7 @@
         "description": "PVR for TV series based on Radarr",
         "repository": {
             "stackfile": "stacks/pvr-series/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps"
+            "url": "https://github.com/MichaelSchmidle/wapps-sets"
         },
         "env": [
             {
@@ -373,7 +373,7 @@
         "description": "Simple storage app based on Minio",
         "repository": {
             "stackfile": "stacks/sss/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps"
+            "url": "https://github.com/MichaelSchmidle/wapps-sets"
         },
         "env": [
             {
@@ -396,7 +396,7 @@
         "description": "Website analytics based on Matomo",
         "repository": {
             "stackfile": "stacks/trck/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps"
+            "url": "https://github.com/MichaelSchmidle/wapps-sets"
         },
         "env": [
             {
@@ -432,7 +432,7 @@
         "description": "Media downloader based on AllTube Download",
         "repository": {
             "stackfile": "stacks/tube/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps"
+            "url": "https://github.com/MichaelSchmidle/wapps-sets"
         },
         "env": [
             {

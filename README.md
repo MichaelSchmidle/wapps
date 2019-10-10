@@ -33,7 +33,7 @@ There are two reasons for self-hosting:
 
 The composition files for each wapp can be found in the ``wapps-composition`` folder of this repository.
 
-<sup><a name="f1" href="#r1">1</a></sup> ``HTTPS_MGMT_PORT`` refers to the environment variable as defined in the ``.env`` file of your wapps instance. Please refer to the [wapps repository](https://github.com/MichaelSchmidle/wapps) for more information.
+<sup><a name="f1" href="#r1">1</a></sup> ``HTTPS_MGMT_PORT`` refers to the environment variable as defined in the ``.env`` file of your wappster instance. Please refer to the [wappster repository](https://github.com/MichaelSchmidle/wappster) for more instructions.
 
 # Wapps Usage
 

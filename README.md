@@ -1,3 +1,5 @@
+![wapps logo](https://cdn.jsdelivr.net/gh/MichaelSchmidle/wapps@kartoffel/logo.svg)
+
 # About Wapps
 
 Wapps is the abbreviation for self-hosted “web apps” that can be easily deployed and managed with [wappster](https://github.com/MichaelSchmidle/wappster).

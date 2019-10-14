@@ -247,7 +247,7 @@
             {
                 "default": "Europe/Zurich",
                 "description": "Time zone for this app (format: Europe/Zurich)",
-                "label":"Time zone",
+                "label": "Time zone",
                 "name": "TZ"
             },
             {
@@ -294,7 +294,7 @@
             {
                 "default": "Europe/Zurich",
                 "description": "Time zone for this app (format: Europe/Zurich)",
-                "label":"Time zone",
+                "label": "Time zone",
                 "name": "TZ"
             },
             {
@@ -322,12 +322,12 @@
                 "name": "HOST"
             },
             {
-                "description": "Access keys are like usernames",
+                "description": "The access key represents the user name",
                 "label": "Access key",
                 "name": "MINIO_ACCESS_KEY"
             },
             {
-                "description": "Secret keys are like passwords",
+                "description": "The secret key represents the password",
                 "label": "Secret key",
                 "name": "MINIO_SECRET_KEY"
             },

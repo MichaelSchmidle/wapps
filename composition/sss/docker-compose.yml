@@ -1,7 +1,8 @@
 version: "2"
 networks:
   wapps:
-    external: true
+    external:
+      name: "wapps"
 services:
   minio:
     command: "server /data"

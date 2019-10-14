@@ -1,4 +1,0 @@
-{$TRAEFIK_HOST}:80 {
-    root /var/www/html
-    browse
-}

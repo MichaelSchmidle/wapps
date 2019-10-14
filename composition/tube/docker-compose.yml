@@ -1,0 +1,17 @@
+version: "2"
+networks:
+  wapps:
+    external: true
+services:
+  alltube:
+    image: "rudloff/alltube"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+      - "traefik.http.routers.alltube.entrypoints=http,https,https-mgmt"
+      - "traefik.http.routers.alltube.middlewares=wapps-mgmt"
+      - "traefik.http.routers.alltube.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.alltube.tls.certResolver=wapps"
+      - "traefik.http.services.alltube.loadbalancer.server.port=80"
+    networks:
+    - "wapps"
+    restart: "always"

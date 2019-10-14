@@ -1,0 +1,20 @@
+version: "2"
+networks:
+  wapps:
+    external: true
+services:
+  caddy:
+    image: "abiosoft/caddy"
+    volumes:
+    - "./Caddyfile:/etc/Caddyfile"
+    - "${ROOT}:/var/www/html"
+    networks:
+    - "wapps"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+      - "traefik.http.routers.caddy.entrypoints=http,https"
+      - "traefik.http.routers.caddy.middlewares=wapps"
+      - "traefik.http.routers.caddy.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.caddy.tls.certResolver=wapps"
+      - "traefik.http.services.caddy.loadbalancer.server.port=80"
+    restart: "always"

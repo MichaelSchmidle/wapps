@@ -1,0 +1,404 @@
+[
+    {
+        "type": 3,
+        "title": "wapps data",
+        "description": "Database management based on Adminer",
+        "repository": {
+            "stackfile": "composition/data/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
+        },
+        "env": [
+            {
+                "description": "The DNS hostname pointing to this app",
+                "label": "Host",
+                "name": "HOST"
+            }
+        ],
+        "name": "wapps_data",
+        "note": "This wapp provides access to all databases deployed by other wapps. To secure access to this sensible wapp, it is exposed exclusively via the <code>HTTPS_MGMT_PORT</code> as configured in the <code>.env</code> file of your wappster instance",
+        "platform": "linux"
+    },
+    {
+        "type": 3,
+        "title": "wapps dns",
+        "description": "DNS-level ad blocker based on Pi-hole",
+        "repository": {
+            "stackfile": "composition/dns/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
+        },
+        "env": [
+            {
+                "description": "The DNS hostname pointing to this app",
+                "label": "Host",
+                "name": "HOST"
+            },
+            {
+                "default": "1.1.1.1",
+                "description": "IP of the primary upstream DNS provider, i.e. 1.1.1.1",
+                "label": "Primary DNS",
+                "name": "DNS1"
+            },
+            {
+                "default": "1.0.0.1",
+                "description": "IP of the secondary upstream DNS provider, i.e. 1.0.0.1",
+                "label": "Secondary DNS",
+                "name": "DNS2"
+            },
+            {
+                "description": "The server IP listening to DNS requests",
+                "label": "Server IP",
+                "name": "IP"
+            },
+            {
+                "description": "Initial administrator password, please change after first login",
+                "label": "Password",
+                "name": "PASSWORD"
+            },
+            {
+                "default": "Europe/Zurich",
+                "description": "Time zone for this app (format: Europe/Zurich)",
+                "label": "Time zone",
+                "name": "TZ"
+            }
+        ],
+        "name": "wapps_dns",
+        "platform": "linux"
+    },
+    {
+        "type": 3,
+        "title": "wapps get",
+        "description": "Static file server based on Caddy",
+        "repository": {
+            "stackfile": "composition/get/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
+        },
+        "env": [
+            {
+                "description": "The DNS hostname pointing to this app",
+                "label": "Host",
+                "name": "HOST"
+            },
+            {
+                "description": "The root folder containing the files to be served",
+                "label": "Root folder",
+                "name": "ROOT"
+            }
+        ],
+        "name": "wapps_get",
+        "platform": "linux"
+    },
+    {
+        "type": 3,
+        "title": "wapps ipam",
+        "description": "IP address management (IPAM) based on Netbox",
+        "repository": {
+            "stackfile": "composition/sss/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
+        },
+        "env": [
+            {
+                "description": "The DNS hostname pointing to this app",
+                "label": "Host",
+                "name": "HOST"
+            },
+            {
+                "default": "wapps_ipam",
+                "description": "The name of the database",
+                "label": "Database",
+                "name": "POSTGRES_DB"
+            },
+            {
+                "default": "wapps_ipam",
+                "description": "The name of the database user",
+                "label": "Database user",
+                "name": "POSTGRES_USER"
+            },
+            {
+                "default": "wapps_ipam",
+                "description": "The password of the database user",
+                "label": "Database password",
+                "name": "POSTGRES_PASSWORD"
+            },
+            {
+                "description": "Random string required by the app, recommended minimum length: 50 characters",
+                "label": "Secret key",
+                "name": "SECRET_KEY"
+            }
+        ],
+        "name": "wapps_ipam",
+        "note": "After deploying this wapp, you need to create a new user via the container’s command line. Log in to your Portainer instance and select the container <code>wapps_ipam_netbox_1</code>. Connect to the container's console, execute the following command and fill in the required pieces of info (username, email address and password): <code>python3 manage.py createsuperuser</code>",
+        "platform": "linux"
+    },
+    {
+        "type": 3,
+        "title": "wapps jump",
+        "description": "RDP gateway based on Guacamole",
+        "repository": {
+            "stackfile": "composition/jump/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
+        },
+        "env": [
+            {
+                "description": "The DNS hostname pointing to this app",
+                "label": "Host",
+                "name": "HOST"
+            },
+            {
+                "default": "wapps_jump",
+                "description": "The name of the database",
+                "label": "Database",
+                "name": "MYSQL_DATABASE"
+            },
+            {
+                "default": "wapps_jump",
+                "description": "The password of the root user",
+                "label": "Root password",
+                "name": "MYSQL_ROOT_PASSWORD"
+            },
+            {
+                "default": "wapps_jump",
+                "description": "The name of the database user",
+                "label": "Database user",
+                "name": "MYSQL_USER"
+            },
+            {
+                "default": "wapps_jump",
+                "description": "The password of the database user",
+                "label": "Database password",
+                "name": "MYSQL_PASSWORD"
+            }
+        ],
+        "name": "wapps_jump",
+        "platform": "linux"
+    },
+    {
+        "type": 3,
+        "title": "wapps know",
+        "description": "Wiki based on Bookstack",
+        "repository": {
+            "stackfile": "composition/know/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
+        },
+        "env": [
+            {
+                "description": "The DNS hostname pointing to this app",
+                "label": "Host",
+                "name": "HOST"
+            },
+            {
+                "default": "wapps_know",
+                "description": "The name of the database",
+                "label": "Database",
+                "name": "MYSQL_DATABASE"
+            },
+            {
+                "default": "wapps_know",
+                "description": "The password of the root user",
+                "label": "Root password",
+                "name": "MYSQL_ROOT_PASSWORD"
+            },
+            {
+                "default": "wapps_know",
+                "description": "The name of the database user",
+                "label": "Database user",
+                "name": "MYSQL_USER"
+            },
+            {
+                "default": "wapps_know",
+                "description": "The password of the database user",
+                "label": "Database password",
+                "name": "MYSQL_PASSWORD"
+            }
+        ],
+        "name": "wapps_know",
+        "platform": "linux"
+    },
+    {
+        "type": 3,
+        "title": "wapps pvr-movies",
+        "description": "PVR for movies based on Radarr",
+        "repository": {
+            "stackfile": "composition/pvr-movies/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
+        },
+        "env": [
+            {
+                "description": "Location of movie library on disk",
+                "label": "Movies root folder",
+                "name": "MOVIES_ROOT"
+            },
+            {
+                "description": "Location of download manager output directory",
+                "label": "Downloads root folder",
+                "name": "DOWNLOADS_ROOT"
+            },
+            {
+                "default": "1000",
+                "description": "PUID, i.e. 1000",
+                "label": "User identifier",
+                "name": "PUID"
+            },
+            {
+                "default": "1000",
+                "description": "PGID, i.e. 1000",
+                "label": "Group identifier",
+                "name": "PGID"
+            },
+            {
+                "default": "Europe/Zurich",
+                "description": "Time zone for this app (format: Europe/Zurich)",
+                "label": "Time zone",
+                "name": "TZ"
+            },
+            {
+                "default": "022",
+                "description": "Control permissions of files and directories created by this app, i.e. 022",
+                "label": "umask set",
+                "name": "UMASK_SET"
+            }
+        ],
+        "name": "wapps_pvr-movies",
+        "platform": "linux"
+    },
+    {
+        "type": 3,
+        "title": "wapps pvr-series",
+        "description": "PVR for TV series based on Radarr",
+        "repository": {
+            "stackfile": "composition/pvr-series/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
+        },
+        "env": [
+            {
+                "description": "Location of TV series library on disk",
+                "label": "TV series root folder",
+                "name": "SERIES_ROOT"
+            },
+            {
+                "description": "Location of download manager output directory",
+                "label": "Downloads root folder",
+                "name": "DOWNLOADS_ROOT"
+            },
+            {
+                "default": "1000",
+                "description": "PUID, i.e. 1000",
+                "label": "User identifier",
+                "name": "PUID"
+            },
+            {
+                "default": "1000",
+                "description": "PGID, i.e. 1000",
+                "label": "Group identifier",
+                "name": "PGID"
+            },
+            {
+                "default": "Europe/Zurich",
+                "description": "Time zone for this app (format: Europe/Zurich)",
+                "label": "Time zone",
+                "name": "TZ"
+            },
+            {
+                "default": "022",
+                "description": "Control permissions of files and directories created by this app, i.e. 022",
+                "label": "umask set",
+                "name": "UMASK_SET"
+            }
+        ],
+        "name": "wapps_pvr-series",
+        "platform": "linux"
+    },
+    {
+        "type": 3,
+        "title": "wapps sss",
+        "description": "Simple storage app based on Minio",
+        "repository": {
+            "stackfile": "composition/sss/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
+        },
+        "env": [
+            {
+                "description": "The DNS hostname pointing to this app",
+                "label": "Host",
+                "name": "HOST"
+            },
+            {
+                "description": "The access key represents the user name",
+                "label": "Access key",
+                "name": "MINIO_ACCESS_KEY"
+            },
+            {
+                "description": "The secret key represents the password",
+                "label": "Secret key",
+                "name": "MINIO_SECRET_KEY"
+            },
+            {
+                "description": "The root folder containing the files and folders to be served",
+                "label": "Root folder",
+                "name": "ROOT"
+            }
+        ],
+        "name": "wapps_sss",
+        "platform": "linux"
+    },
+    {
+        "type": 3,
+        "title": "wapps trck",
+        "description": "Website analytics based on Matomo",
+        "repository": {
+            "stackfile": "composition/trck/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
+        },
+        "env": [
+            {
+                "description": "The DNS hostname pointing to this app",
+                "label": "Host",
+                "name": "HOST"
+            },
+            {
+                "default": "wapps_trck",
+                "description": "The name of the database",
+                "label": "Database",
+                "name": "MYSQL_DATABASE"
+            },
+            {
+                "default": "wapps_trck",
+                "description": "The password of the root user",
+                "label": "Root password",
+                "name": "MYSQL_ROOT_PASSWORD"
+            },
+            {
+                "default": "wapps_trck",
+                "description": "The name of the database user",
+                "label": "Database user",
+                "name": "MYSQL_USER"
+            },
+            {
+                "default": "wapps_trck",
+                "description": "The password of the database user",
+                "label": "Database password",
+                "name": "MYSQL_PASSWORD"
+            }
+        ],
+        "name": "wapps_trck",
+        "platform": "linux"
+    },
+    {
+        "type": 3,
+        "title": "wapps tube",
+        "description": "Media downloader based on AllTube Download",
+        "repository": {
+            "stackfile": "composition/tube/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
+        },
+        "env": [
+            {
+                "description": "The DNS hostname pointing to this app",
+                "label": "Host",
+                "name": "HOST"
+            }
+        ],
+        "name": "wapps_tube",
+        "note": "This wapp can generate a substantial amount of traffic on your host if left accessible to the public. To secure access to this sensible wapp, it is exposed exclusively via the <code>HTTPS_MGMT_PORT</code> as configured in the <code>.env</code> file of your wappster instance",
+        "platform": "linux"
+    }
+]

@@ -6,6 +6,7 @@ services:
   alltube:
     image: "rudloff/alltube"
     labels:
+      - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.routers.alltube.entrypoints=http,https,https-mgmt"
       - "traefik.http.routers.alltube.middlewares=wapps-mgmt"
       - "traefik.http.routers.alltube.rule=Host(`${HOST}`)"

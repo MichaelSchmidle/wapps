@@ -10,6 +10,7 @@ services:
     - "wapps"
     restart: "always"
     labels:
+      - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.routers.minio.entrypoints=http,https"
       - "traefik.http.routers.minio.middlewares=wapps"
       - "traefik.http.routers.minio.rule=Host(`${HOST}`)"

@@ -6,6 +6,7 @@ services:
   sonarr:
     image: "linuxserver/sonarr"
     labels:
+      - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.routers.sonarr.entrypoints=http,https"
       - "traefik.http.routers.sonarr.middlewares=wapps"
       - "traefik.http.routers.sonarr.rule=Host(`${HOST}`)"

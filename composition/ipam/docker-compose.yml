@@ -19,6 +19,7 @@ services:
       - "DB_USER=${POSTGRES_USER}"
     image: "pitkley/netbox"
     labels:
+      - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.routers.netbox.entrypoints=http,https"
       - "traefik.http.routers.netbox.middlewares=wapps"
       - "traefik.http.routers.netbox.rule=Host(`${HOST}`)"

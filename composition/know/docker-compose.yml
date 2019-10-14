@@ -5,6 +5,8 @@ networks:
 services:
   mysql:
     image: "mysql"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
     networks:
     - "wapps"
     restart: "always"
@@ -18,6 +20,7 @@ services:
     - "DB_PASSWORD=${MYSQL_PASSWORD}"
     image: "solidnerd/bookstack"
     labels:
+      - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.routers.bookstack.entrypoints=http,https"
       - "traefik.http.routers.bookstack.middlewares=wapps"
       - "traefik.http.routers.bookstack.rule=Host(`${HOST}`)"

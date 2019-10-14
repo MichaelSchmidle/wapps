@@ -6,6 +6,7 @@ services:
   radarr:
     image: "linuxserver/radarr"
     labels:
+      - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.routers.radarr.entrypoints=http,https"
       - "traefik.http.routers.radarr.middlewares=wapps"
       - "traefik.http.routers.radarr.rule=Host(`${HOST}`)"

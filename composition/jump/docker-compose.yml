@@ -5,8 +5,6 @@ networks:
 services:
   mysql:
     build: .
-    labels:
-    - "com.centurylinklabs.watchtower.enable=false"
     networks:
     - "wapps"
     volumes:
@@ -14,6 +12,8 @@ services:
     restart: "always"
   guacd:
     image: "guacamole/guacd:1.0.0"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
     networks:
     - "wapps"
     restart: always
@@ -23,6 +23,7 @@ services:
       - "GUACD_HOSTNAME=${COMPOSE_PROJECT_NAME}_guacd_1"
     image: "guacamole/guacamole:1.0.0"
     labels:
+      - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.middlewares.guacamole.addprefix.prefix=/guacamole"
       - "traefik.http.routers.guacamole.entrypoints=http,https"
       - "traefik.http.routers.guacamole.middlewares=guacamole,wapps"

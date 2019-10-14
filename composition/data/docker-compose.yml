@@ -6,6 +6,7 @@ services:
   adminer:
     image: "adminer"
     labels:
+      - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.routers.adminer.entrypoints=http,https,https-mgmt"
       - "traefik.http.routers.adminer.middlewares=wapps-mgmt"
       - "traefik.http.routers.adminer.rule=Host(`${HOST}`)"

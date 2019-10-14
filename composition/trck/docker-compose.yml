@@ -15,6 +15,7 @@ services:
     - "MATOMO_DATABASE_HOST=${COMPOSE_PROJECT_NAME}_mysql_1"
     image: "matomo"
     labels:
+      - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.routers.matomo.entrypoints=http,https"
       - "traefik.http.routers.matomo.middlewares=wapps"
       - "traefik.http.routers.matomo.rule=Host(`${HOST}`)"

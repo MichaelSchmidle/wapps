@@ -11,6 +11,7 @@ services:
     networks:
     - "wapps"
     labels:
+      - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.routers.caddy.entrypoints=http,https"
       - "traefik.http.routers.caddy.middlewares=wapps"
       - "traefik.http.routers.caddy.rule=Host(`${HOST}`)"

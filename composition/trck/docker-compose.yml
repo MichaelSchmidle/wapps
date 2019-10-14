@@ -7,13 +7,13 @@ services:
   mysql:
     image: "mysql"
     networks:
-    - "wapps"
+      - "wapps"
     restart: "always"
     volumes:
-    - "mysql:/var/lib/mysql"
+      - "mysql:/var/lib/mysql"
   matomo:
     environment:
-    - "MATOMO_DATABASE_HOST=${COMPOSE_PROJECT_NAME}_mysql_1"
+      - "MATOMO_DATABASE_HOST=${COMPOSE_PROJECT_NAME}_mysql_1"
     image: "matomo"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
@@ -23,9 +23,9 @@ services:
       - "traefik.http.routers.matomo.tls.certResolver=wapps"
       - "traefik.http.services.matomo.loadbalancer.server.port=80"
     networks:
-    - "wapps"
+      - "wapps"
     restart: "always"
     volumes:
-    - "./config:/var/www/html/config"
+      - "./config:/var/www/html/config"
 volumes:
   mysql:

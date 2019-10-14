@@ -8,7 +8,7 @@ services:
     command: "server /data"
     image: "minio/minio"
     networks:
-    - "wapps"
+      - "wapps"
     restart: "always"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"

@@ -9,16 +9,16 @@ services:
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
     networks:
-    - "wapps"
+      - "wapps"
     restart: "always"
     volumes:
-    - "mysql:/var/lib/mysql"
+      - "mysql:/var/lib/mysql"
   bookstack:
     environment:
-    - "DB_HOST=${COMPOSE_PROJECT_NAME}_mysql_1:3306"
-    - "DB_DATABASE=${MYSQL_DATABASE}"
-    - "DB_USERNAME=${MYSQL_USER}"
-    - "DB_PASSWORD=${MYSQL_PASSWORD}"
+      - "DB_HOST=${COMPOSE_PROJECT_NAME}_mysql_1:3306"
+      - "DB_DATABASE=${MYSQL_DATABASE}"
+      - "DB_USERNAME=${MYSQL_USER}"
+      - "DB_PASSWORD=${MYSQL_PASSWORD}"
     image: "solidnerd/bookstack"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
@@ -28,11 +28,11 @@ services:
       - "traefik.http.routers.bookstack.tls.certResolver=wapps"
       - "traefik.http.services.bookstack.loadbalancer.server.port=80"
     networks:
-    - "wapps"
+      - "wapps"
     restart: "always"
     volumes:
-    - "uploads:/var/www/bookstack/public/uploads"
-    - "storage:/var/www/bookstack/public/storage"
+      - "uploads:/var/www/bookstack/public/uploads"
+      - "storage:/var/www/bookstack/public/storage"
 volumes:
   mysql:
   uploads:

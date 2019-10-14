@@ -14,12 +14,12 @@ services:
       - "traefik.http.routers.radarr.tls.certResolver=wapps"
       - "traefik.http.services.radarr.loadbalancer.server.port=7878"
     networks:
-    - "wapps"
+      - "wapps"
     restart: "always"
     volumes:
-    - "config:/config"
-    - "/etc/localtime:/etc/localtime:ro"
-    - "${MOVIES_ROOT}:/movies"
-    - "${DOWNLOADS_ROOT}:${DOWNLOADS_ROOT}"
+      - "config:/config"
+      - "/etc/localtime:/etc/localtime:ro"
+      - "${MOVIES_ROOT}:/movies"
+      - "${DOWNLOADS_ROOT}:${DOWNLOADS_ROOT}"
 volumes:
   config:

@@ -7,10 +7,10 @@ services:
   postgres:
     image: "postgres"
     networks:
-    - "wapps"
+      - "wapps"
     restart: "always"
     volumes:
-    - "data:/var/lib/postgresql/data"
+      - "data:/var/lib/postgresql/data"
   netbox:
     environment:
       - "ALLOWED_HOSTS=$HOST"
@@ -27,7 +27,7 @@ services:
       - "traefik.http.routers.netbox.tls.certResolver=wapps"
       - "traefik.http.services.netbox.loadbalancer.server.port=8000"
     networks:
-    - "wapps"
+      - "wapps"
     restart: "always"
 volumes:
   data:

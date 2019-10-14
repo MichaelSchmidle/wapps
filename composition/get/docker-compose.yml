@@ -7,10 +7,10 @@ services:
   caddy:
     image: "abiosoft/caddy"
     volumes:
-    - "./Caddyfile:/etc/Caddyfile"
-    - "${ROOT}:/var/www/html"
+      - "./Caddyfile:/etc/Caddyfile"
+      - "${ROOT}:/var/www/html"
     networks:
-    - "wapps"
+      - "wapps"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.routers.caddy.entrypoints=http,https"

@@ -7,16 +7,16 @@ services:
   mysql:
     build: .
     networks:
-    - "wapps"
+      - "wapps"
     volumes:
-    - "mysql:/var/lib/mysql"
+      - "mysql:/var/lib/mysql"
     restart: "always"
   guacd:
     image: "guacamole/guacd:1.0.0"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
     networks:
-    - "wapps"
+      - "wapps"
     restart: always
   guacamole:
     environment:
@@ -32,7 +32,7 @@ services:
       - "traefik.http.routers.guacamole.tls.certResolver=wapps"
       - "traefik.http.services.guacamole.loadbalancer.server.port=8000"
     networks:
-    - "wapps"
+      - "wapps"
     restart: "always"
 volumes:
   mysql:

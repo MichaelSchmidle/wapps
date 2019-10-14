@@ -7,14 +7,14 @@ services:
   pihole:
     image: "pihole/pihole"
     volumes:
-    - "dnsmasq:/etc/dnsmasq.d/"
-    - "hosts:/etc/hosts"
-    - "pihole:/etc/pihole/"
+      - "dnsmasq:/etc/dnsmasq.d/"
+      - "hosts:/etc/hosts"
+      - "pihole:/etc/pihole/"
     networks:
-    - "wapps"
+      - "wapps"
     ports:
-    - "${IP}:53:53/tcp"
-    - "${IP}:53:53/udp"
+      - "${IP}:53:53/tcp"
+      - "${IP}:53:53/udp"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.middlewares.pihole.addprefix.prefix=/admin"

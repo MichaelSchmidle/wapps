@@ -5,6 +5,10 @@ networks:
       name: "wapps"
 services:
   postgres:
+    environment:
+      - "POSTGRES_DB:${POSTGRES_DB}"
+      - "POSTGRES_USER:${POSTGRES_USER}"
+      - "POSTGRES_PASSWORD:${POSTGRES_PASSWORD}"
     image: "postgres"
     networks:
       - "wapps"
@@ -18,6 +22,7 @@ services:
       - "DB_NAME=${POSTGRES_DB}"
       - "DB_PASS=${POSTGRES_PASSWORD}"
       - "DB_USER=${POSTGRES_USER}"
+      - "SECRET_KEY=${SECRET_KEY}"
     image: "pitkley/netbox"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"

@@ -5,11 +5,12 @@ networks:
       name: "wapps"
 services:
   pihole:
+    environment:
+      - "DNS1=${DNS1}"
+      - "DNS2=${DNS2}"
+      - "PASSWORD=${PASSWORD}"
+      - "TZ=${TZ}"
     image: "pihole/pihole"
-    volumes:
-      - "dnsmasq:/etc/dnsmasq.d/"
-      - "hosts:/etc/hosts"
-      - "pihole:/etc/pihole/"
     networks:
       - "wapps"
     ports:
@@ -24,6 +25,10 @@ services:
       - "traefik.http.routers.pihole.tls.certResolver=wapps"
       - "traefik.http.services.pihole.loadbalancer.server.port=80"
     restart: "always"
+    volumes:
+      - "dnsmasq:/etc/dnsmasq.d/"
+      - "hosts:/etc/hosts"
+      - "pihole:/etc/pihole/"
 volumes:
   dnsmasq:
   hosts:

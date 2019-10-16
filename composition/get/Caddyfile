@@ -1,4 +1,4 @@
-{$HOST}:80 {
+:80 {
     root /var/www/html
     browse
 }

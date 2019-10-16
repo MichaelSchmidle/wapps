@@ -5,6 +5,11 @@ networks:
       name: "wapps"
 services:
   radarr:
+    environment:
+      - "PUID:${PUID}"
+      - "PGID:${PGID}"
+      - "TZ:${TZ}"
+      - "UMASK_SET:${UMASK_SET}"
     image: "linuxserver/radarr"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"

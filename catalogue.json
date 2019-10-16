@@ -92,7 +92,7 @@
         "title": "ipam",
         "description": "IP address management (IPAM) based on Netbox",
         "repository": {
-            "stackfile": "composition/sss/docker-compose.yml",
+            "stackfile": "composition/ipam/docker-compose.yml",
             "url": "https://github.com/MichaelSchmidle/wapps"
         },
         "env": [

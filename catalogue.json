@@ -1,7 +1,7 @@
 [
     {
         "type": 3,
-        "title": "wapps-data",
+        "title": "data",
         "description": "Database management based on Adminer",
         "repository": {
             "stackfile": "composition/data/docker-compose.yml",
@@ -14,13 +14,13 @@
                 "name": "HOST"
             }
         ],
-        "name": "wapps-data",
+        "name": "data",
         "note": "This wapp provides access to all databases deployed by other wapps. To secure access to this sensible wapp, it is exposed exclusively via the <code>HTTPS_MGMT_PORT</code> as configured in the <code>.env</code> file of your wappster instance",
         "platform": "linux"
     },
     {
         "type": 3,
-        "title": "wapps-dns",
+        "title": "dns",
         "description": "DNS-level ad blocker based on Pi-hole",
         "repository": {
             "stackfile": "composition/dns/docker-compose.yml",
@@ -61,12 +61,12 @@
                 "name": "TZ"
             }
         ],
-        "name": "wapps-dns",
+        "name": "dns",
         "platform": "linux"
     },
     {
         "type": 3,
-        "title": "wapps-get",
+        "title": "get",
         "description": "Static file server based on Caddy",
         "repository": {
             "stackfile": "composition/get/docker-compose.yml",
@@ -84,12 +84,12 @@
                 "name": "ROOT"
             }
         ],
-        "name": "wapps-get",
+        "name": "get",
         "platform": "linux"
     },
     {
         "type": 3,
-        "title": "wapps-ipam",
+        "title": "ipam",
         "description": "IP address management (IPAM) based on Netbox",
         "repository": {
             "stackfile": "composition/sss/docker-compose.yml",
@@ -125,13 +125,13 @@
                 "name": "SECRET_KEY"
             }
         ],
-        "name": "wapps-ipam",
+        "name": "ipam",
         "note": "After deploying this wapp, you need to create a new user via the container’s command line. Log in to your Portainer instance and select the container <code>wapps_ipam_netbox_1</code>. Connect to the container's console, execute the following command and fill in the required pieces of info (username, email address and password): <code>python3 manage.py createsuperuser</code>",
         "platform": "linux"
     },
     {
         "type": 3,
-        "title": "wapps-jump",
+        "title": "jump",
         "description": "RDP gateway based on Guacamole",
         "repository": {
             "stackfile": "composition/jump/docker-compose.yml",
@@ -168,12 +168,12 @@
                 "name": "MYSQL_PASSWORD"
             }
         ],
-        "name": "wapps-jump",
+        "name": "jump",
         "platform": "linux"
     },
     {
         "type": 3,
-        "title": "wapps-know",
+        "title": "know",
         "description": "Wiki based on Bookstack",
         "repository": {
             "stackfile": "composition/know/docker-compose.yml",
@@ -210,12 +210,12 @@
                 "name": "MYSQL_PASSWORD"
             }
         ],
-        "name": "wapps-know",
+        "name": "know",
         "platform": "linux"
     },
     {
         "type": 3,
-        "title": "wapps-pvr-movies",
+        "title": "pvr-movies",
         "description": "PVR for movies based on Radarr",
         "repository": {
             "stackfile": "composition/pvr-movies/docker-compose.yml",
@@ -257,12 +257,12 @@
                 "name": "UMASK_SET"
             }
         ],
-        "name": "wapps-pvr-movies",
+        "name": "pvr-movies",
         "platform": "linux"
     },
     {
         "type": 3,
-        "title": "wapps-pvr-series",
+        "title": "pvr-series",
         "description": "PVR for TV series based on Radarr",
         "repository": {
             "stackfile": "composition/pvr-series/docker-compose.yml",
@@ -304,12 +304,12 @@
                 "name": "UMASK_SET"
             }
         ],
-        "name": "wapps-pvr-series",
+        "name": "pvr-series",
         "platform": "linux"
     },
     {
         "type": 3,
-        "title": "wapps-sss",
+        "title": "sss",
         "description": "Simple storage app based on Minio",
         "repository": {
             "stackfile": "composition/sss/docker-compose.yml",
@@ -337,12 +337,12 @@
                 "name": "ROOT"
             }
         ],
-        "name": "wapps-sss",
+        "name": "sss",
         "platform": "linux"
     },
     {
         "type": 3,
-        "title": "wapps-trck",
+        "title": "trck",
         "description": "Website analytics based on Matomo",
         "repository": {
             "stackfile": "composition/trck/docker-compose.yml",
@@ -379,12 +379,12 @@
                 "name": "MYSQL_PASSWORD"
             }
         ],
-        "name": "wapps-trck",
+        "name": "trck",
         "platform": "linux"
     },
     {
         "type": 3,
-        "title": "wapps-tube",
+        "title": "tube",
         "description": "Media downloader based on AllTube Download",
         "repository": {
             "stackfile": "composition/tube/docker-compose.yml",
@@ -397,7 +397,7 @@
                 "name": "HOST"
             }
         ],
-        "name": "wapps-tube",
+        "name": "tube",
         "note": "This wapp can generate a substantial amount of traffic on your host if left accessible to the public. To secure access to this sensible wapp, it is exposed exclusively via the <code>HTTPS_MGMT_PORT</code> as configured in the <code>.env</code> file of your wappster instance",
         "platform": "linux"
     }

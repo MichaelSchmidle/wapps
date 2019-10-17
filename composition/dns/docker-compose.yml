@@ -33,4 +33,6 @@ services:
       - "pihole:/etc/pihole/"
 volumes:
   dnsmasq:
+    driver: local
   pihole:
+    driver: local

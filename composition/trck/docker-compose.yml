@@ -39,3 +39,4 @@ services:
       - "./config:/var/www/html/config"
 volumes:
   mysql:
+    driver: local

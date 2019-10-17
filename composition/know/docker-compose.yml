@@ -42,5 +42,8 @@ services:
       - "storage:/var/www/bookstack/public/storage"
 volumes:
   mysql:
+    driver: local
   uploads:
+    driver: local
   storage:
+    driver: local

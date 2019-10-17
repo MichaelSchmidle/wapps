@@ -215,13 +215,18 @@
     },
     {
         "type": 3,
-        "title": "pvr-movies",
+        "title": "pvrm",
         "description": "PVR for movies based on Radarr",
         "repository": {
             "stackfile": "composition/pvr-movies/docker-compose.yml",
             "url": "https://github.com/MichaelSchmidle/wapps"
         },
         "env": [
+            {
+                "description": "The DNS hostname pointing to this app",
+                "label": "Host",
+                "name": "HOST"
+            },
             {
                 "description": "Location of movie library on disk",
                 "label": "Movies root folder",
@@ -257,18 +262,23 @@
                 "name": "UMASK_SET"
             }
         ],
-        "name": "pvr-movies",
+        "name": "pvrm",
         "platform": "linux"
     },
     {
         "type": 3,
-        "title": "pvr-series",
+        "title": "pvrs",
         "description": "PVR for TV series based on Radarr",
         "repository": {
             "stackfile": "composition/pvr-series/docker-compose.yml",
             "url": "https://github.com/MichaelSchmidle/wapps"
         },
         "env": [
+            {
+                "description": "The DNS hostname pointing to this app",
+                "label": "Host",
+                "name": "HOST"
+            },
             {
                 "description": "Location of TV series library on disk",
                 "label": "TV series root folder",
@@ -304,7 +314,7 @@
                 "name": "UMASK_SET"
             }
         ],
-        "name": "pvr-series",
+        "name": "pvrs",
         "platform": "linux"
     },
     {

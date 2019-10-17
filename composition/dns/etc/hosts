@@ -1,2 +1,0 @@
-# Add DNS records to this file to have Pi-hole resolve them for your clients, i.e.:
-# 1.2.3.4 pi-hole.example.org

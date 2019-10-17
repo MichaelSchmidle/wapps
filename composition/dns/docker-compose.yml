@@ -5,6 +5,8 @@ networks:
       name: "wapps"
 services:
   pihole:
+    cap_add:
+      - NET_ADMIN
     environment:
       - "DNS1=${DNS1}"
       - "DNS2=${DNS2}"

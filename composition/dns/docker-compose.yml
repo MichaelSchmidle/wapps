@@ -30,9 +30,8 @@ services:
     restart: "always"
     volumes:
       - "dnsmasq:/etc/dnsmasq.d/"
-      - "hosts:/etc/hosts"
+      - "./etc/hosts:/etc/hosts"
       - "pihole:/etc/pihole/"
 volumes:
   dnsmasq:
-  hosts:
   pihole:

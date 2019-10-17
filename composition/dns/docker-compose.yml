@@ -10,7 +10,7 @@ services:
     environment:
       - "DNS1=${DNS1}"
       - "DNS2=${DNS2}"
-      - "PASSWORD=${PASSWORD}"
+      - "WEBPASSWORD=${PASSWORD}"
       - "TZ=${TZ}"
     image: "pihole/pihole"
     networks:

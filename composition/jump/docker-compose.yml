@@ -34,10 +34,13 @@ services:
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.middlewares.guacamole.addprefix.prefix=/guacamole"
-      - "traefik.http.routers.guacamole.entrypoints=http,https"
+      - "traefik.http.routers.guacamole.entrypoints=http"
       - "traefik.http.routers.guacamole.middlewares=guacamole,wapps"
       - "traefik.http.routers.guacamole.rule=Host(`${HOST}`)"
-      - "traefik.http.routers.guacamole.tls.certResolver=wapps"
+      - "traefik.http.routers.guacamole-https.entrypoints=https"
+      - "traefik.http.routers.guacamole-https.middlewares=guacamole"
+      - "traefik.http.routers.guacamole-https.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.guacamole-https.tls.certResolver=wapps"
       - "traefik.http.services.guacamole.loadbalancer.server.port=8000"
     networks:
       - "wapps"

@@ -45,7 +45,7 @@
                 "name": "DNS2"
             },
             {
-                "description": "The server IP listening to DNS requests",
+                "description": "The server IP listening to DNS and DHCP requests",
                 "label": "Server IP",
                 "name": "IP"
             },

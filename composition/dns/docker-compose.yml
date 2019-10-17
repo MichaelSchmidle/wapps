@@ -18,6 +18,7 @@ services:
     ports:
       - "${IP}:53:53/tcp"
       - "${IP}:53:53/udp"
+      - "${IP}:67:67/udp"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.middlewares.pihole.addprefix.prefix=/admin"

@@ -27,9 +27,9 @@ services:
     image: "solidnerd/bookstack"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
-      - "traefik.http.routers.bookstack.entrypoints=http"
-      - "traefik.http.routers.bookstack.middlewares=wapps"
-      - "traefik.http.routers.bookstack.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.bookstack-http.entrypoints=http"
+      - "traefik.http.routers.bookstack-http.middlewares=wapps"
+      - "traefik.http.routers.bookstack-http.rule=Host(`${HOST}`)"
       - "traefik.http.routers.bookstack-https.entrypoints=https"
       - "traefik.http.routers.bookstack-https.rule=Host(`${HOST}`)"
       - "traefik.http.routers.bookstack-https.tls.certResolver=wapps"

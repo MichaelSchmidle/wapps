@@ -25,9 +25,9 @@ services:
     image: "matomo"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
-      - "traefik.http.routers.matomo.entrypoints=http"
-      - "traefik.http.routers.matomo.middlewares=wapps"
-      - "traefik.http.routers.matomo.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.matomo-http.entrypoints=http"
+      - "traefik.http.routers.matomo-http.middlewares=wapps"
+      - "traefik.http.routers.matomo-http.rule=Host(`${HOST}`)"
       - "traefik.http.routers.matomo-https.entrypoints=https"
       - "traefik.http.routers.matomo-https.rule=Host(`${HOST}`)"
       - "traefik.http.routers.matomo-https.tls.certResolver=wapps"

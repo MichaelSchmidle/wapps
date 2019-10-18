@@ -26,9 +26,9 @@ services:
     image: "pitkley/netbox"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
-      - "traefik.http.routers.netbox.entrypoints=http"
-      - "traefik.http.routers.netbox.middlewares=wapps"
-      - "traefik.http.routers.netbox.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.netbox-http.entrypoints=http"
+      - "traefik.http.routers.netbox-http.middlewares=wapps"
+      - "traefik.http.routers.netbox-http.rule=Host(`${HOST}`)"
       - "traefik.http.routers.netbox-https.entrypoints=https"
       - "traefik.http.routers.netbox-https.rule=Host(`${HOST}`)"
       - "traefik.http.routers.netbox-https.tls.certResolver=wapps"

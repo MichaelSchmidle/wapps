@@ -15,9 +15,9 @@ services:
     restart: "always"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
-      - "traefik.http.routers.minio.entrypoints=http"
-      - "traefik.http.routers.minio.middlewares=wapps"
-      - "traefik.http.routers.minio.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.minio-http.entrypoints=http"
+      - "traefik.http.routers.minio-http.middlewares=wapps"
+      - "traefik.http.routers.minio-http.rule=Host(`${HOST}`)"
       - "traefik.http.routers.minio-https.entrypoints=https"
       - "traefik.http.routers.minio-https.rule=Host(`${HOST}`)"
       - "traefik.http.routers.minio-https.tls.certResolver=wapps"

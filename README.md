@@ -1,4 +1,4 @@
-![wapps logo](https://cdn.jsdelivr.net/gh/MichaelSchmidle/wapps@kartoffel/logo.svg)
+![wapps logo](https://cdn.jsdelivr.net/gh/MichaelSchmidle/wapps/logo.svg)
 
 # About Wapps
 

@@ -21,7 +21,7 @@ services:
   bookstack:
     environment:
       - "APP_URL=https://${HOST}"
-      - "DB_HOST=${COMPOSE_PROJECT_NAME}_mysql_1:3306"
+      - "DB_HOST=mysql:3306"
       - "DB_DATABASE=${MYSQL_DATABASE}"
       - "DB_USERNAME=${MYSQL_USER}"
       - "DB_PASSWORD=${MYSQL_PASSWORD}"

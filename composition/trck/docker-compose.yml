@@ -18,7 +18,7 @@ services:
       - "mysql:/var/lib/mysql"
   matomo:
     environment:
-      - "MATOMO_DATABASE_HOST=${COMPOSE_PROJECT_NAME}_mysql_1"
+      - "MATOMO_DATABASE_HOST=${NAME}_mysql_1"
       - "MYSQL_DATABASE=${MYSQL_DATABASE}"
       - "MYSQL_USER=${MYSQL_USER}"
       - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"

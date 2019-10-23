@@ -25,9 +25,9 @@ services:
     restart: always
   guacamole:
     environment:
-      - "MYSQL_DATABASE:${MYSQL_DATABASE}"
-      - "MYSQL_USER:${MYSQL_USER}"
-      - "MYSQL_PASSWORD:${MYSQL_PASSWORD}"
+      - "MYSQL_DATABASE=${MYSQL_DATABASE}"
+      - "MYSQL_USER=${MYSQL_USER}"
+      - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
       - "MYSQL_HOSTNAME=${COMPOSE_PROJECT_NAME}_mysql_1"
       - "GUACD_HOSTNAME=${COMPOSE_PROJECT_NAME}_guacd_1"
     image: "guacamole/guacamole:1.0.0"

@@ -6,10 +6,10 @@ networks:
 services:
   sonarr:
     environment:
-      - "PUID:${PUID}"
-      - "PGID:${PGID}"
-      - "TZ:${TZ}"
-      - "UMASK_SET:${UMASK_SET}"
+      - "PUID=${PUID}"
+      - "PGID=${PGID}"
+      - "TZ=${TZ}"
+      - "UMASK_SET=${UMASK_SET}"
     image: "linuxserver/sonarr"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"

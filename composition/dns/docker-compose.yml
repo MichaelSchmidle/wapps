@@ -12,6 +12,8 @@ services:
       - "DNS2=${DNS2}"
       - "WEBPASSWORD=${PASSWORD}"
       - "TZ=${TZ}"
+    extra_hosts:
+      - "${HOST}:${IP}"
     image: "pihole/pihole"
     networks:
       - "wapps"

@@ -4,7 +4,7 @@ networks:
     external:
       name: "wapps"
 services:
-  mysql:
+  mysql-ba535ef5a9f7b8bc875812bb081286bb:
     build: .
     environment:
       - "MYSQL_DATABASE:${MYSQL_DATABASE}"
@@ -16,7 +16,7 @@ services:
     volumes:
       - "mysql:/var/lib/mysql"
     restart: "always"
-  guacd:
+  guacd-ba535ef5a9f7b8bc875812bb081286bb:
     image: "guacamole/guacd:1.0.0"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
@@ -28,8 +28,8 @@ services:
       - "MYSQL_DATABASE=${MYSQL_DATABASE}"
       - "MYSQL_USER=${MYSQL_USER}"
       - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
-      - "MYSQL_HOSTNAME=${COMPOSE_PROJECT_NAME}_mysql_1"
-      - "GUACD_HOSTNAME=${COMPOSE_PROJECT_NAME}_guacd_1"
+      - "MYSQL_HOSTNAME=mysql-ba535ef5a9f7b8bc875812bb081286bb"
+      - "GUACD_HOSTNAME=guacd-ba535ef5a9f7b8bc875812bb081286bb"
     image: "guacamole/guacamole:1.0.0"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"

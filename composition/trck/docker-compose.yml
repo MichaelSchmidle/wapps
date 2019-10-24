@@ -4,7 +4,7 @@ networks:
     external:
       name: "wapps"
 services:
-  mysql:
+  mysql-782198027fc5094c479d3ef9a43b22b5:
     environment:
       - "MYSQL_DATABASE=${MYSQL_DATABASE}"
       - "MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}"
@@ -18,7 +18,7 @@ services:
       - "mysql:/var/lib/mysql"
   matomo:
     environment:
-      - "MATOMO_DATABASE_HOST=mysql"
+      - "MATOMO_DATABASE_HOST=mysql-782198027fc5094c479d3ef9a43b22b5"
       - "MYSQL_DATABASE=${MYSQL_DATABASE}"
       - "MYSQL_USER=${MYSQL_USER}"
       - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"

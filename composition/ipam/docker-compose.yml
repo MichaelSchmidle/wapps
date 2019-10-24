@@ -4,7 +4,7 @@ networks:
     external:
       name: "wapps"
 services:
-  postgres:
+  postgres-d2ae649dbfd6075170a486bacee7faf9:
     environment:
       - "POSTGRES_DB:${POSTGRES_DB}"
       - "POSTGRES_USER:${POSTGRES_USER}"
@@ -18,7 +18,7 @@ services:
   netbox:
     environment:
       - "ALLOWED_HOSTS=$HOST"
-      - "DB_HOST=${COMPOSE_PROJECT_NAME}_postgres_1"
+      - "DB_HOST=postgres-d2ae649dbfd6075170a486bacee7faf9"
       - "DB_NAME=${POSTGRES_DB}"
       - "DB_PASS=${POSTGRES_PASSWORD}"
       - "DB_USER=${POSTGRES_USER}"

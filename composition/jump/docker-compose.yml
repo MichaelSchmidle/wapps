@@ -38,7 +38,7 @@ services:
       - "traefik.http.routers.guacamole-https.middlewares=guacamole"
       - "traefik.http.routers.guacamole-https.rule=Host(`${HOST}`)"
       - "traefik.http.routers.guacamole-https.tls.certResolver=wapps"
-      - "traefik.http.services.guacamole.loadbalancer.server.port=8000"
+      - "traefik.http.services.guacamole.loadbalancer.server.port=8080"
     networks:
       - "wapps"
     restart: "always"

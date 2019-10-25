@@ -2,11 +2,6 @@
 
 FROM mysql:5
 
-ENV MYSQL_DATABASE ${MYSQL_DATABASE}
-ENV MYSQL_ROOT_PASSWORD ${MYSQL_ROOT_PASSWORD}
-ENV MYSQL_USER ${MYSQL_USER}
-ENV MYSQL_PASSWORD ${MYSQL_PASSWORD}
-
 # Update these to stay in line with the official guacamole containers.
 ARG GUAC_REPO=apache/guacamole-client
 ARG GUAC_VERSION=1.0.0

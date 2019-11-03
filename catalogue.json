@@ -268,7 +268,7 @@
     {
         "type": 3,
         "title": "pvrs",
-        "description": "PVR for TV series based on Radarr",
+        "description": "PVR for TV series based on Sonarr",
         "repository": {
             "stackfile": "composition/pvr-series/docker-compose.yml",
             "url": "https://github.com/MichaelSchmidle/wapps"

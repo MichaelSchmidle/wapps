@@ -7,6 +7,13 @@
             "stackfile": "composition/blog/docker-compose.yml",
             "url": "https://github.com/MichaelSchmidle/wapps"
         },
+        "env": [
+            {
+                "description": "The DNS hostname pointing to this app",
+                "label": "Host",
+                "name": "HOST"
+            }
+        ],
         "name": "blog",
         "platform": "linux"
     },

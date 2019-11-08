@@ -5,6 +5,8 @@ networks:
       name: "wapps"
 services:
   ghost:
+    environment:
+    - "URL=https://${HOST}"
     image: "ghost"
     networks:
       - "wapps"

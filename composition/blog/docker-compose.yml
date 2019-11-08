@@ -6,7 +6,7 @@ networks:
 services:
   ghost:
     environment:
-    - "URL=https://${HOST}"
+    - "url=https://${HOST}"
     image: "ghost"
     networks:
       - "wapps"

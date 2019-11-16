@@ -37,6 +37,7 @@ services:
     volumes:
       - "dnsmasq:/etc/dnsmasq.d/"
       - "pihole:/etc/pihole/"
+      - ${HOSTS_FILE}:/etc/hosts
 volumes:
   dnsmasq:
     driver: local

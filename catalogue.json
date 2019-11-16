@@ -77,6 +77,11 @@
                 "description": "Time zone for this app (format: Europe/Zurich)",
                 "label": "Time zone",
                 "name": "TZ"
+            },
+            {
+                "description": "Path to custom hosts file used for DNS lookup, located on your wappster instance",
+                "label": "Hosts file",
+                "name": "HOSTS_FILE"
             }
         ],
         "name": "dns",

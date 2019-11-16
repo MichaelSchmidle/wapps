@@ -1,24 +1,6 @@
 [
     {
         "type": 3,
-        "title": "blog",
-        "description": "Publishing platform based on Ghost",
-        "repository": {
-            "stackfile": "composition/blog/docker-compose.yml",
-            "url": "https://github.com/MichaelSchmidle/wapps"
-        },
-        "env": [
-            {
-                "description": "The DNS hostname pointing to this app",
-                "label": "Host",
-                "name": "HOST"
-            }
-        ],
-        "name": "blog",
-        "platform": "linux"
-    },
-    {
-        "type": 3,
         "title": "data",
         "description": "Database management based on Adminer",
         "repository": {

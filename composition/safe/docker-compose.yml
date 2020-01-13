@@ -1,0 +1,42 @@
+version: "2"
+networks:
+  wapps:
+    external:
+      name: "wapps"
+services:
+  passit:
+    command: bin/start.sh
+    environment:
+        "DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres-1a1dc91c907325c69271ddf0c944bc72:5432/${POSTGRES_DB}"
+        "SECRET_KEY=${SECRET_KEY}"
+        "IS_DEBUG=false"
+        "EMAIL_URL=${EMAIL_PROTOCOL}://${EMAIL_USER}:${EMAIL_PASSWORD}@${EMAIL_HOST}:${EMAIL_PORT}"
+        "DEFAULT_FROM_EMAIL=${EMAIL_SENDER}"
+        "EMAIL_CONFIRMATION_HOST=https://${HOST}"  
+    image: passit/passit
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+      - "traefik.http.routers.passit-http.entrypoints=http"
+      - "traefik.http.routers.passit-http.middlewares=wapps"
+      - "traefik.http.routers.passit-http.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.passit-https.entrypoints=https"
+      - "traefik.http.routers.passit-https.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.passit-https.tls.certResolver=wapps"
+      - "traefik.http.services.passit.loadbalancer.server.port=8080"
+    networks:
+      - "wapps"
+    restart: "always"
+  postgres-1a1dc91c907325c69271ddf0c944bc72:
+    environment:
+      - "POSTGRES_DB=${POSTGRES_DB}"
+      - "POSTGRES_USER=${POSTGRES_USER}"
+      - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}"
+    image: "postgres"
+    networks:
+      - "wapps"
+    restart: "always"
+    volumes:
+      - "data:/var/lib/postgresql/data"
+volumes:
+  data:
+    driver: local    

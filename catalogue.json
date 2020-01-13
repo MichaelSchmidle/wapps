@@ -125,7 +125,7 @@
                 "name": "POSTGRES_PASSWORD"
             },
             {
-                "description": "Random string required by the app, recommended minimum length: 50 characters",
+                "description": "Random string required by the wapp, recommended minimum length: 50 characters",
                 "label": "Secret key",
                 "name": "SECRET_KEY"
             }
@@ -218,6 +218,107 @@
         "name": "know",
         "platform": "linux"
     },
+    {
+        "type": 3,
+        "title": "safe",
+        "description": "Password manager based on Passit",
+        "repository": {
+            "stackfile": "composition/safe/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
+        },
+        "env": [
+            {
+                "description": "The DNS hostname pointing to this app",
+                "label": "Host",
+                "name": "HOST"
+            },
+            {
+                "default": "wapps_safe",
+                "description": "The name of the database",
+                "label": "Database",
+                "name": "POSTGRES_DB"
+            },
+            {
+                "default": "wapps_safe",
+                "description": "The name of the database user",
+                "label": "Database user",
+                "name": "POSTGRES_USER"
+            },
+            {
+                "default": "wapps_safe",
+                "description": "The password of the database user",
+                "label": "Database password",
+                "name": "POSTGRES_PASSWORD"
+            },
+            {
+                "description": "Random string required by the wapp, recommended minimum length: 50 characters",
+                "label": "Secret key",
+                "name": "SECRET_KEY"
+            },
+            {
+                "description": "Email protocol to use for sending out emails from the wapp",
+                "label": "Email protocol",
+                "name": "EMAIL_PROTOCOL",
+                "select": [
+                    {
+                        "text": "SMTP",
+                        "value": "smtp"
+                    },
+                    {
+                        "text": "SMTP+SSL",
+                        "value": "smtp+ssl"
+                    },
+                    {
+                        "text": "SMTP+TLS",
+                        "value": "smtp+tls"
+                    },
+                    {
+                        "text": "Console mail",
+                        "value": "consolemail"
+                    },
+                    {
+                        "text": "File mail",
+                        "value": "filemail"
+                    },
+                    {
+                        "text": "LocMem mail",
+                        "value": "memorymail"
+                    },
+                    {
+                        "text": "Dummy mail",
+                        "value": "dummymail"
+                    }
+                ]
+            },
+            {
+                "description": "The email user account to send emails from",
+                "label": "Email user",
+                "name": "EMAIL_USER"
+            },
+            {
+                "description": "The email user password",
+                "label": "Email password",
+                "name": "EMAIL_PASSWORD"
+            },
+            {
+                "description": "The email server to send emails from",
+                "label": "Email host",
+                "name": "EMAIL_HOST"
+            },
+            {
+                "description": "The email server port to connect to",
+                "label": "Port of email host",
+                "name": "EMAIL_PORT"
+            },
+            {
+                "description": "Sender address to be used in the from field",
+                "label": "Email sender address",
+                "name": "EMAIL_SENDER"
+            }
+        ],
+        "name": "safe",
+        "platform": "linux"
+},
     {
         "type": 3,
         "title": "pvrm",

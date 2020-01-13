@@ -5,14 +5,14 @@ networks:
       name: "wapps"
 services:
   passit:
-    command: bin/start.sh
+    command: "bin/start.sh"
     environment:
-        "DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres-1a1dc91c907325c69271ddf0c944bc72:5432/${POSTGRES_DB}"
-        "SECRET_KEY=${SECRET_KEY}"
-        "IS_DEBUG=false"
-        "EMAIL_URL=${EMAIL_PROTOCOL}://${EMAIL_USER}:${EMAIL_PASSWORD}@${EMAIL_HOST}:${EMAIL_PORT}"
-        "DEFAULT_FROM_EMAIL=${EMAIL_SENDER}"
-        "EMAIL_CONFIRMATION_HOST=https://${HOST}"  
+      - "DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres-1a1dc91c907325c69271ddf0c944bc72:5432/${POSTGRES_DB}"
+      - "SECRET_KEY=${SECRET_KEY}"
+      - "IS_DEBUG=false"
+      - "EMAIL_URL=${EMAIL_PROTOCOL}://${EMAIL_USER}:${EMAIL_PASSWORD}@${EMAIL_HOST}:${EMAIL_PORT}"
+      - "DEFAULT_FROM_EMAIL=${EMAIL_SENDER}"
+      - "EMAIL_CONFIRMATION_HOST=https://${HOST}"  
     image: passit/passit
     labels:
       - "com.centurylinklabs.watchtower.enable=true"

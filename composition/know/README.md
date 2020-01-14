@@ -1,5 +1,5 @@
 # About Know Wapp
 
-The know wapp is based on [Bookstack](https://www.bookstackapp.com/).
+The know wapp is based on [Wiki.js](https://wiki.js.org/).
 
-> BookStack is a simple, self-hosted, easy-to-use platform for organising and storing information.
+> The most powerful and extensible open source Wiki software

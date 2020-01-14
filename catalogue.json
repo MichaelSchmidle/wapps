@@ -179,7 +179,7 @@
     {
         "type": 3,
         "title": "know",
-        "description": "Wiki based on Bookstack",
+        "description": "Wiki based on Wiki.js",
         "repository": {
             "stackfile": "composition/know/docker-compose.yml",
             "url": "https://github.com/MichaelSchmidle/wapps"
@@ -194,25 +194,19 @@
                 "default": "wapps_know",
                 "description": "The name of the database",
                 "label": "Database",
-                "name": "MYSQL_DATABASE"
-            },
-            {
-                "default": "wapps_know",
-                "description": "The password of the root user",
-                "label": "Root password",
-                "name": "MYSQL_ROOT_PASSWORD"
+                "name": "POSTGRES_DB"
             },
             {
                 "default": "wapps_know",
                 "description": "The name of the database user",
                 "label": "Database user",
-                "name": "MYSQL_USER"
+                "name": "POSTGRES_USER"
             },
             {
                 "default": "wapps_know",
                 "description": "The password of the database user",
                 "label": "Database password",
-                "name": "MYSQL_PASSWORD"
+                "name": "POSTGRES_PASSWORD"
             }
         ],
         "name": "know",

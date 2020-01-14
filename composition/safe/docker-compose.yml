@@ -4,6 +4,19 @@ networks:
     external:
       name: "wapps"
 services:
+  postgres-1a1dc91c907325c69271ddf0c944bc72:
+    environment:
+      - "POSTGRES_DB=${POSTGRES_DB}"
+      - "POSTGRES_USER=${POSTGRES_USER}"
+      - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}"
+    image: "postgres"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    networks:
+      - "wapps"
+    restart: "always"
+    volumes:
+      - "data:/var/lib/postgresql/data"
   passit:
     command: "bin/start.sh"
     environment:
@@ -26,17 +39,6 @@ services:
     networks:
       - "wapps"
     restart: "always"
-  postgres-1a1dc91c907325c69271ddf0c944bc72:
-    environment:
-      - "POSTGRES_DB=${POSTGRES_DB}"
-      - "POSTGRES_USER=${POSTGRES_USER}"
-      - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}"
-    image: "postgres"
-    networks:
-      - "wapps"
-    restart: "always"
-    volumes:
-      - "data:/var/lib/postgresql/data"
 volumes:
   data:
     driver: local    

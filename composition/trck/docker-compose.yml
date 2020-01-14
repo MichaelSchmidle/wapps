@@ -11,6 +11,8 @@ services:
       - "MYSQL_USER=${MYSQL_USER}"
       - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
     image: "mysql:5"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
     networks:
       - "wapps"
     restart: "always"

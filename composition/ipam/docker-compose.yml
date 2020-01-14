@@ -10,6 +10,8 @@ services:
       - "POSTGRES_USER=${POSTGRES_USER}"
       - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}"
     image: "postgres"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
     networks:
       - "wapps"
     restart: "always"

@@ -38,7 +38,10 @@ services:
       - "wapps"
     restart: "always"
     volumes:
-      - "./config:/var/www/html/config"
+      - "config:/var/www/html/config"
+      - "${MATOMO_MISC_DIR}:/var/www/html/misc"
 volumes:
   mysql:
+    driver: local
+  config:
     driver: local

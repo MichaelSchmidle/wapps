@@ -465,6 +465,11 @@
                 "name": "HOST"
             },
             {
+                "description": "The location of the local Matomo misc folder",
+                "label": "Matomo misc folder",
+                "name": "MATOMO_MISC_DIR"
+            },
+            {
                 "default": "wapps_trck",
                 "description": "The name of the database",
                 "label": "Database",

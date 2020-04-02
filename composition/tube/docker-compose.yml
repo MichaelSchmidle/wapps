@@ -16,7 +16,6 @@ services:
       - "traefik.http.routers.alltube-https.rule=Host(`${HOST}`)"
       - "traefik.http.routers.alltube-https.tls.certResolver=wapps"
       - "traefik.http.routers.alltube-https-mgmt.entrypoints=https-mgmt"
-      - "traefik.http.routers.alltube-https-mgmt.middlewares=wapps-mgmt"
       - "traefik.http.routers.alltube-https-mgmt.rule=Host(`${HOST}`)"
       - "traefik.http.routers.alltube-https-mgmt.tls.certResolver=wapps"
       - "traefik.http.services.alltube.loadbalancer.server.port=80"

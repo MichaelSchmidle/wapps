@@ -20,7 +20,7 @@ services:
     image: "guacamole/guacd:1.1.0"
     networks:
       - "wapps"
-    restart: always
+    restart: "always"
   guacamole:
     environment:
       - "MYSQL_DATABASE=${MYSQL_DATABASE}"
@@ -44,4 +44,4 @@ services:
     restart: "always"
 volumes:
   mysql:
-    driver: local
+    driver: "local"

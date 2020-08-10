@@ -1,6 +1,43 @@
 [
     {
         "type": 3,
+        "title": "api",
+        "description": "API backend based on Strapi",
+        "repository": {
+            "stackfile": "composition/api/docker-compose.yml",
+            "url": "https://github.com/MichaelSchmidle/wapps"
+        },
+        "env": [
+            {
+                "description": "The DNS hostname pointing to this app",
+                "label": "Host",
+                "name": "HOST"
+            },
+            {
+                "default": "wapps_api",
+                "description": "The name of the database",
+                "label": "Database",
+                "name": "POSTGRES_DB"
+            },
+            {
+                "default": "wapps_api",
+                "description": "The name of the database user",
+                "label": "Database user",
+                "name": "POSTGRES_USER"
+            },
+            {
+                "default": "wapps_api",
+                "description": "The password of the database user",
+                "label": "Database password",
+                "name": "POSTGRES_PASSWORD"
+            }
+        ],
+        "name": "api",
+        "note": "This wapp provides an API backend. To secure access to this sensible wapp, it is exposed exclusively via the <code>HTTPS_MGMT_PORT</code> as configured in the <code>.env</code> file of your wappster instance",
+        "platform": "linux"
+    },
+    {
+        "type": 3,
         "title": "data",
         "description": "Database management based on Adminer",
         "repository": {

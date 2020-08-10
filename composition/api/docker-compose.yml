@@ -1,0 +1,51 @@
+version: "2"
+networks:
+  wapps:
+    external:
+      name: "wapps"
+services:
+  postgres-e51404836b41d483ab523eb6b975fca7:
+    environment:
+      - "POSTGRES_DB=${POSTGRES_DB}"
+      - "POSTGRES_USER=${POSTGRES_USER}"
+      - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}"
+    image: "postgres"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    networks:
+      - "wapps"
+    restart: "always"
+    volumes:
+      - "data:/var/lib/postgresql/data"
+  strapi:
+    environment:
+      - "DATABASE_CLIENT=postgres"
+      - "DATABASE_NAME=${POSTGRES_DB}"
+      - "DATABASE_HOST=postgres-e51404836b41d483ab523eb6b975fca7"
+      - "DATABASE_PORT=5432"
+      - "DATABASE_USERNAME=${POSTGRES_USER}"
+      - "DATABASE_PASSWORD=${POSTGRES_PASSWORD}"
+    image: "strapi/strapi"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+      - "traefik.http.routers.strapi-http.entrypoints=http"
+      - "traefik.http.routers.strapi-http.middlewares=wapps-mgmt"
+      - "traefik.http.routers.strapi-http.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.strapi-https.entrypoints=https"
+      - "traefik.http.routers.strapi-https.middlewares=wapps-mgmt"
+      - "traefik.http.routers.strapi-https.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.strapi-https.tls.certResolver=wapps"
+      - "traefik.http.routers.strapi-https-mgmt.entrypoints=https-mgmt"
+      - "traefik.http.routers.strapi-https-mgmt.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.strapi-https-mgmt.tls.certResolver=wapps"
+      - "traefik.http.services.strapi.loadbalancer.server.port=1337"
+    networks:
+      - "wapps"
+    restart: "always"
+    volumes:
+    - "app:/srv/app"
+volumes:
+  data:
+    driver: "local"
+  app:
+    driver: "local"

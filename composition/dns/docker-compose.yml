@@ -6,7 +6,7 @@ networks:
 services:
   pihole:
     cap_add:
-      - NET_ADMIN
+      - "NET_ADMIN"
     environment:
       - "DNS1=${DNS1}"
       - "DNS2=${DNS2}"
@@ -37,9 +37,9 @@ services:
     volumes:
       - "dnsmasq:/etc/dnsmasq.d/"
       - "pihole:/etc/pihole/"
-      - ${HOSTS_FILE}:/etc/hosts
+      - "${HOSTS_FILE}:/etc/hosts"
 volumes:
   dnsmasq:
-    driver: local
+    driver: "local"
   pihole:
-    driver: local
+    driver: "local"

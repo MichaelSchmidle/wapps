@@ -38,8 +38,6 @@ services:
     networks:
       - "wapps"
     restart: "always"
-    volumes:
-      - ""
 volumes:
   data:
-    driver: local
+    driver: "local"

@@ -26,7 +26,7 @@ services:
       - "EMAIL_URL=${EMAIL_PROTOCOL}://${EMAIL_USER}:${EMAIL_PASSWORD}@${EMAIL_HOST}:${EMAIL_PORT}"
       - "DEFAULT_FROM_EMAIL=${EMAIL_SENDER}"
       - "EMAIL_CONFIRMATION_HOST=https://${HOST}"  
-    image: passit/passit
+    image: "passit/passit"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.routers.passit-http.entrypoints=http"
@@ -41,4 +41,4 @@ services:
     restart: "always"
 volumes:
   data:
-    driver: local    
+    driver: "local"    

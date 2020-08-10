@@ -42,6 +42,6 @@ services:
       - "${MATOMO_MISC_DIR}:/var/www/html/misc"
 volumes:
   mysql:
-    driver: local
+    driver: "local"
   config:
-    driver: local
+    driver: "local"

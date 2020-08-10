@@ -30,4 +30,4 @@ services:
     - "${DOWNLOADS_ROOT}:${DOWNLOADS_ROOT}"
 volumes:
   config:
-    driver: local
+    driver: "local"

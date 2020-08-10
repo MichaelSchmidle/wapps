@@ -40,4 +40,4 @@ services:
     restart: "always"
 volumes:
   data:
-    driver: local
+    driver: "local"

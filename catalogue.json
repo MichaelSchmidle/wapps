@@ -161,6 +161,22 @@
 					"description": "Random string required by the wapp, recommended minimum length: 50 characters",
 					"label": "Secret key",
 					"name": "SECRET_KEY"
+				},
+				{
+					"description": "The email address of the superuser to log into the application",
+					"label": "Superuser email",
+					"name": "SUPERUSER_EMAIL"
+				},
+				{
+					"description": "The password of the superuser to log into the application",
+					"label": "Superuser password",
+					"name": "SUPERUSER_PASSWORD"
+				},
+				{
+					"default": "Europe/Zurich",
+					"description": "Time zone for this app (format: Europe/Zurich)",
+					"label": "Time zone",
+					"name": "TZ"
 				}
 			],
 			"name": "ipam",

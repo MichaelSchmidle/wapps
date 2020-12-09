@@ -180,7 +180,6 @@
 				}
 			],
 			"name": "ipam",
-			"note": "After deploying this wapp, you need to create a new user via the container’s command line. Inside Portainer, select the container <code>${NAME}_netbox_1</code>. Connect to the container's console, execute the following command and fill in the required pieces of info (username, email address and password): <code>python3 manage.py createsuperuser</code>",
 			"platform": "linux",
 			"repository": {
 				"stackfile": "composition/ipam/docker-compose.yml",

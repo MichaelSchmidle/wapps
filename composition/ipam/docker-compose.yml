@@ -45,5 +45,6 @@ services:
       - "config:/config"
 volumes:
   data:
-    config: "local"
+    driver: "local"
+  config:
     driver: "local"

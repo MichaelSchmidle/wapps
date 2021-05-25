@@ -30,7 +30,6 @@
             ],
             "name": "api",
             "note": "This wapp provides an API backend. To secure access to this sensible wapp, it is exposed exclusively via the <code>HTTPS_MGMT_PORT</code> as configured in the <code>.env</code> file of your wappster instance",
-            "platform": "linux",
             "repository": {
                 "stackfile": "composition/api/docker-compose.yml",
                 "url": "https://github.com/MichaelSchmidle/wapps"
@@ -49,7 +48,6 @@
             ],
             "name": "data",
             "note": "This wapp provides access to all databases deployed by other wapps. To secure access to this sensible wapp, it is exposed exclusively via the <code>HTTPS_MGMT_PORT</code> as configured in the <code>.env</code> file of your wappster instance",
-            "platform": "linux",
             "repository": {
                 "stackfile": "composition/data/docker-compose.yml",
                 "url": "https://github.com/MichaelSchmidle/wapps"
@@ -100,7 +98,6 @@
                 }
             ],
             "name": "dns",
-            "platform": "linux",
             "repository": {
                 "stackfile": "composition/dns/docker-compose.yml",
                 "url": "https://github.com/MichaelSchmidle/wapps"
@@ -123,7 +120,6 @@
                 }
             ],
             "name": "get",
-            "platform": "linux",
             "repository": {
                 "stackfile": "composition/get/docker-compose.yml",
                 "url": "https://github.com/MichaelSchmidle/wapps"
@@ -165,7 +161,6 @@
                 }
             ],
             "name": "jump",
-            "platform": "linux",
             "repository": {
                 "stackfile": "composition/jump/docker-compose.yml",
                 "url": "https://github.com/MichaelSchmidle/wapps"
@@ -201,7 +196,6 @@
                 }
             ],
             "name": "know",
-            "platform": "linux",
             "repository": {
                 "stackfile": "composition/know/docker-compose.yml",
                 "url": "https://github.com/MichaelSchmidle/wapps"
@@ -253,7 +247,6 @@
                 }
             ],
             "name": "pvrm",
-            "platform": "linux",
             "repository": {
                 "stackfile": "composition/pvr-movies/docker-compose.yml",
                 "url": "https://github.com/MichaelSchmidle/wapps"
@@ -305,7 +298,6 @@
                 }
             ],
             "name": "pvrs",
-            "platform": "linux",
             "repository": {
                 "stackfile": "composition/pvr-series/docker-compose.yml",
                 "url": "https://github.com/MichaelSchmidle/wapps"
@@ -406,7 +398,6 @@
                 }
             ],
             "name": "safe",
-            "platform": "linux",
             "repository": {
                 "stackfile": "composition/safe/docker-compose.yml",
                 "url": "https://github.com/MichaelSchmidle/wapps"
@@ -439,7 +430,6 @@
                 }
             ],
             "name": "sss",
-            "platform": "linux",
             "repository": {
                 "stackfile": "composition/sss/docker-compose.yml",
                 "url": "https://github.com/MichaelSchmidle/wapps"
@@ -486,7 +476,6 @@
                 }
             ],
             "name": "trck",
-            "platform": "linux",
             "repository": {
                 "stackfile": "composition/trck/docker-compose.yml",
                 "url": "https://github.com/MichaelSchmidle/wapps"
@@ -505,7 +494,6 @@
             ],
             "name": "tube",
             "note": "This wapp can generate a substantial amount of traffic on your host if left accessible to the public. To secure access to this sensible wapp, it is exposed exclusively via the <code>HTTPS_MGMT_PORT</code> as configured in the <code>.env</code> file of your wappster instance",
-            "platform": "linux",
             "repository": {
                 "stackfile": "composition/tube/docker-compose.yml",
                 "url": "https://github.com/MichaelSchmidle/wapps"

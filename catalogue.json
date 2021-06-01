@@ -5,7 +5,7 @@
             "description": "API backend based on Strapi",
             "env": [
                 {
-                    "description": "The DNS hostname pointing to this app",
+                    "description": "The DNS hostname pointing to this wapp",
                     "label": "Host",
                     "name": "HOST"
                 },
@@ -41,7 +41,7 @@
             "description": "Database management based on Adminer",
             "env": [
                 {
-                    "description": "The DNS hostname pointing to this app",
+                    "description": "The DNS hostname pointing to this wapp",
                     "label": "Host",
                     "name": "HOST"
                 }
@@ -60,7 +60,7 @@
             "description": "DNS-level ad blocker based on Pi-hole",
             "env": [
                 {
-                    "description": "The DNS hostname pointing to this app",
+                    "description": "The DNS hostname pointing to this wapp",
                     "label": "Host",
                     "name": "HOST"
                 },
@@ -112,7 +112,7 @@
             "description": "Static file server based on Caddy",
             "env": [
                 {
-                    "description": "The DNS hostname pointing to this app",
+                    "description": "The DNS hostname pointing to this wapp",
                     "label": "Host",
                     "name": "HOST"
                 },
@@ -135,7 +135,7 @@
             "description": "RDP gateway based on Guacamole",
             "env": [
                 {
-                    "description": "The DNS hostname pointing to this app",
+                    "description": "The DNS hostname pointing to this wapp",
                     "label": "Host",
                     "name": "HOST"
                 },
@@ -147,7 +147,7 @@
                 },
                 {
                     "default": "wapps_jump",
-                    "description": "The password of the root user",
+                    "description": "The password of the database root user",
                     "label": "Root password",
                     "name": "MYSQL_ROOT_PASSWORD"
                 },
@@ -177,7 +177,7 @@
             "description": "Wiki based on Wiki.js",
             "env": [
                 {
-                    "description": "The DNS hostname pointing to this app",
+                    "description": "The DNS hostname pointing to this wapp",
                     "label": "Host",
                     "name": "HOST"
                 },
@@ -213,7 +213,7 @@
             "description": "PVR for movies based on Radarr",
             "env": [
                 {
-                    "description": "The DNS hostname pointing to this app",
+                    "description": "The DNS hostname pointing to this wapp",
                     "label": "Host",
                     "name": "HOST"
                 },
@@ -265,7 +265,7 @@
             "description": "PVR for TV series based on Sonarr",
             "env": [
                 {
-                    "description": "The DNS hostname pointing to this app",
+                    "description": "The DNS hostname pointing to this wapp",
                     "label": "Host",
                     "name": "HOST"
                 },
@@ -317,7 +317,7 @@
             "description": "Password manager based on Passit",
             "env": [
                 {
-                    "description": "The DNS hostname pointing to this app",
+                    "description": "The DNS hostname pointing to this wapp",
                     "label": "Host",
                     "name": "HOST"
                 },
@@ -418,7 +418,7 @@
             "description": "Simple storage app based on Minio",
             "env": [
                 {
-                    "description": "The DNS hostname pointing to this app",
+                    "description": "The DNS hostname pointing to this wapp",
                     "label": "Host",
                     "name": "HOST"
                 },
@@ -451,7 +451,7 @@
             "description": "Website analytics based on Matomo",
             "env": [
                 {
-                    "description": "The DNS hostname pointing to this app",
+                    "description": "The DNS hostname pointing to this wapp",
                     "label": "Host",
                     "name": "HOST"
                 },
@@ -468,7 +468,7 @@
                 },
                 {
                     "default": "wapps_trck",
-                    "description": "The password of the root user",
+                    "description": "The password of the database root user",
                     "label": "Root password",
                     "name": "MYSQL_ROOT_PASSWORD"
                 },
@@ -498,7 +498,7 @@
             "description": "Media downloader based on AllTube Download",
             "env": [
                 {
-                    "description": "The DNS hostname pointing to this app",
+                    "description": "The DNS hostname pointing to this wapp",
                     "label": "Host",
                     "name": "HOST"
                 }

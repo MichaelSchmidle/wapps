@@ -26,7 +26,7 @@ There are three reasons for self-hosting:
 | dns  | DNS-based ad blocker based on [Pi-hole](https://pi-hole.net/) | http (80) and https (443) redirected to ``HTTPS_MGMT_PORT``<sup name="r1">[1](#f1)</sup> |
 | get  | Static file server based on [Caddy](https://caddyserver.com/) | http (80) redirected to https (443) |
 | jump | RDP gateway based on [Guacamole](https://guacamole.apache.org/) | http (80) redirected to https (443) |
-| know | Wiki based on [Bookstack](https://www.bookstackapp.com/) | http (80) redirected to https (443) |
+| know | Wiki based on [Wiki.js](https://js.wiki/) | http (80) redirected to https (443) |
 | pvrm | PVR for movies based on [Radarr](https://radarr.video/) | http (80) redirected to https (443) |
 | pvrs | PVR for TV series based on [Sonarr](https://sonarr.tv/) | http (80) redirected to https (443) |
 | safe | Password manager based on [Passit](https://passit.io/) | http (80) redirected to https (443) |

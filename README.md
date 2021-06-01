@@ -23,7 +23,7 @@ There are three reasons for self-hosting:
 | :--- | :---------- | :--- |
 | api  | API backend based on [Strapi](https://strapi.io/) | http (80) redirected to https (443) |
 | data | Database management based on [Adminer](https://www.adminer.org/) | http (80) and https (443) redirected to ``HTTPS_MGMT_PORT``<sup name="r1">[1](#f1)</sup> |
-| dns  | DNS-based ad blocker based on [Pi-hole](https://pi-hole.net/) | http (80) redirected to https (443) |
+| dns  | DNS-based ad blocker based on [Pi-hole](https://pi-hole.net/) | http (80) and https (443) redirected to ``HTTPS_MGMT_PORT``<sup name="r1">[1](#f1)</sup> |
 | get  | Static file server based on [Caddy](https://caddyserver.com/) | http (80) redirected to https (443) |
 | jump | RDP gateway based on [Guacamole](https://guacamole.apache.org/) | http (80) redirected to https (443) |
 | know | Wiki based on [Bookstack](https://www.bookstackapp.com/) | http (80) redirected to https (443) |

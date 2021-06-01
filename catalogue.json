@@ -29,7 +29,6 @@
                 }
             ],
             "name": "api",
-            "note": "This wapp provides an API backend. To secure access to this sensible wapp, it is exposed exclusively via the <code>HTTPS_MGMT_PORT</code> as configured in the <code>.env</code> file of your wappster instance",
             "platform": "linux",
             "repository": {
                 "stackfile": "composition/api/docker-compose.yml",
@@ -100,6 +99,7 @@
                 }
             ],
             "name": "dns",
+            "note": "This wapp provides an management interface. To secure access to this sensible wapp, it is exposed exclusively via the <code>HTTPS_MGMT_PORT</code> as configured in the <code>.env</code> file of your wappster instance",
             "platform": "linux",
             "repository": {
                 "stackfile": "composition/dns/docker-compose.yml",

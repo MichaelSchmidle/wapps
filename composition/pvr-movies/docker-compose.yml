@@ -27,7 +27,7 @@ services:
       - "config:/config"
       - "/etc/localtime:/etc/localtime:ro"
       - "${MOVIES_ROOT}:/movies"
-      - "${DOWNLOADS_ROOT}:${DOWNLOADS_ROOT}"
+      - "${DOWNLOADS_ROOT}:/downloads"
 volumes:
   config:
     driver: "local"

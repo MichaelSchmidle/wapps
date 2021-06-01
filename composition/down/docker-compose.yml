@@ -1,0 +1,34 @@
+version: "2"
+networks:
+  wapps:
+    external:
+      name: "wapps"
+services:
+  qbittorrent:
+    environment:
+      - "PUID=${PUID}"
+      - "PGID=${PGID}"
+      - "TZ=${TZ}"
+      - "WEBUI_PORT=8080"
+    image: "linuxserver/qbittorrent"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+      - "traefik.http.routers.qbittorrent-http.entrypoints=http"
+      - "traefik.http.routers.qbittorrent-http.middlewares=wapps"
+      - "traefik.http.routers.qbittorrent-http.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.qbittorrent-https.entrypoints=https"
+      - "traefik.http.routers.qbittorrent-https.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.qbittorrent-https.tls.certResolver=wapps"
+      - "traefik.http.services.qbittorrent.loadbalancer.server.port=8080"
+    networks:
+      - "wapps"
+    ports:
+      - 6881:6881/tcp
+      - 6881:6881/udp
+    restart: "always"
+    volumes:
+      - "config:/config"
+      - "${DOWNLOADS_ROOT}:/downloads"
+volumes:
+  config:
+    driver: "local"

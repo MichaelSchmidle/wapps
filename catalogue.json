@@ -109,6 +109,47 @@
             "type": 3
         },
         {
+            "description": "Bittorrent downloader based on qBittorrent",
+            "env": [
+                {
+                    "description": "The DNS hostname pointing to this wapp",
+                    "label": "Host",
+                    "name": "HOST"
+                },
+                {
+                    "description": "Location of download directory",
+                    "label": "Downloads root folder",
+                    "name": "DOWNLOADS_ROOT"
+                },
+                {
+                    "default": "1000",
+                    "description": "PUID, i.e. 1000",
+                    "label": "User identifier",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "description": "PGID, i.e. 1000",
+                    "label": "Group identifier",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Europe/Zurich",
+                    "description": "Time zone for this app (format: Europe/Zurich)",
+                    "label": "Time zone",
+                    "name": "TZ"
+                }
+            ],
+            "name": "down",
+            "platform": "linux",
+            "repository": {
+                "stackfile": "composition/down/docker-compose.yml",
+                "url": "https://github.com/MichaelSchmidle/wapps"
+            },
+            "title": "down",
+            "type": 3
+        },
+        {
             "description": "Static file server based on Caddy",
             "env": [
                 {

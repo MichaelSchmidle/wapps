@@ -545,7 +545,7 @@
                 }
             ],
             "name": "tube",
-            "note": "This wapp can generate a substantial amount of traffic on your host if left accessible to the public. To secure access to this sensible wapp, it is exposed exclusively via the <code>HTTPS_MGMT_PORT</code> as configured in the <code>.env</code> file of your wappster instance",
+            "note": "This wapp can generate a substantial amount of traffic on your host if left accessible to the public. To secure access to this wapp, it is secured via Single Sign On (SSO) as configured in your wappster instance",
             "platform": "linux",
             "repository": {
                 "stackfile": "composition/tube/docker-compose.yml",

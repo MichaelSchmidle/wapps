@@ -9,9 +9,10 @@ services:
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.routers.alltube-http.entrypoints=http"
-      - "traefik.http.routers.alltube-http.middlewares=wapps-mgmt"
+      - "traefik.http.routers.alltube-http.middlewares=wapps"
       - "traefik.http.routers.alltube-http.rule=Host(`${HOST}`)"
       - "traefik.http.routers.alltube-https.entrypoints=https"
+      - "traefik.http.routers.alltube-https.middlewares=sso"
       - "traefik.http.routers.alltube-https.rule=Host(`${HOST}`)"
       - "traefik.http.routers.alltube-https.tls.certResolver=wapps"
       - "traefik.http.services.alltube.loadbalancer.server.port=80"

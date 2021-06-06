@@ -17,6 +17,7 @@ services:
       - "traefik.http.routers.radarr-http.middlewares=wapps"
       - "traefik.http.routers.radarr-http.rule=Host(`${HOST}`)"
       - "traefik.http.routers.radarr-https.entrypoints=https"
+      - "traefik.http.routers.radarr-https.middlewares=sso"
       - "traefik.http.routers.radarr-https.rule=Host(`${HOST}`)"
       - "traefik.http.routers.radarr-https.tls.certResolver=wapps"
       - "traefik.http.services.radarr.loadbalancer.server.port=7878"

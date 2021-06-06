@@ -17,7 +17,7 @@ services:
       - "mysql:/var/lib/mysql"
     restart: "always"
   guacd-ba535ef5a9f7b8bc875812bb081286bb:
-    image: "guacamole/guacd:1.2.0"
+    image: "guacamole/guacd:1.3.0"
     networks:
       - "wapps"
     restart: "always"
@@ -28,7 +28,7 @@ services:
       - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
       - "MYSQL_HOSTNAME=mysql-ba535ef5a9f7b8bc875812bb081286bb"
       - "GUACD_HOSTNAME=guacd-ba535ef5a9f7b8bc875812bb081286bb"
-    image: "guacamole/guacamole:1.2.0"
+    image: "guacamole/guacamole:1.3.0"
     labels:
       - "traefik.http.middlewares.guacamole.addprefix.prefix=/guacamole"
       - "traefik.http.routers.guacamole-http.entrypoints=http"

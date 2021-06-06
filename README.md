@@ -22,22 +22,23 @@ There are three reasons for self-hosting:
 | Wapp | Description | Port |
 | :--- | :---------- | :--- |
 | api  | API backend based on [Strapi](https://strapi.io/) | http (80) redirected to https (443) |
-| data | Database management based on [Adminer](https://www.adminer.org/) | http (80) and https (443) redirected to ``HTTPS_MGMT_PORT``<sup name="r1">[1](#f1)</sup> |
-| dns  | DNS-based ad blocker based on [Pi-hole](https://pi-hole.net/) | http (80) and https (443) redirected to ``HTTPS_MGMT_PORT``<sup name="r1">[1](#f1)</sup> |
+| data | Database management based on [Adminer](https://www.adminer.org/) | http (80) and https (443) redirected to ``HTTPS_MGMT_PORT``<sup>[1](#f1), </sup><sup>[2](#f2)</sup> |
+| dns  | DNS-based ad blocker based on [Pi-hole](https://pi-hole.net/) | http (80) and https (443) redirected to ``HTTPS_MGMT_PORT``<sup>[1](#f1)</sup> |
 | get  | Static file server based on [Caddy](https://caddyserver.com/) | http (80) redirected to https (443) |
 | jump | RDP gateway based on [Guacamole](https://guacamole.apache.org/) | http (80) redirected to https (443) |
 | know | Wiki based on [Wiki.js](https://js.wiki/) | http (80) redirected to https (443) |
-| pvrm | PVR for movies based on [Radarr](https://radarr.video/) | http (80) redirected to https (443) |
-| pvrs | PVR for TV series based on [Sonarr](https://sonarr.tv/) | http (80) redirected to https (443) |
+| pvrm | PVR for movies based on [Radarr](https://radarr.video/) | http (80) redirected to https (443)<sup>[2](#f2)</sup> |
+| pvrs | PVR for TV series based on [Sonarr](https://sonarr.tv/) | http (80) redirected to https (443)<sup>[2](#f2)</sup> |
 | safe | Password manager based on [Passit](https://passit.io/) | http (80) redirected to https (443) |
 | sss  | Simple storage app based on [Minio](https://minio.io/) | http (80) redirected to https (443) |
 | trck | Website analytics based on [Matomo](https://matomo.org/) | http (80) redirected to https (443) |
-| tube | Media downloader based on [AllTube Download](http://alltubedownload.net/) | http (80) and https (443) redirected to ``HTTPS_MGMT_PORT``<sup name="r1">[1](#f1)</sup> |
+| tube | Media downloader based on [AllTube Download](http://alltubedownload.net/) | http (80) redirected to https (443)<sup>[2](#f2)</sup> |
 
 The composition files for each wapp can be found in the ``composition`` folder of this repository.
 
-<sup><a name="f1" href="#r1">1</a></sup> ``HTTPS_MGMT_PORT`` refers to the environment variable as defined in the ``.env`` file of your wappster instance. Please refer to the [wappster repository](https://github.com/MichaelSchmidle/wappster) for more instructions.
+<sup name="f1">1</sup> ``HTTPS_MGMT_PORT`` refers to the environment variable as defined in the ``.env`` file of your wappster instance. Please refer to the [wappster repository](https://github.com/MichaelSchmidle/wappster) for more instructions.
+<sup name="f2">2</sup> This wapp is secured with Single Sign On (SSO) as configured in your wappster instance.
 
-# Wapps Usage
+# Wapps Requirements and Usage
 
-To deploy any of the above wapps, use [wappster](https://github.com/MichaelSchmidle/wappster).
+To deploy any of the above wapps, use [wappster](https://github.com/MichaelSchmidle/wappster) version 1.2 or higher.

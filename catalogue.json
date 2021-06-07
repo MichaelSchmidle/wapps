@@ -38,6 +38,42 @@
             "type": 3
         },
         {
+            "description": "Application dashboard based on Heimdall",
+            "env": [
+                {
+                    "description": "The DNS hostname pointing to this wapp",
+                    "label": "Host",
+                    "name": "HOST"
+                },
+                {
+                    "default": "1000",
+                    "description": "PUID, i.e. 1000",
+                    "label": "User identifier",
+                    "name": "PUID"
+                },
+                {
+                    "default": "1000",
+                    "description": "PGID, i.e. 1000",
+                    "label": "Group identifier",
+                    "name": "PGID"
+                },
+                {
+                    "default": "Europe/Zurich",
+                    "description": "Time zone for this app (format: Europe/Zurich)",
+                    "label": "Time zone",
+                    "name": "TZ"
+                }
+            ],
+            "name": "dash",
+            "platform": "linux",
+            "repository": {
+                "stackfile": "composition/dash/docker-compose.yml",
+                "url": "https://github.com/MichaelSchmidle/wapps"
+            },
+            "title": "dash",
+            "type": 3
+        },
+        {
             "description": "Database management based on Adminer",
             "env": [
                 {

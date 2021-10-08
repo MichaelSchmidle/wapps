@@ -194,7 +194,7 @@
                     "name": "HOST"
                 },
                 {
-                    "description": "The folder containing the configuration file `Caddyfile`",
+                    "description": "The folder containing the configuration file `Caddyfile` (see example at https://github.com/MichaelSchmidle/wapps/tree/master/composition/get)",
                     "label": "Configuration folder",
                     "name": "CONFIG"
                 },

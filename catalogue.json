@@ -194,6 +194,11 @@
                     "name": "HOST"
                 },
                 {
+                    "description": "The folder containing the configuration file `Caddyfile`",
+                    "label": "Configuration folder",
+                    "name": "CONFIG"
+                },
+                {
                     "description": "The root folder containing the files to be served",
                     "label": "Root folder",
                     "name": "ROOT"

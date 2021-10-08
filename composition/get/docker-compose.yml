@@ -20,7 +20,7 @@ services:
     restart: "always"
     volumes:
       - "${CONFIG}/Caddyfile:/etc/Caddyfile"
-      - "${ROOT}:/srv"
+      - "${ROOT}:/var/www/html"
       - data:/data
       - config:/config
 volumes:

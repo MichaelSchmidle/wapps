@@ -21,10 +21,3 @@ services:
     volumes:
       - "${CONFIG}/Caddyfile:/etc/Caddyfile"
       - "${ROOT}:/var/www/html"
-      - data:/data
-      - config:/config
-volumes:
-  data:
-    driver: "local"
-  config:
-    driver: "local"

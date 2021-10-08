@@ -5,7 +5,7 @@ networks:
       name: "wapps"
 services:
   caddy:
-    image: "abiosoft/caddy"
+    image: "caddy"
     networks:
       - "wapps"
     labels:

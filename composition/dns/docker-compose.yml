@@ -12,6 +12,7 @@ services:
       - "DNS2=${DNS2}"
       - "WEBPASSWORD=${PASSWORD}"
       - "TZ=${TZ}"
+      - "ServerIP=${IP}"
     extra_hosts:
       - "${HOST}:${IP}"
     hostname: "${HOST}"

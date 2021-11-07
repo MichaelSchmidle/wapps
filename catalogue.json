@@ -214,6 +214,29 @@
             "type": 3
         },
         {
+            "description": "Home automation based on Home Assistant",
+            "env": [
+                {
+                    "description": "The DNS hostname pointing to this wapp",
+                    "label": "Host",
+                    "name": "HOST"
+                },
+                {
+                    "description": "Path to configuration directory",
+                    "label": "Configuration path",
+                    "name": "CONFIG"
+                }
+            ],
+            "name": "home",
+            "platform": "linux",
+            "repository": {
+                "stackfile": "composition/home/docker-compose.yml",
+                "url": "https://github.com/MichaelSchmidle/wapps"
+            },
+            "title": "home",
+            "type": 3
+        },
+        {
             "description": "RDP gateway based on Guacamole",
             "env": [
                 {

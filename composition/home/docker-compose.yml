@@ -1,0 +1,30 @@
+version: "2"
+networks:
+  wapps:
+    external:
+      name: "wapps"
+services:
+  homeassistant:
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    networks:
+      - "wapps"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+      - "traefik.http.routers.homeassistant-http.entrypoints=http"
+      - "traefik.http.routers.homeassistant-http.middlewares=wapps-mgmt"
+      - "traefik.http.routers.homeassistant-http.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.homeassistant-https.entrypoints=https"
+      - "traefik.http.routers.homeassistant-https.middlewares=wapps-mgmt"
+      - "traefik.http.routers.homeassistant-https.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.homeassistant-https.tls.certResolver=wapps"
+      - "traefik.http.routers.homeassistant-https-mgmt.entrypoints=https-mgmt"
+      - "traefik.http.routers.homeassistant-https-mgmt.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.homeassistant-https-mgmt.tls.certResolver=wapps"
+      - "traefik.http.services.homeassistant.loadbalancer.server.port=80"
+    restart: "always"
+    volumes:
+      - config:/config
+      - /etc/localtime:/etc/localtime:ro
+volumes:
+  config:
+    driver: "local"

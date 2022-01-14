@@ -449,7 +449,15 @@
                     "label": "Database password",
                     "name": "MYSQL_PASSWORD"
                 }
-            ]
+            ],
+            "name": "rms",
+            "platform": "linux",
+            "repository": {
+                "stackfile": "composition/rms/docker-compose.yml",
+                "url": "https://github.com/MichaelSchmidle/wapps"
+            },
+            "title": "rms",
+            "type": 3
         },
         {
             "description": "Password manager based on Passit",

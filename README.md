@@ -32,6 +32,7 @@ There are three reasons for self-hosting:
 | know | Wiki based on [Wiki.js](https://js.wiki/) | http (80) redirected to https (443) |
 | pvrm | PVR for movies based on [Radarr](https://radarr.video/) | http (80) redirected to https (443)<sup>[2](#f2)</sup> |
 | pvrs | PVR for TV series based on [Sonarr](https://sonarr.tv/) | http (80) redirected to https (443)<sup>[2](#f2)</sup> |
+| rms  | Relationship Management System based on [Monica](https://monicahq.com/) | http (80) redirected to https (443)<sup>[2](#f2)</sup> |
 | safe | Password manager based on [Passit](https://passit.io/) | http (80) redirected to https (443) |
 | sss  | Simple storage service based on [Minio](https://minio.io/) | http (80) redirected to https (443) |
 | trck | Website analytics based on [Matomo](https://matomo.org/) | http (80) redirected to https (443) |

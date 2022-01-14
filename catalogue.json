@@ -419,6 +419,39 @@
             "type": 3
         },
         {
+            "description": "Relationship Management System based on Monica",
+            "env": [
+                {
+                    "description": "Randomized, 32 characters long key",
+                    "label": "App Key",
+                    "name": "APP_KEY"
+                },
+                {
+                    "description": "The DNS hostname pointing to this wapp",
+                    "label": "Host",
+                    "name": "HOST"
+                },
+                {
+                    "default": "wapps_rms",
+                    "description": "The password of the database root user",
+                    "label": "Root password",
+                    "name": "MYSQL_ROOT_PASSWORD"
+                },
+                {
+                    "default": "wapps_rms",
+                    "description": "The name of the database user",
+                    "label": "Database user",
+                    "name": "MYSQL_USER"
+                },
+                {
+                    "default": "wapps_rms",
+                    "description": "The password of the database user",
+                    "label": "Database password",
+                    "name": "MYSQL_PASSWORD"
+                }
+            ]
+        },
+        {
             "description": "Password manager based on Passit",
             "env": [
                 {

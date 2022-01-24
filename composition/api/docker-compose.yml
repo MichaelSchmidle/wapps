@@ -39,9 +39,7 @@ services:
       - "wapps"
     restart: "always"
     volumes:
-    - "app:/srv/app"
+      - "${PROJECT}:/srv/app"
 volumes:
   data:
-    driver: "local"
-  app:
     driver: "local"

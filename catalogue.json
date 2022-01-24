@@ -26,6 +26,11 @@
                     "description": "The password of the database user",
                     "label": "Database password",
                     "name": "POSTGRES_PASSWORD"
+                },
+                {
+                    "description": "Path to project directory",
+                    "label": "Project path",
+                    "name": "PROJECT"
                 }
             ],
             "name": "api",

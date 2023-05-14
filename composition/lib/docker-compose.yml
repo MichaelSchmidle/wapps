@@ -22,7 +22,7 @@ services:
   bookstack:
     environment:
       - "APP_URL=${HOST}"
-      - "DB_HOST=mysql-"
+      - "DB_HOST=mysql-e1ef12ce9ab3c5e99202073feb199596"
       - "DB_PORT=3306"
       - "DB_USER=${MYSQL_USER}"
       - "DB_PASS=${MYSQL_PASSWORD}"

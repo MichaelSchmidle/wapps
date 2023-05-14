@@ -21,7 +21,7 @@ services:
       - "data:/var/lib/postgresql/data"
   bookstack:
     environment:
-      - "APP_URL=${HOST}"
+      - "APP_URL=https://${HOST}/"
       - "DB_HOST=mysql-e1ef12ce9ab3c5e99202073feb199596"
       - "DB_PORT=3306"
       - "DB_USER=${MYSQL_USER}"

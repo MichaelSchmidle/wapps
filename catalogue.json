@@ -352,13 +352,13 @@
                     "name": "MYSQL_PASSWORD"
                 }
             ],
-            "name": "know",
+            "name": "lib",
             "platform": "linux",
             "repository": {
                 "stackfile": "composition/lib/docker-compose.yml",
                 "url": "https://github.com/MichaelSchmidle/wapps"
             },
-            "title": "know",
+            "title": "lib",
             "type": 3
         },
         {

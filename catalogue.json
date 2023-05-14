@@ -320,6 +320,48 @@
             "type": 3
         },
         {
+            "description": "Wiki based on Bookstack",
+            "env": [
+                {
+                    "default": "Europe/Zurich",
+                    "description": "Time zone for this app (format: Europe/Zurich)",
+                    "label": "Time zone",
+                    "name": "TZ"
+                },
+                {
+                    "description": "The DNS hostname pointing to this wapp",
+                    "label": "Host",
+                    "name": "HOST"
+                },
+                {
+                    "default": "wapps_lib",
+                    "description": "The name of the database",
+                    "label": "Database",
+                    "name": "MYSQL_DB"
+                },
+                {
+                    "default": "wapps_lib",
+                    "description": "The name of the database user",
+                    "label": "Database user",
+                    "name": "MYSQL_USER"
+                },
+                {
+                    "default": "wapps_lib",
+                    "description": "The password of the database user",
+                    "label": "Database password",
+                    "name": "MYSQL_PASSWORD"
+                }
+            ],
+            "name": "know",
+            "platform": "linux",
+            "repository": {
+                "stackfile": "composition/lib/docker-compose.yml",
+                "url": "https://github.com/MichaelSchmidle/wapps"
+            },
+            "title": "know",
+            "type": 3
+        },
+        {
             "description": "PVR for movies based on Radarr",
             "env": [
                 {

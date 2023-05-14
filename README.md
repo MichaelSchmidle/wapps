@@ -29,6 +29,7 @@ There are three reasons for self-hosting:
 | get  | Static file server based on [Caddy](https://caddyserver.com/) | http (80) redirected to https (443) |
 | home | Home automation based on [Home Assistant]() | http (80) and https (443) redirected to ``HTTPS_MGMT_PORT``<sup>[1](#f1)</sup> |
 | jump | RDP gateway based on [Guacamole](https://guacamole.apache.org/) | http (80) redirected to https (443) |
+| lib  | Wiki based on [Bookstack](https://www.bookstackapp.com/) | http (80) redirected to https (443) |
 | know | Wiki based on [Wiki.js](https://js.wiki/) | http (80) redirected to https (443) |
 | pvrm | PVR for movies based on [Radarr](https://radarr.video/) | http (80) redirected to https (443)<sup>[2](#f2)</sup> |
 | pvrs | PVR for TV series based on [Sonarr](https://sonarr.tv/) | http (80) redirected to https (443)<sup>[2](#f2)</sup> |

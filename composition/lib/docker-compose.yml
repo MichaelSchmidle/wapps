@@ -18,7 +18,7 @@ services:
       - "wapps"
     restart: "always"
     volumes:
-      - "data:/var/lib/postgresql/data"
+      - "mysql-config:/config"
   bookstack:
     environment:
       - "APP_URL=https://${HOST}/"
@@ -40,6 +40,10 @@ services:
     networks:
       - "wapps"
     restart: "always"
+    volumes:
+      - "bookstack-config:/config"
 volumes:
-  data:
+  mysql-config:
+    driver: "local"
+  bookstack-config:
     driver: "local"

@@ -66,6 +66,24 @@
                     "name": "FLOWISE_PASSWORD"
                 },
                 {
+                    "default": "wapps_chat",
+                    "description": "The name of the database",
+                    "label": "Database",
+                    "name": "POSTGRES_DB"
+                },
+                {
+                    "default": "wapps_chat",
+                    "description": "The name of the database user",
+                    "label": "Database user",
+                    "name": "POSTGRES_USER"
+                },
+                {
+                    "default": "wapps_chat",
+                    "description": "The password of the database user",
+                    "label": "Database password",
+                    "name": "POSTGRES_PASSWORD"
+                },
+                {
                     "description": "Location where API keys are saved",
                     "label": "API keys path",
                     "name": "APIKEY_PATH"

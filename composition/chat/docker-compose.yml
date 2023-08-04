@@ -1,0 +1,30 @@
+version: "2"
+networks:
+  wapps:
+    external:
+      name: "wapps"
+services:
+  flowise:
+    command: /bin/sh -c "sleep 3; flowise start"
+    environment:
+      - PASSPHRASE=${PASSPHRASE}
+      - FLOWISE_USERNAME=${FLOWISE_USER}
+      - FLOWISE_PASSWORD=${FLOWISE_PASSWORD}
+      - DATABASE_PATH=${DATABASE_PATH}
+      - APIKEY_PATH=${APIKEY_PATH}
+      - SECRETKEY_PATH=${SECRETKEY_PATH}
+    image: flowiseai/flowise
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+      - "traefik.http.routers.flowise-http.entrypoints=http"
+      - "traefik.http.routers.flowise-http.middlewares=wapps"
+      - "traefik.http.routers.flowise-http.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.flowise-https.entrypoints=https"
+      - "traefik.http.routers.flowise-https.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.flowise-https.tls.certResolver=wapps"
+      - "traefik.http.services.flowise.loadbalancer.server.port=3000"
+    ports:
+      - "${PORT}:${PORT}"
+    restart: always
+    volumes:
+      - flowise:/root/.flowise

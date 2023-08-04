@@ -22,6 +22,7 @@ There are three reasons for self-hosting:
 | Wapp | Description | Port |
 | :--- | :---------- | :--- |
 | api  | API backend based on [Strapi](https://strapi.io/) | http (80) redirected to https (443) |
+| chat | Open source UI visual tool to build your customized LLM flow based on [Flowise AI](https://flowiseai.com/) | http (80) redirected to https (443) |
 | dash | Application dashboard based on [Heimdall](https://heimdall.site/) | http (80) and https (443) redirected to ``HTTPS_MGMT_PORT``<sup>[1](#f1), </sup><sup>[2](#f2)</sup> |
 | data | Database management based on [Adminer](https://www.adminer.org/) | http (80) and https (443) redirected to ``HTTPS_MGMT_PORT``<sup>[1](#f1), </sup><sup>[2](#f2)</sup> |
 | down | Torrent downloader based on [qBittorrent](https://www.qbittorrent.org/) | http (80) redirected to https (443) |

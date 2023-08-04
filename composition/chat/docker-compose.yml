@@ -10,9 +10,9 @@ services:
       - "PASSPHRASE=${PASSPHRASE}"
       - "FLOWISE_USERNAME=${FLOWISE_USER}"
       - "FLOWISE_PASSWORD=${FLOWISE_PASSWORD}"
-      - "APIKEY_PATH=${APIKEY_PATH}"
-      - "SECRETKEY_PATH=${SECRETKEY_PATH}"
-      - "DATABASE_PATH=${DATABASE_PATH}"
+      - "APIKEY_PATH=/data"
+      - "SECRETKEY_PATH=/data"
+      - "DATABASE_PATH=/data"
     image: "flowiseai/flowise"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
@@ -28,6 +28,7 @@ services:
     restart: "always"
     volumes:
       - "flowise:/root/.flowise"
+      - "/data:/wappster/flowise"
 volumes:
   flowise:
     driver: "local"

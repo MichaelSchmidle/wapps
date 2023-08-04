@@ -64,21 +64,6 @@
                     "description": "The password of the Flowise user",
                     "label": "Flowise password",
                     "name": "FLOWISE_PASSWORD"
-                },
-                {
-                    "description": "Location where API keys are saved",
-                    "label": "API keys path",
-                    "name": "APIKEY_PATH"
-                },
-                {
-                    "description": "Location where encryption key (used to encrypt/decrypt credentials) is saved",
-                    "label": "Encryption key path",
-                    "name": "SECRETKEY_PATH"
-                },
-                {
-                    "description": "Location where database is saved ",
-                    "label": "Database path",
-                    "name": "DATABASE_PATH"
                 }
             ],
             "name": "chat",

@@ -28,6 +28,8 @@ services:
       - "traefik.http.routers.flowise-https.rule=Host(`${HOST}`)"
       - "traefik.http.routers.flowise-https.tls.certResolver=wapps"
       - "traefik.http.services.flowise.loadbalancer.server.port=3000"
+    networks:
+      - "wapps"
     restart: "always"
     volumes:
       - "flowise:/root/.flowise"

@@ -28,7 +28,7 @@ services:
     restart: "always"
     volumes:
       - "flowise:/root/.flowise"
-      - "/data:/wappster/flowise"
+      - "/data:${FLOWISE_DATA}"
 volumes:
   flowise:
     driver: "local"

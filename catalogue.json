@@ -64,6 +64,11 @@
                     "description": "The password of the Flowise user",
                     "label": "Flowise password",
                     "name": "FLOWISE_PASSWORD"
+                },
+                {
+                    "description": "The location of the Flowise database and keys",
+                    "label": "Flowise data location",
+                    "name": "FLOWISE_DATA"
                 }
             ],
             "name": "chat",

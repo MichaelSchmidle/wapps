@@ -12,12 +12,6 @@ services:
       - "FLOWISE_PASSWORD=${FLOWISE_PASSWORD}"
       - "APIKEY_PATH=${APIKEY_PATH}"
       - "SECRETKEY_PATH=${SECRETKEY_PATH}"
-      - "DATABASE_TYPE=postgres"
-      - "DATABASE_HOST=chat-postgres-aa8af3ebe14831a7cd1b6d1383a03755"
-      - "DATABASE_PORT=5432"
-      - "DATABASE_USER=${POSTGRES_USER}"
-      - "DATABASE_PASSWORD=${POSTGRES_PASSWORD}"
-      - "DATABASE_NAME=${POSTGRES_DB}"
     image: "flowiseai/flowise"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
@@ -33,21 +27,6 @@ services:
     restart: "always"
     volumes:
       - "flowise:/root/.flowise"
-  postgres-aa8af3ebe14831a7cd1b6d1383a03755:
-    environment:
-      - "POSTGRES_DB=${POSTGRES_DB}"
-      - "POSTGRES_USER=${POSTGRES_USER}"
-      - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}"
-    image: "postgres"
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
-    networks:
-      - "wapps"
-    restart: "always"
-    volumes:
-      - "data:/var/lib/postgresql/data"
 volumes:
   flowise:
-    driver: "local"
-  data:
     driver: "local"

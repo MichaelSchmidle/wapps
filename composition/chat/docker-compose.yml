@@ -7,13 +7,13 @@ services:
   flowise:
     command: /bin/sh -c "sleep 3; flowise start"
     environment:
-      - PASSPHRASE=${PASSPHRASE}
-      - FLOWISE_USERNAME=${FLOWISE_USER}
-      - FLOWISE_PASSWORD=${FLOWISE_PASSWORD}
-      - DATABASE_PATH=${DATABASE_PATH}
-      - APIKEY_PATH=${APIKEY_PATH}
-      - SECRETKEY_PATH=${SECRETKEY_PATH}
-    image: flowiseai/flowise
+      - "PASSPHRASE=${PASSPHRASE}"
+      - "FLOWISE_USERNAME=${FLOWISE_USER}"
+      - "FLOWISE_PASSWORD=${FLOWISE_PASSWORD}"
+      - "DATABASE_PATH=${DATABASE_PATH}"
+      - "APIKEY_PATH=${APIKEY_PATH}"
+      - "SECRETKEY_PATH=${SECRETKEY_PATH}"
+    image: "flowiseai/flowise"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
       - "traefik.http.routers.flowise-http.entrypoints=http"
@@ -23,8 +23,19 @@ services:
       - "traefik.http.routers.flowise-https.rule=Host(`${HOST}`)"
       - "traefik.http.routers.flowise-https.tls.certResolver=wapps"
       - "traefik.http.services.flowise.loadbalancer.server.port=3000"
-    ports:
-      - "${PORT}:${PORT}"
-    restart: always
+    restart: "always"
     volumes:
-      - flowise:/root/.flowise
+      - "flowise:/root/.flowise"
+  postgres-e51404836b41d483ab523eb6b975fca7:
+    environment:
+      - "POSTGRES_DB=${POSTGRES_DB}"
+      - "POSTGRES_USER=${POSTGRES_USER}"
+      - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}"
+    image: "postgres"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    networks:
+      - "wapps"
+    restart: "always"
+    volumes:
+      - "data:/var/lib/postgresql/data"

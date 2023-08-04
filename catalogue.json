@@ -43,6 +43,49 @@
             "type": 3
         },
         {
+            "description": "Open source UI visual tool to build your customized LLM flow using LangchainJS, written in Node Typescript/Javascript",
+            "env": [
+                {
+                    "description": "The DNS hostname pointing to this wapp",
+                    "label": "Host",
+                    "name": "HOST"
+                },
+                {
+                    "description": "Secret phrase used to create encryption key",
+                    "label": "Passphrase",
+                    "name": "PASSPHRASE"
+                },
+                {
+                    "description": "The name of the Flowise user",
+                    "label": "Flowise user",
+                    "name": "FLOWISE_USER"
+                },
+                {
+                    "description": "The password of the Flowise user",
+                    "label": "Flowise password",
+                    "name": "FLOWISE_PASSWORD"
+                },
+                {
+                    "description": "Location where API keys are saved",
+                    "label": "API keys path",
+                    "name": "APIKEY_PATH"
+                },
+                {
+                    "description": "Location where encryption key (used to encrypt/decrypt credentials) is saved",
+                    "label": "Encryption key path",
+                    "name": "SECRETKEY_PATH"
+                }
+            ],
+            "name": "chat",
+            "platform": "linux",
+            "repository": {
+                "stackfile": "composition/chat/docker-compose.yml",
+                "url": "https://github.com/MichaelSchmidle/wapps"
+            },
+            "title": "chat",
+            "type": 3
+        },
+        {
             "description": "Application dashboard based on Heimdall",
             "env": [
                 {

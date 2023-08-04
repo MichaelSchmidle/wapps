@@ -13,7 +13,7 @@ services:
       - "APIKEY_PATH=${APIKEY_PATH}"
       - "SECRETKEY_PATH=${SECRETKEY_PATH}"
       - "DATABASE_TYPE=postgres"
-      - "DATABASE_HOST=postgres-aa8af3ebe14831a7cd1b6d1383a03755"
+      - "DATABASE_HOST=chat-postgres-aa8af3ebe14831a7cd1b6d1383a03755"
       - "DATABASE_PORT=5432"
       - "DATABASE_USER=${POSTGRES_USER}"
       - "DATABASE_PASSWORD=${POSTGRES_PASSWORD}"

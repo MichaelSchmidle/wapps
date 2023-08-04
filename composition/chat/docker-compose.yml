@@ -12,6 +12,7 @@ services:
       - "FLOWISE_PASSWORD=${FLOWISE_PASSWORD}"
       - "APIKEY_PATH=${APIKEY_PATH}"
       - "SECRETKEY_PATH=${SECRETKEY_PATH}"
+      - "DATABASE_PATH=${DATABASE_PATH}"
     image: "flowiseai/flowise"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"

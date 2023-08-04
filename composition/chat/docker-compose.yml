@@ -29,6 +29,17 @@ services:
     volumes:
       - "flowise:/root/.flowise"
       - "${FLOWISE_DATA}:/data"
+  redis-a2f3e9a3316400d963b04461378df7f5:
+    image: redis:alpine
+    volumes:
+      - data:/data
+    networks:
+      - wapps
+    restart: unless-stopped
+    environment:
+      - TZ=${TZ}
 volumes:
   flowise:
+    driver: "local"
+  data:
     driver: "local"

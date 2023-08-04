@@ -69,6 +69,12 @@
                     "description": "The location of the Flowise database and keys",
                     "label": "Flowise data location",
                     "name": "FLOWISE_DATA"
+                },
+                {
+                    "default": "Europe/Zurich",
+                    "description": "Time zone for this app (format: Europe/Zurich)",
+                    "label": "Time zone",
+                    "name": "TZ"
                 }
             ],
             "name": "chat",

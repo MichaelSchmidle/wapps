@@ -4,6 +4,36 @@ networks:
     external:
       name: "wapps"
 services:
+  directus:
+    environment:
+      - "DB_CLIENT=pg"
+      - "DB_HOST=postgres-e51404836b41d483ab523eb6b975fca7"
+      - "DB_PORT=5432"
+      - "DB_DATABASE=${POSTGRES_DB}"
+      - "DB_USER=${POSTGRES_USER}"
+      - "DB_PASSWORD=${POSTGRES_PASSWORD}"
+      - "CACHE_ENABLED=true"
+      - "CACHE_STORE=redis"
+      - "REDIS=redis://redis-e51404836b41d483ab523eb6b975fca7:6379"
+      - "ADMIN_EMAIL=${DIRECTUS_EMAIL}"
+      - "ADMIN_PASSWORD=${DIRECTUS_PASSWORD}"
+      - "PUBLIC_URL=${HOST}"
+    image: "directus/directus"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+      - "traefik.http.routers.strapi-http.entrypoints=http"
+      - "traefik.http.routers.strapi-http.middlewares=wapps"
+      - "traefik.http.routers.strapi-http.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.strapi-https.entrypoints=https"
+      - "traefik.http.routers.strapi-https.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.strapi-https.tls.certResolver=wapps"
+      - "traefik.http.services.strapi.loadbalancer.server.port=8055"
+    networks:
+      - "wapps"
+    restart: "always"
+    volumes:
+      - "${DIRECTUS_UPLOADS_DIR}:/directus/uploads"
+      - "${DIRECTUS_EXTENSIONS_DIR}:/directus/extensions"
   postgres-e51404836b41d483ab523eb6b975fca7:
     environment:
       - "POSTGRES_DB=${POSTGRES_DB}"
@@ -17,29 +47,15 @@ services:
     restart: "always"
     volumes:
       - "data:/var/lib/postgresql/data"
-  strapi:
+  redis-e51404836b41d483ab523eb6b975fca7:
     environment:
-      - "DATABASE_CLIENT=postgres"
-      - "DATABASE_NAME=${POSTGRES_DB}"
-      - "DATABASE_HOST=postgres-e51404836b41d483ab523eb6b975fca7"
-      - "DATABASE_PORT=5432"
-      - "DATABASE_USERNAME=${POSTGRES_USER}"
-      - "DATABASE_PASSWORD=${POSTGRES_PASSWORD}"
-    image: "strapi/strapi"
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
-      - "traefik.http.routers.strapi-http.entrypoints=http"
-      - "traefik.http.routers.strapi-http.middlewares=wapps"
-      - "traefik.http.routers.strapi-http.rule=Host(`${HOST}`)"
-      - "traefik.http.routers.strapi-https.entrypoints=https"
-      - "traefik.http.routers.strapi-https.rule=Host(`${HOST}`)"
-      - "traefik.http.routers.strapi-https.tls.certResolver=wapps"
-      - "traefik.http.services.strapi.loadbalancer.server.port=1337"
+      - TZ=${TZ}
+    image: redis:alpine
     networks:
-      - "wapps"
-    restart: "always"
+      - wapps
+    restart: unless-stopped
     volumes:
-      - "${PROJECT}:/srv/app"
+      - data:/data
 volumes:
   data:
     driver: "local"

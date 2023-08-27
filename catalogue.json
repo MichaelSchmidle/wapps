@@ -28,9 +28,24 @@
                     "name": "POSTGRES_PASSWORD"
                 },
                 {
-                    "description": "Path to project directory",
-                    "label": "Project path",
-                    "name": "PROJECT"
+                    "description": "Email address of your first Directus administrator",
+                    "label": "Administrator email",
+                    "name": "DIRECTUS_EMAIL"
+                },
+                {
+                    "description": "Password of your first Directus administrator",
+                    "label": "Administrator password",
+                    "name": "DIRECTUS_PASSWORD"
+                },
+                {
+                    "description": "Path to uploads directory",
+                    "label": "Uploads directory",
+                    "name": "DIRECTUS_UPLOADS_DIR"
+                },
+                {
+                    "description": "Path to extensions directory",
+                    "label": "Extensions directory",
+                    "name": "DIRECTUS_EXTENSIONS_DIR"
                 }
             ],
             "name": "api",

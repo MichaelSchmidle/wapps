@@ -2,7 +2,7 @@
     "version": "2",
     "templates": [
         {
-            "description": "API backend based on Strapi",
+            "description": "API backend based on Directus",
             "env": [
                 {
                     "description": "The DNS hostname pointing to this wapp",
@@ -26,6 +26,16 @@
                     "description": "The password of the database user",
                     "label": "Database password",
                     "name": "POSTGRES_PASSWORD"
+                },
+                {
+                    "description": "String of characters as Directus security key",
+                    "label": "Security key",
+                    "name": "KEY"
+                },
+                {
+                    "description": "String of characters as Directus secret",
+                    "label": "Secret",
+                    "name": "SECRET"
                 },
                 {
                     "description": "Email address of your first Directus administrator",

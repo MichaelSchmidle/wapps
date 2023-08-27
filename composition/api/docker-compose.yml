@@ -6,20 +6,14 @@ networks:
 services:
   directus:
     environment:
-      - "KEY=${KEY}"
-      - "SECRET=${SECRET}"
-      - "DB_CLIENT=pg"
-      - "DB_HOST=postgres-e51404836b41d483ab523eb6b975fca7"
-      - "DB_PORT=5432"
-      - "DB_DATABASE=${POSTGRES_DB}"
-      - "DB_USER=${POSTGRES_USER}"
-      - "DB_PASSWORD=${POSTGRES_PASSWORD}"
-      - "CACHE_ENABLED=true"
-      - "CACHE_STORE=redis"
-      - "REDIS=redis://redis-e51404836b41d483ab523eb6b975fca7:6379"
+      - "KEY=${DIRECTUS_KEY}"
+      - "SECRET=${DIRECTUS_SECRET}"
+      - "WEBSOCKETS_ENABLED=true"
       - "ADMIN_EMAIL=${DIRECTUS_EMAIL}"
       - "ADMIN_PASSWORD=${DIRECTUS_PASSWORD}"
       - "PUBLIC_URL=${HOST}"
+      - "DB_CLIENT=sqlite3"
+      - "DB_FILENAME=/directus/database/data.db"
     image: "directus/directus"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
@@ -36,28 +30,4 @@ services:
     volumes:
       - "${DIRECTUS_UPLOADS_DIR}:/directus/uploads"
       - "${DIRECTUS_EXTENSIONS_DIR}:/directus/extensions"
-  postgres-e51404836b41d483ab523eb6b975fca7:
-    environment:
-      - "POSTGRES_DB=${POSTGRES_DB}"
-      - "POSTGRES_USER=${POSTGRES_USER}"
-      - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}"
-    image: "postgres:bullseye"
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
-    networks:
-      - "wapps"
-    restart: "always"
-    volumes:
-      - "data:/var/lib/postgresql/data"
-  redis-e51404836b41d483ab523eb6b975fca7:
-    environment:
-      - TZ=${TZ}
-    image: redis:alpine
-    networks:
-      - wapps
-    restart: unless-stopped
-    volumes:
-      - data:/data
-volumes:
-  data:
-    driver: "local"
+      - "${DIRECTUs_DATABASE_DIR}:/directus/database"

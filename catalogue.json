@@ -10,32 +10,14 @@
                     "name": "HOST"
                 },
                 {
-                    "default": "wapps_api",
-                    "description": "The name of the database",
-                    "label": "Database",
-                    "name": "POSTGRES_DB"
-                },
-                {
-                    "default": "wapps_api",
-                    "description": "The name of the database user",
-                    "label": "Database user",
-                    "name": "POSTGRES_USER"
-                },
-                {
-                    "default": "wapps_api",
-                    "description": "The password of the database user",
-                    "label": "Database password",
-                    "name": "POSTGRES_PASSWORD"
-                },
-                {
                     "description": "String of characters as Directus security key",
                     "label": "Security key",
-                    "name": "KEY"
+                    "name": "DIRECTUS_KEY"
                 },
                 {
                     "description": "String of characters as Directus secret",
                     "label": "Secret",
-                    "name": "SECRET"
+                    "name": "DIRECTUS_SECRET"
                 },
                 {
                     "description": "Email address of your first Directus administrator",
@@ -56,6 +38,11 @@
                     "description": "Path to extensions directory",
                     "label": "Extensions directory",
                     "name": "DIRECTUS_EXTENSIONS_DIR"
+                },
+                {
+                    "description": "Path to database directory",
+                    "label": "Database directory",
+                    "name": "DIRECTUS_DATABASE_DIR"
                 }
             ],
             "name": "api",

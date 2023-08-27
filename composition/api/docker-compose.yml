@@ -30,4 +30,4 @@ services:
     volumes:
       - "${DIRECTUS_UPLOADS_DIR}:/directus/uploads"
       - "${DIRECTUS_EXTENSIONS_DIR}:/directus/extensions"
-      - "${DIRECTUs_DATABASE_DIR}:/directus/database"
+      - "${DIRECTUS_DATABASE_DIR}:/directus/database"

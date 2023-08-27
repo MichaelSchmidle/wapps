@@ -11,7 +11,7 @@ services:
       - "WEBSOCKETS_ENABLED=true"
       - "ADMIN_EMAIL=${DIRECTUS_EMAIL}"
       - "ADMIN_PASSWORD=${DIRECTUS_PASSWORD}"
-      - "PUBLIC_URL=${HOST}"
+      - "PUBLIC_URL=https://${HOST}"
       - "DB_CLIENT=sqlite3"
       - "DB_FILENAME=/directus/database/data.db"
     image: "directus/directus"

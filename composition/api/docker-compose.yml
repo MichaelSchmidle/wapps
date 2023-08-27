@@ -6,6 +6,8 @@ networks:
 services:
   directus:
     environment:
+      - "KEY=${KEY}"
+      - "SECRET=${SECRET}"
       - "DB_CLIENT=pg"
       - "DB_HOST=postgres-e51404836b41d483ab523eb6b975fca7"
       - "DB_PORT=5432"

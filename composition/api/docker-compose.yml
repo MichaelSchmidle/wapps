@@ -14,6 +14,7 @@ services:
       - "PUBLIC_URL=https://${HOST}"
       - "DB_CLIENT=sqlite3"
       - "DB_FILENAME=/directus/database/data.db"
+      - "WEBSOCKETS_ENABLED=true"
     image: "directus/directus"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"

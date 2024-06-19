@@ -4,7 +4,7 @@ networks:
     external:
       name: "wapps"
 services:
-  radarr:
+  prowlarr:
     environment:
       - "PUID=${PUID}"
       - "PGID=${PGID}"
@@ -13,14 +13,14 @@ services:
     image: "linuxserver/prowlarr"
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
-      - "traefik.http.routers.radarr-http.entrypoints=http"
-      - "traefik.http.routers.radarr-http.middlewares=wapps"
-      - "traefik.http.routers.radarr-http.rule=Host(`${HOST}`)"
-      - "traefik.http.routers.radarr-https.entrypoints=https"
-      - "traefik.http.routers.radarr-https.middlewares=sso"
-      - "traefik.http.routers.radarr-https.rule=Host(`${HOST}`)"
-      - "traefik.http.routers.radarr-https.tls.certResolver=wapps"
-      - "traefik.http.services.radarr.loadbalancer.server.port=9696"
+      - "traefik.http.routers.prowlarr-http.entrypoints=http"
+      - "traefik.http.routers.prowlarr-http.middlewares=wapps"
+      - "traefik.http.routers.prowlarr-http.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.prowlarr-https.entrypoints=https"
+      - "traefik.http.routers.prowlarr-https.middlewares=sso"
+      - "traefik.http.routers.prowlarr-https.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.prowlarr-https.tls.certResolver=wapps"
+      - "traefik.http.services.prowlarr.loadbalancer.server.port=9696"
     networks:
       - "wapps"
     restart: "always"

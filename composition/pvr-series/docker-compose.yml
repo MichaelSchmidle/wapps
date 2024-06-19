@@ -22,13 +22,13 @@ services:
       - "traefik.http.routers.sonarr-https.tls.certResolver=wapps"
       - "traefik.http.services.sonarr.loadbalancer.server.port=8989"
     networks:
-    - "wapps"
+      - "wapps"
     restart: "always"
     volumes:
-    - "config:/config"
-    - "/etc/localtime:/etc/localtime:ro"
-    - "${SERIES_ROOT}:/tv"
-    - "${DOWNLOADS_ROOT}:/downloads"
+      - "config:/config"
+      - "/etc/localtime:/etc/localtime:ro"
+      - "${SERIES_ROOT}:/tv"
+      - "${DOWNLOADS_ROOT}:/downloads"
 volumes:
   config:
     driver: "local"
